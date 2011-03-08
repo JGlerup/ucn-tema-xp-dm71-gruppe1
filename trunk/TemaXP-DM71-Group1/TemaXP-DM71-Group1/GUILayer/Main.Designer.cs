@@ -53,9 +53,10 @@
             this.tabControl1.Controls.Add(this.FrontpageTab);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabControl1.ItemSize = new System.Drawing.Size(19, 70);
+            this.tabControl1.ItemSize = new System.Drawing.Size(70, 110);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -66,20 +67,19 @@
             // 
             // FrontpageTab
             // 
-            this.FrontpageTab.Location = new System.Drawing.Point(119, 4);
+            this.FrontpageTab.Location = new System.Drawing.Point(115, 4);
             this.FrontpageTab.Name = "FrontpageTab";
             this.FrontpageTab.Padding = new System.Windows.Forms.Padding(3);
-            this.FrontpageTab.Size = new System.Drawing.Size(637, 423);
+            this.FrontpageTab.Size = new System.Drawing.Size(641, 423);
             this.FrontpageTab.TabIndex = 0;
-            this.FrontpageTab.Text = "Forside";
             this.FrontpageTab.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(119, 4);
+            this.tabPage2.Location = new System.Drawing.Point(115, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(637, 423);
+            this.tabPage2.Size = new System.Drawing.Size(641, 423);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
