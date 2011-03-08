@@ -1,0 +1,5 @@
+C:\Users\Rasmus\Documents\DM71\3. Semester\TemaXP\TemaXP-DM71-Group1\TemaXP-DM71-Group1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Rasmus\Documents\DM71\3. Semester\TemaXP\TemaXP-DM71-Group1\TemaXP-DM71-Group1\obj\x86\Debug\TemaXP_DM71_Group1.GUILayer.Shows.resources
+C:\Users\Rasmus\Documents\DM71\3. Semester\TemaXP\TemaXP-DM71-Group1\TemaXP-DM71-Group1\obj\x86\Debug\TemaXP_DM71_Group1.Properties.Resources.resources
+C:\Users\Rasmus\Documents\DM71\3. Semester\TemaXP\TemaXP-DM71-Group1\TemaXP-DM71-Group1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Rasmus\Documents\DM71\3. Semester\TemaXP\TemaXP-DM71-Group1\TemaXP-DM71-Group1\obj\x86\Debug\GenerateResource.write.1.tlog
