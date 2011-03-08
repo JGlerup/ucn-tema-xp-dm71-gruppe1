@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FrontpageTab = new System.Windows.Forms.TabPage();
@@ -85,6 +86,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Location = new System.Drawing.Point(13, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(759, 100);
