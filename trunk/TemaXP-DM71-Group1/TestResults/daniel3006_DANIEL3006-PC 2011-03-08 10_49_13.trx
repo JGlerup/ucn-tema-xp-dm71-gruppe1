@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="092a5b32-d647-4114-b0d1-45eccba48305" name="daniel3006@DANIEL3006-PC 2011-03-08 10:49:13" runUser="daniel3006-PC\daniel3006" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bd989ea3-4670-44b6-b57b-e36bfaf68974">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="daniel3006_DANIEL3006-PC 2011-03-08 10_49_13">
+      <DeploymentItem filename="C:\Users\daniel3006\-=( Skole )=-\-=( 3. Semester DM71 )=-\TemaXP\TemaXP-DM71-Group1\TemaXP-DM71-Group1\bin\Debug\TemaXP-DM71-Group1.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-03-08T10:49:13.8181734+01:00" queuing="2011-03-08T10:49:16.7553291+01:00" start="2011-03-08T10:49:17.0213443+01:00" finish="2011-03-08T10:49:19.1424657+01:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\users\daniel3006\-=( skole )=-\-=( 3. semester dm71 )=-\temaxp\temaxp-dm71-group1\testcinemas\bin\debug\testcinemas.dll" id="0780258c-5948-a94b-9232-ada793998f01">
+      <Execution id="d87f3a6b-6eda-4493-bbc3-4e38b1f862be" />
+      <TestMethod codeBase="C:/Users/daniel3006/-=( Skole )=-/-=( 3. Semester DM71 )=-/TemaXP/TemaXP-DM71-Group1/TestCinemas/bin/Debug/TestCinemas.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestCinemas.TestCinemas, TestCinemas, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0780258c-5948-a94b-9232-ada793998f01" executionId="d87f3a6b-6eda-4493-bbc3-4e38b1f862be" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d87f3a6b-6eda-4493-bbc3-4e38b1f862be" testId="0780258c-5948-a94b-9232-ada793998f01" testName="TestMethod1" computerName="DANIEL3006-PC" duration="00:00:00.0291366" startTime="2011-03-08T10:49:17.1093494+01:00" endTime="2011-03-08T10:49:18.9454544+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d87f3a6b-6eda-4493-bbc3-4e38b1f862be">
+      <Output>
+        <StdOut>tester vi kan indsætte data</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
