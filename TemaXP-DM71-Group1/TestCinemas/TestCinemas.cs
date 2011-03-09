@@ -18,9 +18,9 @@ namespace TestCinemas
             String name = "gunner";
             int seats = 45;
             c.Name = name;
-            c.NrOfSeats = seats;
+            c.NoOfSeats = seats;
             Assert.AreEqual(name, c.Name);
-            Assert.AreEqual(seats, c.NrOfSeats);
+            Assert.AreEqual(seats, c.NoOfSeats);
         }
     }
 }
