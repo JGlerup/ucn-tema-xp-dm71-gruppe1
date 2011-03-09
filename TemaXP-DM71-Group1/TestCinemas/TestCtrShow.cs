@@ -3,7 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TemaXP_DM71_Group1.ControllerLayer;
+
 
 namespace TestCinemas
 {
