@@ -33,9 +33,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FrontpageTab = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.PlaytimeTab = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.PlaytimeTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,37 +57,86 @@
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.FrontpageTab);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.PlaytimeTab);
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.tabControl1.ItemSize = new System.Drawing.Size(70, 110);
+            this.tabControl1.ItemSize = new System.Drawing.Size(25, 100);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(760, 431);
+            this.tabControl1.Size = new System.Drawing.Size(761, 431);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             // 
             // FrontpageTab
             // 
-            this.FrontpageTab.Location = new System.Drawing.Point(115, 4);
+            this.FrontpageTab.Location = new System.Drawing.Point(141, 4);
             this.FrontpageTab.Name = "FrontpageTab";
             this.FrontpageTab.Padding = new System.Windows.Forms.Padding(3);
-            this.FrontpageTab.Size = new System.Drawing.Size(641, 423);
+            this.FrontpageTab.Size = new System.Drawing.Size(616, 423);
             this.FrontpageTab.TabIndex = 0;
+            this.FrontpageTab.Text = "Forside";
             this.FrontpageTab.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(115, 4);
+            this.tabPage2.Location = new System.Drawing.Point(57, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(641, 423);
+            this.tabPage2.Size = new System.Drawing.Size(700, 423);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(85, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(672, 423);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(113, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(644, 423);
+            this.tabPage3.TabIndex = 3;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // PlaytimeTab
+            // 
+            this.PlaytimeTab.Controls.Add(this.listBox1);
+            this.PlaytimeTab.Location = new System.Drawing.Point(141, 4);
+            this.PlaytimeTab.Name = "PlaytimeTab";
+            this.PlaytimeTab.Padding = new System.Windows.Forms.Padding(3);
+            this.PlaytimeTab.Size = new System.Drawing.Size(616, 423);
+            this.PlaytimeTab.TabIndex = 5;
+            this.PlaytimeTab.Text = "Spilletider";
+            this.PlaytimeTab.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 11;
+            this.listBox1.Items.AddRange(new object[] {
+            "Tits"});
+            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(610, 417);
+            this.listBox1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -100,9 +154,10 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Main";
-            this.Text = "Form1";
+            this.Text = "KinoKæk";
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.PlaytimeTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -114,6 +169,10 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage FrontpageTab;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage PlaytimeTab;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
