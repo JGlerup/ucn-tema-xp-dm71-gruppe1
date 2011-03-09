@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllerLayer\CtrCinema.cs" />
+    <Compile Include="ControllerLayer\CtrMovie.cs" />
     <Compile Include="ControllerLayer\Shows.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -67,6 +68,7 @@
       <DependentUpon>Shows.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelLayer\Cinema.cs" />
+    <Compile Include="ModelLayer\Movie.cs" />
     <Compile Include="ModelLayer\Show.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
