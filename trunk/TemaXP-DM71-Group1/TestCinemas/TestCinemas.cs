@@ -13,7 +13,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestMethod1()
         {
-            Cinemas c = new Cinemas();
+            Cinema c = new Cinema();
             Console.WriteLine("tester vi kan indsætte data");
             String name = "gunner";
             int seats = 45;
