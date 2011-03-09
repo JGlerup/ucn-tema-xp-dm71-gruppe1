@@ -3,9 +3,9 @@ using System.Collections;
 
 namespace TemaXP_DM71_Group1.ControllerLayer
 {
-    internal class CtrShow : Show
+    public class CtrShow : IShow
     {
-        public void insertShow(String time, DateTime date, String playTime, int cinema, Movie movie)
+        public void insertShow(String time, String date, String playTime, int cinema, String movie)
         {
             var dbShow = new DBShow();
             var sObj = new CtrShow();
@@ -23,7 +23,7 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             dbShow.deleteShow(id);
         }
 
-        public void updateCar(String regNo, String description)
+        public void updateShow(int id, String time, String date, String playTime, int cinema, String movie)
         {
             int showID = findShowById(id).getShowID();
             var dbShow = new DBShow();
@@ -31,7 +31,7 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             sObj.setTime(time);
             sObj.setDate(date);
             sObj.setPlayTime(playTime);
-            sObj.setCinema(cinema.number);
+            sObj.setCinema(cinema);
             sObj.setMovie(movie);
             dbShow.updateShow(sObj);
         }
