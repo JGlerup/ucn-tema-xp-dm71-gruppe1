@@ -150,5 +150,14 @@ namespace TemaXP_DM71_Group1
 		    }
 		}
 		
+		private IList<Show> shows = new List<Show>();
+		public virtual IList<Show> Shows 
+		{ 
+		    get
+		    {
+		        return this.shows;
+		    }
+		}
+		
 	}
 }
