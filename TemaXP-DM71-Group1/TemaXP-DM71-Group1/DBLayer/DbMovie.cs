@@ -15,6 +15,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         private DbProviderFactory dbFactory;
         private String provider = null;
         private String connStr = null;
+//        private DbDataReader dbReader = null;
 
         public DbMovie()
         {
@@ -28,13 +29,41 @@ namespace TemaXP_DM71_Group1.DBLayer
 
             conn = dbFactory.CreateConnection();
             conn.ConnectionString = connStr;
-            conn.Open();
+            
             Console.WriteLine("Database is open: {0}", conn.State);
         }
 
         public void InsertMovie(Movie m)
         {
-            throw new NotImplementedException();
+            conn.Open();
+             String sql = "INSERT INTO film(id, releasedate, title, distributor, arrivaldate, returndate, duration, director, actors, moviedescription)  VALUES("
+                + m.Id + ",'"
+                + m.ReleaseDate + "','"
+                + m.Title + "','"
+                + m.Distributor + "','"
+                + m.ArrivalDate + "','"
+                + m.ReturnDate + "','"
+                + m.Duration + "','"
+                + m.Director + "','"
+                + m.Actors + "','"
+                + m.MovieDescription + "')";
+
+            Console.WriteLine("insert : " + sql);
+            try
+            { // insert new movie
+                command = dbFactory.CreateCommand();
+                command.CommandText = sql;
+                command.Connection = conn;
+
+                DbDataReader dbReader = command.ExecuteReader();
+
+                
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Insert exception in movie db: " + ex);
+            }//end catch
+            conn.Close();
         }
 
         public void DeleteMovie(Movie m)
@@ -49,8 +78,9 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         public Movie FindMovie(string title)
         {
+            conn.Open();
             Movie m = new Movie();
-            String sql = "SELECT * FROM film where title = " + title;
+            String sql = "SELECT * FROM film where title = '" + title + "'";
             command = dbFactory.CreateCommand();
             command.CommandText = sql;
             command.Connection = conn;
