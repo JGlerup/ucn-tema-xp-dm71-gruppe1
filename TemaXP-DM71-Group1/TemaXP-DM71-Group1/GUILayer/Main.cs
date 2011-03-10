@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using IMDb_Scraper;
 
 namespace TemaXP_DM71_Group1
 {
@@ -48,6 +49,22 @@ namespace TemaXP_DM71_Group1
             _StringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_TabPage.Text, _TabFont, _TextBrush,
                          _TabBounds, new StringFormat(_StringFlags));
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            IMDb imdb = new IMDb(textBox2.Text,true);
+            textBox1.Text = imdb.Year;
+            textBox2.Text = imdb.Title;
+            textBox6.Text = imdb.Runtime;
+            //textBox7.Text = imdb.Directors;
+            textBox9.Text = imdb.Storyline;
 
         }
     }

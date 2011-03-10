@@ -18,7 +18,7 @@ using Telerik.OpenAccess;
 
 namespace TemaXP_DM71_Group1	
 {
-	public partial class Show
+	public partial class Cinema
 	{
 		private int id;
 		public virtual int Id 
@@ -33,90 +33,55 @@ namespace TemaXP_DM71_Group1
 		    }
 		}
 		
-		private DateTime playtime;
-		public virtual DateTime Playtime 
+		private int noOfCinema;
+		public virtual int NoOfCinema 
 		{ 
 		    get
 		    {
-		        return this.playtime;
+		        return this.noOfCinema;
 		    }
 		    set
 		    {
-		        this.playtime = value;
+		        this.noOfCinema = value;
 		    }
 		}
 		
-		private DateTime date_;
-		public virtual DateTime Date_ 
+		private int noOfSeats;
+		public virtual int NoOfSeats 
 		{ 
 		    get
 		    {
-		        return this.date_;
+		        return this.noOfSeats;
 		    }
 		    set
 		    {
-		        this.date_ = value;
+		        this.noOfSeats = value;
 		    }
 		}
 		
-		private string cinema;
-		public virtual string Cinema 
+		private int showId;
+		public virtual int ShowId 
 		{ 
 		    get
 		    {
-		        return this.cinema;
+		        return this.showId;
 		    }
 		    set
 		    {
-		        this.cinema = value;
+		        this.showId = value;
 		    }
 		}
 		
-		private string movie;
-		public virtual string Movie 
+		private Show show;
+		public virtual Show Show 
 		{ 
 		    get
 		    {
-		        return this.movie;
+		        return this.show;
 		    }
 		    set
 		    {
-		        this.movie = value;
-		    }
-		}
-		
-		private int movieId;
-		public virtual int MovieId 
-		{ 
-		    get
-		    {
-		        return this.movieId;
-		    }
-		    set
-		    {
-		        this.movieId = value;
-		    }
-		}
-		
-		private Film film;
-		public virtual Film Film 
-		{ 
-		    get
-		    {
-		        return this.film;
-		    }
-		    set
-		    {
-		        this.film = value;
-		    }
-		}
-		
-		private IList<Cinema> cinemas = new List<Cinema>();
-		public virtual IList<Cinema> Cinemas 
-		{ 
-		    get
-		    {
-		        return this.cinemas;
+		        this.show = value;
 		    }
 		}
 		
