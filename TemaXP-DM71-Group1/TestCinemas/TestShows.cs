@@ -3,6 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TemaXP_DM71_Group1.GUILayer;
+using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TestCinemas
 {
@@ -14,7 +16,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestMethod1()
         {
-            String name = "test";
+//            String name = "test";
             
         }
     }

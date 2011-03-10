@@ -7,7 +7,8 @@ namespace TemaXP_DM71_Group1.ModelLayer
 {
 
     public class Movie
-    {   
+    {
+        private int id;
         private string releaseDate;
         private string title;
         private string distributor;
@@ -34,6 +35,12 @@ namespace TemaXP_DM71_Group1.ModelLayer
         public Movie()
         {
 
+        }
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
         }
 
         public string ReleaseDate
