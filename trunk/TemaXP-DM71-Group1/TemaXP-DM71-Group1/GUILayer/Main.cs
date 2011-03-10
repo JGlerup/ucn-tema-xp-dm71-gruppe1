@@ -63,6 +63,15 @@ namespace TemaXP_DM71_Group1
             textBox1.Text = imdb.Year;
             textBox2.Text = imdb.Title;
             textBox6.Text = imdb.Runtime;
+            string directors;
+            foreach (string d in imdb.Directors)
+            {
+                directors = String.Join(", ", d.ToString());
+                
+            }
+            IEnumerable<string> = string.Join(", ", (from d in imdb.Directors select d.ToString()).ToArray());
+            textBox7.Text = string.Join(", ", (from d in imdb.Directors select d.ToString().).ToArray());
+            textBox8.Text = cast;
             //textBox7.Text = imdb.Directors;
             textBox9.Text = imdb.Storyline;
 
