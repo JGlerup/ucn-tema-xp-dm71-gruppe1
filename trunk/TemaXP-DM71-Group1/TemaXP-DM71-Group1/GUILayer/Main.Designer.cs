@@ -33,13 +33,15 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FrontpageTab = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.MovieTab = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.PlaytimeTab = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.MovieTab.SuspendLayout();
             this.PlaytimeTab.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.tabControl1.Controls.Add(this.FrontpageTab);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.MovieTab);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.PlaytimeTab);
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
@@ -94,15 +96,16 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // MovieTab
             // 
-            this.tabPage1.Location = new System.Drawing.Point(85, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(672, 423);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.MovieTab.Controls.Add(this.listView1);
+            this.MovieTab.Location = new System.Drawing.Point(85, 4);
+            this.MovieTab.Name = "MovieTab";
+            this.MovieTab.Padding = new System.Windows.Forms.Padding(3);
+            this.MovieTab.Size = new System.Drawing.Size(672, 423);
+            this.MovieTab.TabIndex = 2;
+            this.MovieTab.Text = "Film";
+            this.MovieTab.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -146,6 +149,14 @@
             this.panel2.Size = new System.Drawing.Size(759, 100);
             this.panel2.TabIndex = 1;
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(3, 3);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(610, 417);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +168,7 @@
             this.Text = "KinoKæk";
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.MovieTab.ResumeLayout(false);
             this.PlaytimeTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -169,10 +181,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage FrontpageTab;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage MovieTab;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage PlaytimeTab;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 
