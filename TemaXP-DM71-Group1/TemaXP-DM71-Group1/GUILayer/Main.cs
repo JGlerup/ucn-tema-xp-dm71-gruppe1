@@ -58,19 +58,6 @@ namespace TemaXP_DM71_Group1
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            IMDb imdb = new IMDb(textBox2.Text,true);
-            textBox1.Text = imdb.Year;
-            textBox2.Text = imdb.Title;
-            textBox6.Text = imdb.Runtime;
-            List<string> directors = (from string d in imdb.Directors select d.ToString()).ToList();
-            List<string> casts = (from string c in imdb.Cast select c.ToString()).ToList();
-            textBox7.Text = string.Join(", ", directors);
-            textBox8.Text = string.Join(", ", casts);
-            //textBox7.Text = imdb.Directors;
-            textBox9.Text = imdb.Storyline;
-        }
 
         private void label10_Click(object sender, EventArgs e)
         {
