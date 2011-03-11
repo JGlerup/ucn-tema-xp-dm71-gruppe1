@@ -3,74 +3,77 @@
   <Runtime>
     <MetaModel Name="TemaXP_DM71_2" namespace="TemaXP_DM71_Group1">
       <Types>
-        <MetaClass Id="5d728a1a-fc10-4004-87aa-c9d1ff18391a" Name="Cinema" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="Default" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
+        <MetaClass Id="adccc926-4aa7-4c9f-9f35-e7f0f8e20253" Name="Cinema" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="BackendCalculated" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
+          <Attributes>
+            <MetaProperty Id="d36614d4-65b3-4d38-b586-d406fb381c72" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="6ef4070f-8279-4520-9bd0-8ad888a9243f" Name="NoOfCinema" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="NoOfCinema : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="7276ed2a-9ff2-4e0c-be30-0dd60bdd95fc" Name="NoOfSeats" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="NoOfSeats : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="ca645bdc-e6ca-402a-8c51-cf81114b4af4" Name="Cinema_Shows" accessModifier="Public" inheritanceModifier="None" Type="IList&lt;Cinema_Show&gt;" label="Cinema_Shows : IList&lt;Cinema_Show&gt;" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
+          </Attributes>
+        </MetaClass>
+        <MetaClass Id="286923a7-4c88-419b-ad4e-4aa19fbcf3b7" Name="Cinema_Show" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="BackendCalculated" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
           <AssociationTargets>
-            <Association Id="ecacaf2c-13d0-4466-ac14-750f91fe142c" SourceMultiplicity="One" useGenerics="false" name="CinemaHasShow" sourcePropertyName="Show" targetPropertyName="Cinemas" generateReferences="false" generateForeignKeys="false">
+            <Association Id="b03016a5-bf8f-4ada-85b1-cba2243e73ea" SourceMultiplicity="One" useGenerics="false" name="Cinema_ShowHasCinema" sourcePropertyName="Cinema" targetPropertyName="Cinema_Shows" generateReferences="false" generateForeignKeys="false">
+              <MetaClassMoniker Name="/TemaXP_DM71_2/Cinema" />
+            </Association>
+            <Association Id="0cad0217-d3d2-4611-b152-fff26c3e17e0" SourceMultiplicity="One" useGenerics="false" name="Cinema_ShowHasShow" sourcePropertyName="Show" targetPropertyName="Cinema_Shows" generateReferences="false" generateForeignKeys="false">
               <MetaClassMoniker Name="/TemaXP_DM71_2/Show" />
             </Association>
           </AssociationTargets>
           <Attributes>
-            <MetaProperty Id="82b98794-b49b-4368-8c31-dbaf7fad8d8b" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="c44a0209-5049-4349-a836-39f89dd7c8f1" Name="NoOfCinema" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="NoOfCinema : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="412dfcc7-1754-45a9-841b-157285b8bd64" Name="NoOfSeats" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="NoOfSeats : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="36cc3b04-3c8d-4a95-9764-da740291e9db" Name="ShowId" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="ShowId : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="aa55fc82-fa3e-4920-80b4-4ab111c0a8d8" Name="Show" accessModifier="Public" inheritanceModifier="None" Type="Show" label="Show : Show" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
+            <MetaProperty Id="c5ff5309-0adb-4abd-82f1-cc52c17edaa7" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="e454a4f5-468c-4915-8c7f-329692ad623e" Name="ShowID" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="ShowID : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="a3a6f2c0-1c39-4b0a-8bb0-891573ac3d7d" Name="CinemaID" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="CinemaID : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="3a4b3d75-a045-4453-b188-abe30289df20" Name="Cinema" accessModifier="Public" inheritanceModifier="None" Type="Cinema" label="Cinema : Cinema" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
+            <MetaProperty Id="884a3cbd-0161-4415-a82d-160e1560d43e" Name="Show" accessModifier="Public" inheritanceModifier="None" Type="Show" label="Show : Show" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
           </Attributes>
         </MetaClass>
-        <MetaClass Id="18bb1f3d-e3f3-441c-9ab8-3028df102247" Name="Film" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="Default" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
+        <MetaClass Id="b89e6fd0-e4ba-485a-916b-d12d77f82c2d" Name="Movie" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="BackendCalculated" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
           <Attributes>
-            <MetaProperty Id="f5cdf0d1-91d5-4b00-9b8a-a8825d18a9b4" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="3447bb0c-e418-468a-9de9-a69f94e1c19c" Name="ReleaseDate" accessModifier="Public" inheritanceModifier="None" label="ReleaseDate : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="36c003d2-cf94-47ac-bb91-5bf54e2947c4" Name="Title" accessModifier="Public" inheritanceModifier="None" label="Title : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="95e2c736-8093-4b07-8ad2-e8a285388e5c" Name="Distributor" accessModifier="Public" inheritanceModifier="None" label="Distributor : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="db6efc23-2643-45ac-9519-aad5e2a596c6" Name="ArrivalDate" accessModifier="Public" inheritanceModifier="None" label="ArrivalDate : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="4fbaaf46-9361-4cbd-8d47-09c1310b0597" Name="ReturnDate" accessModifier="Public" inheritanceModifier="None" label="ReturnDate : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="6b10b3d1-bbe1-49ed-b8f2-57231a45d1cc" Name="Duration" accessModifier="Public" inheritanceModifier="None" label="Duration : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="9a56198b-8fef-4cc4-8966-fff029c6140c" Name="Director" accessModifier="Public" inheritanceModifier="None" label="Director : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="43c4c6cb-b236-4997-bd53-b1523673d386" Name="Actors" accessModifier="Public" inheritanceModifier="None" label="Actors : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="c0cfe118-13cf-414b-a673-7495c890dc1f" Name="MovieDescription" accessModifier="Public" inheritanceModifier="None" label="MovieDescription : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="b97b2bd6-ee21-49d6-8d25-b764a5b56a4b" Name="Shows" accessModifier="Public" inheritanceModifier="None" Type="IList&lt;Show&gt;" label="Shows : IList&lt;Show&gt;" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
+            <MetaProperty Id="a530402d-c86b-4b6e-96df-22b53faa7936" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="29203fcf-6eb6-424a-a921-16830b694706" Name="ReleaseDate" accessModifier="Public" inheritanceModifier="None" label="ReleaseDate : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="aff49008-449c-472d-b431-241367b6996b" Name="Title" accessModifier="Public" inheritanceModifier="None" label="Title : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="eb520aa6-837f-46c8-b188-3ceaca9673fb" Name="Distributor" accessModifier="Public" inheritanceModifier="None" label="Distributor : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="a6064ec3-96fd-4cbd-80c8-fed5e146e0ec" Name="ArrivalDate" accessModifier="Public" inheritanceModifier="None" label="ArrivalDate : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="570b014c-8da9-4d8a-845d-b15b12bf85f3" Name="ReturnDate" accessModifier="Public" inheritanceModifier="None" label="ReturnDate : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="3ab11cf6-9f09-4700-bec6-51e73accf69c" Name="Duration" accessModifier="Public" inheritanceModifier="None" label="Duration : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="a195de0a-ecdb-45a6-81b0-abab506ca44d" Name="Director" accessModifier="Public" inheritanceModifier="None" label="Director : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="c01d13b1-e7f3-4229-8b1e-2703213b8dff" Name="Actors" accessModifier="Public" inheritanceModifier="None" label="Actors : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="6d86fbde-c613-40e0-963e-fc2d78aa0484" Name="MovieDescription" accessModifier="Public" inheritanceModifier="None" label="MovieDescription : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="50705078-9072-49cc-9500-360c540e980b" Name="Shows" accessModifier="Public" inheritanceModifier="None" Type="IList&lt;Show&gt;" label="Shows : IList&lt;Show&gt;" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
           </Attributes>
         </MetaClass>
-        <MetaClass Id="12bf6a85-8e0f-4f8f-bd9d-852d2791f89a" Name="Show" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="Default" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
+        <MetaClass Id="558b8ac1-7dfb-4920-8c59-c428006f9a39" Name="Show" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="BackendCalculated" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
           <AssociationTargets>
-            <Association Id="ec4787a3-d9a4-46f2-939c-8c9776b4fd26" SourceMultiplicity="One" useGenerics="false" name="ShowHasFilm" sourcePropertyName="Film" targetPropertyName="Shows" generateReferences="false" generateForeignKeys="false">
-              <MetaClassMoniker Name="/TemaXP_DM71_2/Film" />
+            <Association Id="7d0ef124-84a9-440c-87da-336ae904dcce" SourceMultiplicity="One" useGenerics="false" name="ShowHasMovie" sourcePropertyName="Movie" targetPropertyName="Shows" generateReferences="false" generateForeignKeys="false">
+              <MetaClassMoniker Name="/TemaXP_DM71_2/Movie" />
             </Association>
           </AssociationTargets>
           <Attributes>
-            <MetaProperty Id="9352ae07-d9cc-4ca9-8122-6ef1b7f9c40e" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="54b5dbe9-0a7c-40c4-a6eb-aaf9a93113cc" Name="Playtime" accessModifier="Public" inheritanceModifier="None" Type="DateTime" label="Playtime : DateTime" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="7705c18b-e24f-4a86-aeca-ecccd48fdff7" Name="Date_" accessModifier="Public" inheritanceModifier="None" Type="DateTime" label="Date_ : DateTime" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="311ca3da-f70b-4209-bcd9-2dbbdeb01188" Name="Cinema" accessModifier="Public" inheritanceModifier="None" label="Cinema : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="a6ac43f1-13a8-48a6-bac5-9158815f87d6" Name="Movie" accessModifier="Public" inheritanceModifier="None" label="Movie : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="6dbeb949-d4e5-4767-b38c-626b3c963240" Name="MovieId" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="MovieId : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="77876243-3044-40b3-8382-8e2e955163ee" Name="Cinemas" accessModifier="Public" inheritanceModifier="None" Type="IList&lt;Cinema&gt;" label="Cinemas : IList&lt;Cinema&gt;" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
-            <MetaProperty Id="d7ad5238-59af-453d-90b9-fb1234b6ed73" Name="Film" accessModifier="Public" inheritanceModifier="None" Type="Film" label="Film : Film" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
-          </Attributes>
-        </MetaClass>
-        <MetaClass Id="332077be-a598-4eaa-8e11-3d5ee55379e9" Name="Test" namespace="TemaXP_DM71_Group1" accessModifier="Public" Kind="Default" doubleDerived="false" cachePolicy="Default" identityMechanism="Default" concurrencyMode="Default" concurrencyMember="(AUTO)" updateSchema="false">
-          <Attributes>
-            <MetaProperty Id="ab390439-ac7c-4f6c-b5f3-6771bb77e6b4" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
-            <MetaProperty Id="e3da6b86-30a4-465a-95f8-085f3fa00574" Name="Test1" accessModifier="Public" inheritanceModifier="None" label="Test1 : String" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="2c3629be-db41-44f6-8c32-b115b8341720" Name="Id" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="Id : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="true" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="83ea114f-a638-4060-b94a-2ed8b1abb299" Name="Playtime" accessModifier="Public" inheritanceModifier="None" Type="DateTime" label="Playtime : DateTime" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="0a7a5de1-5e1b-4c27-9d7f-c98b650914a0" Name="Date_" accessModifier="Public" inheritanceModifier="None" Type="DateTime" label="Date_ : DateTime" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="deced3cc-4756-4caf-a57d-67e54f9265e5" Name="MovieId" accessModifier="Public" inheritanceModifier="None" Type="Int32" label="MovieId : Int32" kind="Default" nullable="false" hasGetter="true" hasSetter="true" identity="false" isNavigable="false" loadBehavior="Default" />
+            <MetaProperty Id="f63e94a2-decc-4ac3-8edc-05c6706dbed2" Name="Cinema_Shows" accessModifier="Public" inheritanceModifier="None" Type="IList&lt;Cinema_Show&gt;" label="Cinema_Shows : IList&lt;Cinema_Show&gt;" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
+            <MetaProperty Id="d015504e-2442-415d-b8a3-964912d221da" Name="Movie" accessModifier="Public" inheritanceModifier="None" Type="Movie" label="Movie : Movie" kind="Default" nullable="true" hasGetter="true" hasSetter="true" identity="false" isNavigable="true" loadBehavior="Default" />
           </Attributes>
         </MetaClass>
       </Types>
       <domainContext>
-        <metaModelHasDomainContext Id="967ec878-2e48-4df2-ba9c-9cd3b998be64">
+        <metaModelHasDomainContext Id="bb7f97ff-8335-444f-90eb-2b1b61f19e14">
           <domainContextContainer Name="TemaXP_DM71_2">
             <entitySets>
-              <metadataContainerHasProperties Id="9b61b9bb-438e-43d9-a08e-156d6e3516e3">
+              <metadataContainerHasProperties Id="58e7d32a-974b-4a88-b4f8-b5fb3dc6ef86">
                 <entitySetProperty Name="Cinemas" type="Cinema" namespace="TemaXP_DM71_Group1" />
               </metadataContainerHasProperties>
-              <metadataContainerHasProperties Id="ea090eab-8f55-4297-b0b8-8d1d4f77935c">
-                <entitySetProperty Name="Films" type="Film" namespace="TemaXP_DM71_Group1" />
+              <metadataContainerHasProperties Id="a1e8918c-a333-4d5d-aa90-046bb2702806">
+                <entitySetProperty Name="Cinema_Shows" type="Cinema_Show" namespace="TemaXP_DM71_Group1" />
               </metadataContainerHasProperties>
-              <metadataContainerHasProperties Id="04eb8fd7-1e47-4964-99e8-65cba3b54b3a">
+              <metadataContainerHasProperties Id="dd718298-5def-45d1-a07a-a79bd5e08f72">
+                <entitySetProperty Name="Movies" type="Movie" namespace="TemaXP_DM71_Group1" />
+              </metadataContainerHasProperties>
+              <metadataContainerHasProperties Id="5a91894f-5031-4466-95a0-73ee66e7ccc6">
                 <entitySetProperty Name="Shows" type="Show" namespace="TemaXP_DM71_Group1" />
-              </metadataContainerHasProperties>
-              <metadataContainerHasProperties Id="ce298d3b-d4c2-4a72-9939-de5d8b853480">
-                <entitySetProperty Name="Tests" type="Test" namespace="TemaXP_DM71_Group1" />
               </metadataContainerHasProperties>
             </entitySets>
           </domainContextContainer>
@@ -79,155 +82,165 @@
     </MetaModel>
     <orm:orm name="TemaXP_DM71_2" backend="mssql" xmlns:orm="http://tempuri.org/ORM">
       <orm:namespace name="TemaXP_DM71_Group1" default="true">
-        <orm:class name="Cinema" uniqueId="5d728a1a-fc10-4004-87aa-c9d1ff18391a">
-          <orm:table name="cinema" />
+        <orm:class name="Cinema" uniqueId="adccc926-4aa7-4c9f-9f35-e7f0f8e20253">
+          <orm:table name="Cinema" />
           <orm:identity>
+            <orm:key-generator name="autoinc" />
             <orm:single-field field-name="id" />
           </orm:identity>
-          <orm:field name="id" property="Id" uniqueId="82b98794-b49b-4368-8c31-dbaf7fad8d8b" type="System.Int32">
-            <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+          <orm:field name="id" property="Id" uniqueId="d36614d4-65b3-4d38-b586-d406fb381c72" type="System.Int32">
+            <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
           </orm:field>
-          <orm:field name="noOfCinema" property="NoOfCinema" uniqueId="c44a0209-5049-4349-a836-39f89dd7c8f1" type="System.Int32">
+          <orm:field name="noOfCinema" property="NoOfCinema" uniqueId="6ef4070f-8279-4520-9bd0-8ad888a9243f" type="System.Int32">
             <orm:column name="NoOfCinema" sql-type="int" nullable="false" scale="0" ado-type="Int32" />
           </orm:field>
-          <orm:field name="noOfSeats" property="NoOfSeats" uniqueId="412dfcc7-1754-45a9-841b-157285b8bd64" type="System.Int32">
+          <orm:field name="noOfSeats" property="NoOfSeats" uniqueId="7276ed2a-9ff2-4e0c-be30-0dd60bdd95fc" type="System.Int32">
             <orm:column name="NoOfSeats" sql-type="int" nullable="false" scale="0" ado-type="Int32" />
           </orm:field>
-          <orm:field name="showId" property="ShowId" uniqueId="36cc3b04-3c8d-4a95-9764-da740291e9db" type="System.Int32">
-            <orm:column name="ShowId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
+          <orm:field name="cinemaShows" property="Cinema_Shows" uniqueId="ca645bdc-e6ca-402a-8c51-cf81114b4af4" type="TemaXP_DM71_Group1.Cinema_Show">
+            <orm:collection element-class="TemaXP_DM71_Group1.Cinema_Show" inverse-field="cinema" order-by="" uniqueId="b03016a5-bf8f-4ada-85b1-cba2243e73ea" />
           </orm:field>
-          <orm:field name="show" property="Show" uniqueId="aa55fc82-fa3e-4920-80b4-4ab111c0a8d8" type="TemaXP_DM71_Group1.Show">
-            <orm:reference uniqueId="ecacaf2c-13d0-4466-ac14-750f91fe142c">
-              <orm:sharedfield name="showId" />
-              <orm:constraint name="FK__cinema__ShowId__4CCB4BEB" destination-table="show">
-                <orm:column name="ShowId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
+        </orm:class>
+        <orm:class name="Cinema_Show" uniqueId="286923a7-4c88-419b-ad4e-4aa19fbcf3b7">
+          <orm:table name="Cinema_Show" />
+          <orm:identity>
+            <orm:key-generator name="autoinc" />
+            <orm:single-field field-name="id" />
+          </orm:identity>
+          <orm:field name="id" property="Id" uniqueId="c5ff5309-0adb-4abd-82f1-cc52c17edaa7" type="System.Int32">
+            <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+          </orm:field>
+          <orm:field name="showID" property="ShowID" uniqueId="e454a4f5-468c-4915-8c7f-329692ad623e" type="System.Int32">
+            <orm:column name="ShowID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
+          </orm:field>
+          <orm:field name="cinemaID" property="CinemaID" uniqueId="a3a6f2c0-1c39-4b0a-8bb0-891573ac3d7d" type="System.Int32">
+            <orm:column name="CinemaID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Cinema" target-field="id" />
+          </orm:field>
+          <orm:field name="cinema" property="Cinema" uniqueId="3a4b3d75-a045-4453-b188-abe30289df20" type="TemaXP_DM71_Group1.Cinema">
+            <orm:reference uniqueId="b03016a5-bf8f-4ada-85b1-cba2243e73ea">
+              <orm:sharedfield name="cinemaID" />
+              <orm:constraint name="FK__Cinema_Sh__Cinem__7108AC61" destination-table="Cinema">
+                <orm:column name="CinemaID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Cinema" target-field="id" />
+              </orm:constraint>
+            </orm:reference>
+          </orm:field>
+          <orm:field name="show" property="Show" uniqueId="884a3cbd-0161-4415-a82d-160e1560d43e" type="TemaXP_DM71_Group1.Show">
+            <orm:reference uniqueId="0cad0217-d3d2-4611-b152-fff26c3e17e0">
+              <orm:sharedfield name="showID" />
+              <orm:constraint name="FK__Cinema_Sh__ShowI__70148828" destination-table="Show">
+                <orm:column name="ShowID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
               </orm:constraint>
             </orm:reference>
           </orm:field>
         </orm:class>
-        <orm:class name="Film" uniqueId="18bb1f3d-e3f3-441c-9ab8-3028df102247">
-          <orm:table name="film" />
+        <orm:class name="Movie" uniqueId="b89e6fd0-e4ba-485a-916b-d12d77f82c2d">
+          <orm:table name="Movie" />
           <orm:identity>
+            <orm:key-generator name="autoinc" />
             <orm:single-field field-name="id" />
           </orm:identity>
-          <orm:field name="id" property="Id" uniqueId="f5cdf0d1-91d5-4b00-9b8a-a8825d18a9b4" type="System.Int32">
-            <orm:column name="id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+          <orm:field name="id" property="Id" uniqueId="a530402d-c86b-4b6e-96df-22b53faa7936" type="System.Int32">
+            <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
           </orm:field>
-          <orm:field name="releaseDate" property="ReleaseDate" uniqueId="3447bb0c-e418-468a-9de9-a69f94e1c19c" type="System.String">
-            <orm:column name="releaseDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="releaseDate" property="ReleaseDate" uniqueId="29203fcf-6eb6-424a-a921-16830b694706" type="System.String">
+            <orm:column name="ReleaseDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="title" property="Title" uniqueId="36c003d2-cf94-47ac-bb91-5bf54e2947c4" type="System.String">
-            <orm:column name="title" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="title" property="Title" uniqueId="aff49008-449c-472d-b431-241367b6996b" type="System.String">
+            <orm:column name="Title" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="distributor" property="Distributor" uniqueId="95e2c736-8093-4b07-8ad2-e8a285388e5c" type="System.String">
-            <orm:column name="distributor" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="distributor" property="Distributor" uniqueId="eb520aa6-837f-46c8-b188-3ceaca9673fb" type="System.String">
+            <orm:column name="Distributor" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="arrivalDate" property="ArrivalDate" uniqueId="db6efc23-2643-45ac-9519-aad5e2a596c6" type="System.String">
-            <orm:column name="arrivalDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="arrivalDate" property="ArrivalDate" uniqueId="a6064ec3-96fd-4cbd-80c8-fed5e146e0ec" type="System.String">
+            <orm:column name="ArrivalDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="returnDate" property="ReturnDate" uniqueId="4fbaaf46-9361-4cbd-8d47-09c1310b0597" type="System.String">
-            <orm:column name="returnDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="returnDate" property="ReturnDate" uniqueId="570b014c-8da9-4d8a-845d-b15b12bf85f3" type="System.String">
+            <orm:column name="ReturnDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="duration" property="Duration" uniqueId="6b10b3d1-bbe1-49ed-b8f2-57231a45d1cc" type="System.String">
-            <orm:column name="duration" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="duration" property="Duration" uniqueId="3ab11cf6-9f09-4700-bec6-51e73accf69c" type="System.String">
+            <orm:column name="Duration" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="director" property="Director" uniqueId="9a56198b-8fef-4cc4-8966-fff029c6140c" type="System.String">
-            <orm:column name="director" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="director" property="Director" uniqueId="a195de0a-ecdb-45a6-81b0-abab506ca44d" type="System.String">
+            <orm:column name="Director" sql-type="varchar" nullable="true" length="5000" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="actors" property="Actors" uniqueId="43c4c6cb-b236-4997-bd53-b1523673d386" type="System.String">
-            <orm:column name="actors" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="actors" property="Actors" uniqueId="c01d13b1-e7f3-4229-8b1e-2703213b8dff" type="System.String">
+            <orm:column name="Actors" sql-type="varchar" nullable="true" length="5000" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="movieDescription" property="MovieDescription" uniqueId="c0cfe118-13cf-414b-a673-7495c890dc1f" type="System.String">
-            <orm:column name="movieDescription" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="movieDescription" property="MovieDescription" uniqueId="6d86fbde-c613-40e0-963e-fc2d78aa0484" type="System.String">
+            <orm:column name="MovieDescription" sql-type="varchar" nullable="true" length="8000" scale="0" ado-type="Varchar" />
           </orm:field>
-          <orm:field name="shows" property="Shows" uniqueId="b97b2bd6-ee21-49d6-8d25-b764a5b56a4b" type="TemaXP_DM71_Group1.Show">
-            <orm:collection element-class="TemaXP_DM71_Group1.Show" inverse-field="film" order-by="" uniqueId="ec4787a3-d9a4-46f2-939c-8c9776b4fd26" />
+          <orm:field name="shows" property="Shows" uniqueId="50705078-9072-49cc-9500-360c540e980b" type="TemaXP_DM71_Group1.Show">
+            <orm:collection element-class="TemaXP_DM71_Group1.Show" inverse-field="movie" order-by="" uniqueId="7d0ef124-84a9-440c-87da-336ae904dcce" />
           </orm:field>
         </orm:class>
-        <orm:class name="Show" uniqueId="12bf6a85-8e0f-4f8f-bd9d-852d2791f89a">
-          <orm:table name="show" />
+        <orm:class name="Show" uniqueId="558b8ac1-7dfb-4920-8c59-c428006f9a39">
+          <orm:table name="Show" />
           <orm:identity>
+            <orm:key-generator name="autoinc" />
             <orm:single-field field-name="id" />
           </orm:identity>
-          <orm:field name="id" property="Id" uniqueId="9352ae07-d9cc-4ca9-8122-6ef1b7f9c40e" type="System.Int32">
-            <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+          <orm:field name="id" property="Id" uniqueId="2c3629be-db41-44f6-8c32-b115b8341720" type="System.Int32">
+            <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
           </orm:field>
-          <orm:field name="playtime" property="Playtime" uniqueId="54b5dbe9-0a7c-40c4-a6eb-aaf9a93113cc" type="System.DateTime">
+          <orm:field name="playtime" property="Playtime" uniqueId="83ea114f-a638-4060-b94a-2ed8b1abb299" type="System.DateTime">
             <orm:column name="Playtime" sql-type="time" nullable="false" scale="0" ado-type="Time" />
           </orm:field>
-          <orm:field name="date_" property="Date_" uniqueId="7705c18b-e24f-4a86-aeca-ecccd48fdff7" type="System.DateTime">
+          <orm:field name="date_" property="Date_" uniqueId="0a7a5de1-5e1b-4c27-9d7f-c98b650914a0" type="System.DateTime">
             <orm:column name="Date_" sql-type="date" nullable="false" scale="0" ado-type="Date" />
           </orm:field>
-          <orm:field name="cinema" property="Cinema" uniqueId="311ca3da-f70b-4209-bcd9-2dbbdeb01188" type="System.String">
-            <orm:column name="Cinema" sql-type="varchar" nullable="false" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="movieId" property="MovieId" uniqueId="deced3cc-4756-4caf-a57d-67e54f9265e5" type="System.Int32">
+            <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Movie" target-field="id" />
           </orm:field>
-          <orm:field name="movie" property="Movie" uniqueId="a6ac43f1-13a8-48a6-bac5-9158815f87d6" type="System.String">
-            <orm:column name="Movie" sql-type="varchar" nullable="false" length="50" scale="0" ado-type="Varchar" />
+          <orm:field name="cinemaShows" property="Cinema_Shows" uniqueId="f63e94a2-decc-4ac3-8edc-05c6706dbed2" type="TemaXP_DM71_Group1.Cinema_Show">
+            <orm:collection element-class="TemaXP_DM71_Group1.Cinema_Show" inverse-field="show" order-by="" uniqueId="0cad0217-d3d2-4611-b152-fff26c3e17e0" />
           </orm:field>
-          <orm:field name="movieId" property="MovieId" uniqueId="6dbeb949-d4e5-4767-b38c-626b3c963240" type="System.Int32">
-            <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Film" target-field="id" />
-          </orm:field>
-          <orm:field name="cinemas" property="Cinemas" uniqueId="77876243-3044-40b3-8382-8e2e955163ee" type="TemaXP_DM71_Group1.Cinema">
-            <orm:collection element-class="TemaXP_DM71_Group1.Cinema" inverse-field="show" order-by="" uniqueId="ecacaf2c-13d0-4466-ac14-750f91fe142c" />
-          </orm:field>
-          <orm:field name="film" property="Film" uniqueId="d7ad5238-59af-453d-90b9-fb1234b6ed73" type="TemaXP_DM71_Group1.Film">
-            <orm:reference uniqueId="ec4787a3-d9a4-46f2-939c-8c9776b4fd26">
+          <orm:field name="movie" property="Movie" uniqueId="d015504e-2442-415d-b8a3-964912d221da" type="TemaXP_DM71_Group1.Movie">
+            <orm:reference uniqueId="7d0ef124-84a9-440c-87da-336ae904dcce">
               <orm:sharedfield name="movieId" />
-              <orm:constraint name="FK__show__MovieId__480696CE" destination-table="film">
-                <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Film" target-field="id" />
+              <orm:constraint name="FK__Show__MovieId__677F4227" destination-table="Movie">
+                <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Movie" target-field="id" />
               </orm:constraint>
             </orm:reference>
-          </orm:field>
-        </orm:class>
-        <orm:class name="Test" uniqueId="332077be-a598-4eaa-8e11-3d5ee55379e9">
-          <orm:table name="test" />
-          <orm:identity>
-            <orm:single-field field-name="id" />
-          </orm:identity>
-          <orm:field name="id" property="Id" uniqueId="ab390439-ac7c-4f6c-b5f3-6771bb77e6b4" type="System.Int32">
-            <orm:column name="id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
-          </orm:field>
-          <orm:field name="test1" property="Test1" uniqueId="e3da6b86-30a4-465a-95f8-085f3fa00574" type="System.String">
-            <orm:column name="test" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
           </orm:field>
         </orm:class>
       </orm:namespace>
       <orm:schema schema="">
-        <orm:table name="cinema">
-          <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:table name="Cinema">
+          <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
           <orm:column name="NoOfCinema" sql-type="int" nullable="false" scale="0" ado-type="Int32" />
           <orm:column name="NoOfSeats" sql-type="int" nullable="false" scale="0" ado-type="Int32" />
-          <orm:column name="ShowId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
-          <orm:constraint name="FK__cinema__ShowId__4CCB4BEB" destination-table="show">
-            <orm:column name="ShowId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
+        </orm:table>
+        <orm:table name="Cinema_Show">
+          <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+          <orm:column name="ShowID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
+          <orm:column name="CinemaID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Cinema" target-field="id" />
+          <orm:constraint name="FK__Cinema_Sh__Cinem__7108AC61" destination-table="Cinema">
+            <orm:column name="CinemaID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Cinema" target-field="id" />
+          </orm:constraint>
+          <orm:constraint name="FK__Cinema_Sh__ShowI__70148828" destination-table="Show">
+            <orm:column name="ShowID" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Show" target-field="id" />
           </orm:constraint>
         </orm:table>
-        <orm:table name="film">
-          <orm:column name="id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
-          <orm:column name="releaseDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="title" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="distributor" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="arrivalDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="returnDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="duration" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="director" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="actors" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="movieDescription" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+        <orm:table name="Movie">
+          <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
+          <orm:column name="ReleaseDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:column name="Title" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:column name="Distributor" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:column name="ArrivalDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:column name="ReturnDate" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
+          <orm:column name="Duration" sql-type="varchar" nullable="true" length="10" scale="0" ado-type="Varchar" />
+          <orm:column name="Director" sql-type="varchar" nullable="true" length="5000" scale="0" ado-type="Varchar" />
+          <orm:column name="Actors" sql-type="varchar" nullable="true" length="5000" scale="0" ado-type="Varchar" />
+          <orm:column name="MovieDescription" sql-type="varchar" nullable="true" length="8000" scale="0" ado-type="Varchar" />
         </orm:table>
-        <orm:table name="show">
-          <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:table name="Show">
+          <orm:column name="Id" sql-type="int" nullable="false" scale="0" primary-key="true" backend-calculated="true" ado-type="Int32" />
           <orm:column name="Playtime" sql-type="time" nullable="false" scale="0" ado-type="Time" />
           <orm:column name="Date_" sql-type="date" nullable="false" scale="0" ado-type="Date" />
-          <orm:column name="Cinema" sql-type="varchar" nullable="false" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="Movie" sql-type="varchar" nullable="false" length="50" scale="0" ado-type="Varchar" />
-          <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Film" target-field="id" />
-          <orm:constraint name="FK__show__MovieId__480696CE" destination-table="film">
-            <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Film" target-field="id" />
+          <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Movie" target-field="id" />
+          <orm:constraint name="FK__Show__MovieId__677F4227" destination-table="Movie">
+            <orm:column name="MovieId" sql-type="int" nullable="false" scale="0" ado-type="Int32" target-class="TemaXP_DM71_Group1.Movie" target-field="id" />
           </orm:constraint>
-        </orm:table>
-        <orm:table name="test">
-          <orm:column name="id" sql-type="int" nullable="false" scale="0" primary-key="true" ado-type="Int32" />
-          <orm:column name="test" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="Varchar" />
         </orm:table>
       </orm:schema>
     </orm:orm>
@@ -309,48 +322,56 @@
       <entityDiagramsDiagram absoluteBounds="0, 0, 11, 8.5" name="DomainModel_DM71_2">
         <MetaModelMoniker Name="/TemaXP_DM71_2" />
         <nestedChildShapes>
-          <classShape Id="9830b1dc-58da-41cc-a908-6273c8c85b76" absoluteBounds="1.375, 2, 1.5, 2.0802864583333331">
+          <classShape Id="25d1373e-5b2f-443f-b5cb-7cddb95c261b" absoluteBounds="3, 1.125, 1.5, 1.8879850260416669">
             <MetaClassMoniker Name="/TemaXP_DM71_2/Cinema" />
             <nestedChildShapes>
-              <elementListCompartment Id="4578ea71-1cf0-4687-a0e8-f53ca985e614" absoluteBounds="1.3900000000000001, 2.51, 1.4700000000000002, 1.2108968098958333" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
-              <elementListCompartment Id="52edbfa4-3f62-458c-9837-57197ed884d5" absoluteBounds="1.3900000000000001, 3.7308968098958335, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+              <elementListCompartment Id="b5f36d65-00ba-4f0e-9407-cae3a01bc328" absoluteBounds="3.015, 1.635, 1.4700000000000002, 1.0185953776041665" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+              <elementListCompartment Id="b1f66189-6a26-4fff-9a96-44448aa694f4" absoluteBounds="3.015, 2.6635953776041665, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
             </nestedChildShapes>
           </classShape>
-          <classShape Id="71b15e50-291b-461e-a292-4908f0f29daa" absoluteBounds="5.875, 2, 1.5, 3.2340950520833327">
-            <MetaClassMoniker Name="/TemaXP_DM71_2/Film" />
+          <classShape Id="adeb7a36-47c9-4c87-a8e0-85ba6f3792a6" absoluteBounds="0.75, 3, 1.5, 2.0802864583333331">
+            <MetaClassMoniker Name="/TemaXP_DM71_2/Cinema_Show" />
             <nestedChildShapes>
-              <elementListCompartment Id="b8f7f7ed-f063-43a3-bd02-0461302aebe3" absoluteBounds="5.89, 2.51, 1.4700000000000002, 2.364705403645833" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
-              <elementListCompartment Id="ff75c5a8-bb83-4309-a6dd-976fcfc3b94c" absoluteBounds="5.89, 4.8847054036458326, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+              <elementListCompartment Id="5a65a8a5-519d-407a-af2e-7abda49de697" absoluteBounds="0.765, 3.51, 1.4700000000000002, 1.2108968098958333" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+              <elementListCompartment Id="201cadb9-9c95-4755-9384-1c675bc7daee" absoluteBounds="0.765, 4.7308968098958335, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
             </nestedChildShapes>
           </classShape>
-          <classShape Id="da08eb19-d0e2-4149-9fea-a4c2bea09446" absoluteBounds="3.625, 0.5, 1.5, 2.6571907552083331">
+          <classShape Id="46530710-b50e-439a-bb3c-8712f1befde2" absoluteBounds="5.25, 3.75, 1.5, 3.2340950520833327">
+            <MetaClassMoniker Name="/TemaXP_DM71_2/Movie" />
+            <nestedChildShapes>
+              <elementListCompartment Id="147187a0-4b51-4faa-94d2-841a2b2b2ecd" absoluteBounds="5.2650000000000006, 4.26, 1.4700000000000002, 2.364705403645833" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+              <elementListCompartment Id="81bb2447-16c2-461a-bb5d-82d337fa12c4" absoluteBounds="5.2650000000000006, 6.6347054036458326, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+            </nestedChildShapes>
+          </classShape>
+          <classShape Id="5330aeac-3e7c-43c3-8470-67e3a3794e0d" absoluteBounds="3, 4.25, 1.5, 2.272587890625001">
             <MetaClassMoniker Name="/TemaXP_DM71_2/Show" />
             <nestedChildShapes>
-              <elementListCompartment Id="e7c48675-9013-49ee-8bd1-8dd4452ec0a6" absoluteBounds="3.6400000000000006, 1.0099999999999998, 1.4700000000000002, 1.7878011067708333" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
-              <elementListCompartment Id="b420f097-af0c-44a9-9f94-0742169a7f20" absoluteBounds="3.6400000000000006, 2.8078011067708335, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+              <elementListCompartment Id="140ff8f3-2144-4516-8d1f-79bbe3592f60" absoluteBounds="3.015, 4.76, 1.4700000000000002, 1.4031982421875" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+              <elementListCompartment Id="90505758-8051-46ea-9d08-b79aff1c66ed" absoluteBounds="3.015, 6.1731982421875, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
             </nestedChildShapes>
           </classShape>
-          <classShape Id="b3539d22-d886-4313-8713-157cb7f58931" absoluteBounds="3.625, 3.375, 1.5, 1.5033821614583331">
-            <MetaClassMoniker Name="/TemaXP_DM71_2/Test" />
-            <nestedChildShapes>
-              <elementListCompartment Id="c25aaa63-eb89-49e9-b94c-4b84733ab3a3" absoluteBounds="3.64, 3.885, 1.4700000000000002, 0.63399251302083326" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
-              <elementListCompartment Id="796ff402-d289-4492-9cb1-e4d979edc63b" absoluteBounds="3.64, 4.5289925130208335, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
-            </nestedChildShapes>
-          </classShape>
-          <associationConnector edgePoints="[(2.875 : 2.57859537760417); (3.625 : 2.57859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-            <AssociationMoniker Id="ecacaf2c-13d0-4466-ac14-750f91fe142c" />
+          <associationConnector edgePoints="[(1.5 : 3); (1.5 : 2.0624995); (3 : 2.0624995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+            <AssociationMoniker Id="b03016a5-bf8f-4ada-85b1-cba2243e73ea" />
             <relativeChildShapes />
             <nodes>
-              <classShapeMoniker Id="9830b1dc-58da-41cc-a908-6273c8c85b76" />
-              <classShapeMoniker Id="da08eb19-d0e2-4149-9fea-a4c2bea09446" />
+              <classShapeMoniker Id="adeb7a36-47c9-4c87-a8e0-85ba6f3792a6" />
+              <classShapeMoniker Id="25d1373e-5b2f-443f-b5cb-7cddb95c261b" />
             </nodes>
           </associationConnector>
-          <associationConnector edgePoints="[(5.125 : 2.57859537760417); (5.875 : 2.57859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-            <AssociationMoniker Id="ec4787a3-d9a4-46f2-939c-8c9776b4fd26" />
+          <associationConnector edgePoints="[(2.25 : 4.66514322916667); (3 : 4.66514322916667)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+            <AssociationMoniker Id="0cad0217-d3d2-4611-b152-fff26c3e17e0" />
             <relativeChildShapes />
             <nodes>
-              <classShapeMoniker Id="da08eb19-d0e2-4149-9fea-a4c2bea09446" />
-              <classShapeMoniker Id="71b15e50-291b-461e-a292-4908f0f29daa" />
+              <classShapeMoniker Id="adeb7a36-47c9-4c87-a8e0-85ba6f3792a6" />
+              <classShapeMoniker Id="5330aeac-3e7c-43c3-8470-67e3a3794e0d" />
+            </nodes>
+          </associationConnector>
+          <associationConnector edgePoints="[(4.5 : 5.3862939453125); (5.25 : 5.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+            <AssociationMoniker Id="7d0ef124-84a9-440c-87da-336ae904dcce" />
+            <relativeChildShapes />
+            <nodes>
+              <classShapeMoniker Id="5330aeac-3e7c-43c3-8470-67e3a3794e0d" />
+              <classShapeMoniker Id="46530710-b50e-439a-bb3c-8712f1befde2" />
             </nodes>
           </associationConnector>
         </nestedChildShapes>

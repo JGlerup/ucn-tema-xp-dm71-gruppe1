@@ -18,7 +18,7 @@ using Telerik.OpenAccess;
 
 namespace TemaXP_DM71_Group1	
 {
-	public partial class Show
+	public partial class Cinema_Show
 	{
 		private int id;
 		public virtual int Id 
@@ -33,64 +33,55 @@ namespace TemaXP_DM71_Group1
 		    }
 		}
 		
-		private DateTime playtime;
-		public virtual DateTime Playtime 
+		private int showID;
+		public virtual int ShowID 
 		{ 
 		    get
 		    {
-		        return this.playtime;
+		        return this.showID;
 		    }
 		    set
 		    {
-		        this.playtime = value;
+		        this.showID = value;
 		    }
 		}
 		
-		private DateTime date_;
-		public virtual DateTime Date_ 
+		private int cinemaID;
+		public virtual int CinemaID 
 		{ 
 		    get
 		    {
-		        return this.date_;
+		        return this.cinemaID;
 		    }
 		    set
 		    {
-		        this.date_ = value;
+		        this.cinemaID = value;
 		    }
 		}
 		
-		private int movieId;
-		public virtual int MovieId 
+		private Cinema cinema;
+		public virtual Cinema Cinema 
 		{ 
 		    get
 		    {
-		        return this.movieId;
+		        return this.cinema;
 		    }
 		    set
 		    {
-		        this.movieId = value;
+		        this.cinema = value;
 		    }
 		}
 		
-		private Movie movie;
-		public virtual Movie Movie 
+		private Show show;
+		public virtual Show Show 
 		{ 
 		    get
 		    {
-		        return this.movie;
+		        return this.show;
 		    }
 		    set
 		    {
-		        this.movie = value;
-		    }
-		}
-		
-		private IList<Cinema_Show> cinemaShows = new List<Cinema_Show>();
-		public virtual IList<Cinema_Show> Cinema_Shows 
-		{ 
-		    get
-		    {
-		        return this.cinemaShows;
+		        this.show = value;
 		    }
 		}
 		

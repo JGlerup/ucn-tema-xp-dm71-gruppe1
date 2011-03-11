@@ -59,29 +59,12 @@ namespace TemaXP_DM71_Group1
 		    }
 		}
 		
-		private int showId;
-		public virtual int ShowId 
+		private IList<Cinema_Show> cinemaShows = new List<Cinema_Show>();
+		public virtual IList<Cinema_Show> Cinema_Shows 
 		{ 
 		    get
 		    {
-		        return this.showId;
-		    }
-		    set
-		    {
-		        this.showId = value;
-		    }
-		}
-		
-		private Show show;
-		public virtual Show Show 
-		{ 
-		    get
-		    {
-		        return this.show;
-		    }
-		    set
-		    {
-		        this.show = value;
+		        return this.cinemaShows;
 		    }
 		}
 		
