@@ -8,17 +8,19 @@ namespace TemaXP_DM71_Group1.DBLayer
 {
     public interface IFdbShow
     {
-        void InsertShow(Show m);
+        void InsertShow(string movieStartTime, string showDate, Movie movie);
 
-        void DeleteShow(Show m);
+        void DeleteShow(int id);
 
-        void UpdateShow(Show m);
+        void UpdateShow(int id, string movieStartTime, string showDate, Movie movie);
 
-        Show FindShowById(String title);
+        Show FindShowById(int id);
 
-        IList<Show> SortShowByDate();
+        //IList<Show> SortShowByDate();
 
-        IList<Show> GetAllShows();
+        IList<Show> FindAllShows();
+
+        IList<Show> GetAllShowsOneWeekAhead();
     }
 
 }

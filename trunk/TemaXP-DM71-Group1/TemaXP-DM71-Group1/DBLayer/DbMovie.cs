@@ -133,7 +133,23 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         public IList<Movie> FindAllMovies()
         {
-            throw new NotImplementedException();
+        
+            conn.Open();
+            List<Movie> movieList = new List<Movie>();
+            String sql = "SELECT * FROM film";
+            command = dbFactory.CreateCommand();
+            command.CommandText = sql;
+            command.Connection = conn;
+
+            DbDataReader dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                movieList.Add(CreateSingle(dbReader));
+            }
+
+            conn.Close();
+            return movieList;
         }
 
         private Movie CreateSingle(DbDataReader dbReader)

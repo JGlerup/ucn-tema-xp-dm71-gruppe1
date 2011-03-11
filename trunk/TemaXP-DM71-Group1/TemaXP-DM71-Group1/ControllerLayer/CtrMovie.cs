@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using TemaXP_DM71_Group1.ModelLayer;
@@ -53,5 +54,14 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             dbMovie.DeleteMovie(title);
 
         }
+
+        public IList<Movie> FindAllMovies()
+        {
+            IFdbMovie dbMovie = new DbMovie();
+            return dbMovie.FindAllMovies();
+        }
+
+      
+
     }
 }
