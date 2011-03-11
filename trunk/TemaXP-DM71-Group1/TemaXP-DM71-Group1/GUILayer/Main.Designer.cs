@@ -60,8 +60,22 @@
             this.PlaytimeTab = new System.Windows.Forms.TabPage();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.ShowsTab.SuspendLayout();
             this.MovieTab.SuspendLayout();
             this.PlaytimeTab.SuspendLayout();
             this.SuspendLayout();
@@ -109,6 +123,19 @@
             // 
             // ShowsTab
             // 
+            this.ShowsTab.Controls.Add(this.dateTimePicker1);
+            this.ShowsTab.Controls.Add(this.comboBox4);
+            this.ShowsTab.Controls.Add(this.comboBox3);
+            this.ShowsTab.Controls.Add(this.comboBox2);
+            this.ShowsTab.Controls.Add(this.comboBox1);
+            this.ShowsTab.Controls.Add(this.label14);
+            this.ShowsTab.Controls.Add(this.label13);
+            this.ShowsTab.Controls.Add(this.label12);
+            this.ShowsTab.Controls.Add(this.label11);
+            this.ShowsTab.Controls.Add(this.label10);
+            this.ShowsTab.Controls.Add(this.button7);
+            this.ShowsTab.Controls.Add(this.button6);
+            this.ShowsTab.Controls.Add(this.button5);
             this.ShowsTab.Location = new System.Drawing.Point(141, 4);
             this.ShowsTab.Name = "ShowsTab";
             this.ShowsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -116,6 +143,7 @@
             this.ShowsTab.TabIndex = 1;
             this.ShowsTab.Text = "Forestillinger";
             this.ShowsTab.UseVisualStyleBackColor = true;
+            this.ShowsTab.Enter += new System.EventHandler(this.ShowsTab_Enter);
             // 
             // MovieTab
             // 
@@ -141,10 +169,10 @@
             this.MovieTab.Controls.Add(this.label3);
             this.MovieTab.Controls.Add(this.label2);
             this.MovieTab.Controls.Add(this.label1);
-            this.MovieTab.Location = new System.Drawing.Point(141, 4);
+            this.MovieTab.Location = new System.Drawing.Point(85, 4);
             this.MovieTab.Name = "MovieTab";
             this.MovieTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MovieTab.Size = new System.Drawing.Size(616, 423);
+            this.MovieTab.Size = new System.Drawing.Size(672, 423);
             this.MovieTab.TabIndex = 2;
             this.MovieTab.Text = "Film";
             this.MovieTab.UseVisualStyleBackColor = true;
@@ -259,6 +287,7 @@
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBox1.Size = new System.Drawing.Size(375, 20);
             this.textBox1.TabIndex = 9;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label9
             // 
@@ -344,10 +373,10 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(141, 4);
+            this.tabPage3.Location = new System.Drawing.Point(113, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(616, 423);
+            this.tabPage3.Size = new System.Drawing.Size(644, 423);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -384,6 +413,124 @@
             this.panel2.Size = new System.Drawing.Size(759, 100);
             this.panel2.TabIndex = 1;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(3, 36);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "Opret";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(3, 65);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 1;
+            this.button6.Text = "Opdater";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(0, 94);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "Slet";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(193, 15);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Vælg forestilling";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 253);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(22, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Sal";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 227);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(25, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Film";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 202);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(72, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Starttidspunkt";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 174);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(30, 13);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Dato";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(193, 40);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(200, 19);
+            this.comboBox1.TabIndex = 8;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(193, 199);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(200, 19);
+            this.comboBox2.TabIndex = 9;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(193, 227);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(200, 19);
+            this.comboBox3.TabIndex = 10;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(193, 253);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(200, 19);
+            this.comboBox4.TabIndex = 11;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(193, 167);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.Value = new System.DateTime(2011, 3, 10, 12, 25, 24, 0);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,6 +542,8 @@
             this.Text = "KinoKæk";
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.ShowsTab.ResumeLayout(false);
+            this.ShowsTab.PerformLayout();
             this.MovieTab.ResumeLayout(false);
             this.MovieTab.PerformLayout();
             this.PlaytimeTab.ResumeLayout(false);
@@ -435,6 +584,19 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
 

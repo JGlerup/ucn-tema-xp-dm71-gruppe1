@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IMDb_Scraper;
+using TemaXP_DM71_Group1.ControllerLayer;
 
 namespace TemaXP_DM71_Group1
 {
@@ -74,6 +75,56 @@ namespace TemaXP_DM71_Group1
             textBox8.Text = cast;
             //textBox7.Text = imdb.Directors;
             textBox9.Text = imdb.Storyline;
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ShowsTab_Enter(object sender, EventArgs e)
+        {
+            CtrMovie ctrM = new CtrMovie();
+            CtrCinema ctrC = new CtrCinema();
+            CtrShow ctrS = new CtrShow();
+            comboBox3.DataSource = ctrM.FindAllMovies();
+            comboBox4.DataSource = CtrCinema.FindAllCinemas();
+            comboBox1.DataSource = CtrShow.FindAllShows();
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
