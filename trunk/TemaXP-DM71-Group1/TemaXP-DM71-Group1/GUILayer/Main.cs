@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IMDb_Scraper;
-using TemaXP_DM71_Group1.ControllerLayer;
+//using TemaXP_DM71_Group1.ControllerLayer;
 
 namespace TemaXP_DM71_Group1
 {
@@ -64,18 +64,12 @@ namespace TemaXP_DM71_Group1
             textBox1.Text = imdb.Year;
             textBox2.Text = imdb.Title;
             textBox6.Text = imdb.Runtime;
-            string directors;
-            foreach (string d in imdb.Directors)
-            {
-                directors = String.Join(", ", d.ToString());
-                
-            }
-            IEnumerable<string> = string.Join(", ", (from d in imdb.Directors select d.ToString()).ToArray());
-            textBox7.Text = string.Join(", ", (from d in imdb.Directors select d.ToString().).ToArray());
-            textBox8.Text = cast;
+            List<string> directors = (from string d in imdb.Directors select d.ToString()).ToList();
+            List<string> casts = (from string c in imdb.Cast select c.ToString()).ToList();
+            textBox7.Text = string.Join(", ", directors);
+            textBox8.Text = string.Join(", ", casts);
             //textBox7.Text = imdb.Directors;
             textBox9.Text = imdb.Storyline;
-
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -105,12 +99,12 @@ namespace TemaXP_DM71_Group1
 
         private void ShowsTab_Enter(object sender, EventArgs e)
         {
-            CtrMovie ctrM = new CtrMovie();
-            CtrCinema ctrC = new CtrCinema();
-            CtrShow ctrS = new CtrShow();
-            comboBox3.DataSource = ctrM.FindAllMovies();
-            comboBox4.DataSource = CtrCinema.FindAllCinemas();
-            comboBox1.DataSource = CtrShow.FindAllShows();
+            //CtrMovie ctrM = new CtrMovie();
+            //CtrCinema ctrC = new CtrCinema();
+            //CtrShow ctrS = new CtrShow();
+            //comboBox3.DataSource = ctrM.FindAllMovies();
+            //comboBox4.DataSource = CtrCinema.FindAllCinemas();
+            //comboBox1.DataSource = CtrShow.FindAllShows();
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
