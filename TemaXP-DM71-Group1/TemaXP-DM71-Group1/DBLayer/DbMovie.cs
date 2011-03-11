@@ -15,7 +15,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         private DbProviderFactory dbFactory;
         private String provider = null;
         private String connStr = null;
-//        private DbDataReader dbReader = null;
+        private DbDataReader dbReader = null;
 
         public DbMovie()
         {
@@ -36,8 +36,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         public void InsertMovie(Movie m)
         {
             conn.Open();
-             String sql = "INSERT INTO film(id, releasedate, title, distributor, arrivaldate, returndate, duration, director, actors, moviedescription)  VALUES("
-                + m.Id + ",'"
+             String sql = "INSERT INTO movie(releasedate, title, distributor, arrivaldate, returndate, duration, director, actors, moviedescription)  VALUES('"
                 + m.ReleaseDate + "','"
                 + m.Title + "','"
                 + m.Distributor + "','"
@@ -51,11 +50,9 @@ namespace TemaXP_DM71_Group1.DBLayer
             Console.WriteLine("insert : " + sql);
             try
             { // insert new movie
-                command = dbFactory.CreateCommand();
-                command.CommandText = sql;
-                command.Connection = conn;
-
-                DbDataReader dbReader = command.ExecuteReader();
+                command = CreateCommand(sql);
+                
+                dbReader = command.ExecuteReader();
 
                 
             }//end try
@@ -68,28 +65,66 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         public void DeleteMovie(Movie m)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            String sql = "DELETE FROM movie "
+                + " WHERE id = " + m.Id;
+            Console.WriteLine("Delete query:" + sql);
+            try 
+            { // delete movie
+                command = CreateCommand(sql);
+                dbReader = command.ExecuteReader();
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Delete exception in movie db: " + ex);
+            }//end catch
+            conn.Close();
         }
 
         public void UpdateMovie(Movie m)
         {
-            throw new NotImplementedException();
+            Movie mm = m;
+            
+            conn.Open();
+
+            String sql = "UPDATE Movie SET "
+                    + "ReleaseDate = '" + mm.ReleaseDate + "', " 
+                    + "Title = '" + m.Title + "', "
+                    + "Distributor = '" + m.Distributor + "', "
+                    + "ArrivalDate = '" + m.ArrivalDate + "', "
+                    + "ReturnDate = '" + m.ReturnDate + "', "
+                    + "Duration = '" + m.Duration + "', "
+                    + "Director = '" + m.Director + "', "
+                    + "Actors = '" + m.Actors + "', "
+                    + "MovieDescription = '" + m.MovieDescription + "' "
+                    + "WHERE Id = " + m.Id;
+            Console.WriteLine("Update query:" + sql);
+            try
+            { // update movie
+                command = CreateCommand(sql);
+                dbReader = command.ExecuteReader();
+
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Update exception in movie db: " + ex);
+            }//end catch
+
+            conn.Close();
         }
 
         public Movie FindMovie(string title)
         {
             conn.Open();
             Movie m = new Movie();
-            String sql = "SELECT * FROM film where title = '" + title + "'";
-            command = dbFactory.CreateCommand();
-            command.CommandText = sql;
-            command.Connection = conn;
+            String sql = "SELECT * FROM movie where title = '" + title + "'";
 
-            DbDataReader dbReader = command.ExecuteReader();
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
 
             while (dbReader.Read())
             {
-                m = Create(dbReader);
+                m = CreateSingle(dbReader);
             }
 
             conn.Close();
@@ -101,7 +136,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             throw new NotImplementedException();
         }
 
-        private Movie Create(DbDataReader dbReader)
+        private Movie CreateSingle(DbDataReader dbReader)
         {
             Movie mm = new Movie();
             try
@@ -112,7 +147,8 @@ namespace TemaXP_DM71_Group1.DBLayer
                 mm.Distributor = dbReader.GetString(3);
                 mm.ArrivalDate = dbReader.GetString(4);
                 mm.ReturnDate = dbReader.GetString(5);
-                mm.Duration = dbReader.GetString(6);
+                TimeSpan ts = (TimeSpan)dbReader.GetProviderSpecificValue(6);
+                mm.Duration = ts.ToString();
                 mm.Director = dbReader.GetString(7);
                 mm.Actors = dbReader.GetString(8);
                 mm.MovieDescription = dbReader.GetString(9);
@@ -122,6 +158,15 @@ namespace TemaXP_DM71_Group1.DBLayer
                 Console.WriteLine("building movie object" + e);
             }
             return mm;
+        }
+
+        private DbCommand CreateCommand(String sql)
+        {
+            command = dbFactory.CreateCommand();
+            command.CommandText = sql;
+            command.Connection = conn;
+
+            return command;
         }
     }
 }
