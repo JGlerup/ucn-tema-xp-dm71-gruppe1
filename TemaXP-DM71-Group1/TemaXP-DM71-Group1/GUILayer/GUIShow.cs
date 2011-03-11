@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TemaXP_DM71_Group1.ControllerLayer;
+using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
@@ -53,7 +55,7 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void Show_Enter(object sender, EventArgs e)
         {
-            CtrShow crtShow= new CtrShow();
+            CtrShow ctrShow= new CtrShow();
             cmbShow.DataSource = ctrShow.FindAllShows();
             dtpMovieDate.MinDate = DateTime.Today;
             List<string> movieStartTime = new List<string>();
@@ -61,13 +63,13 @@ namespace TemaXP_DM71_Group1.GUILayer
             {
                 if (i < 10)
                 {
-                    movieStartTime.add("0" + i + ":" + "00");
-                    movieStartTime.add("0" + i + ":" + "30");
+                    movieStartTime.Add("0" + i + ":" + "00");
+                    movieStartTime.Add("0" + i + ":" + "30");
                 }
                 else
                 {
-                    movieStartTime.add(i + ":" + "00");
-                    movieStartTime.add(i + ":" + "30");
+                    movieStartTime.Add(i + ":" + "00");
+                    movieStartTime.Add(i + ":" + "30");
                 }
 
 
@@ -76,10 +78,10 @@ namespace TemaXP_DM71_Group1.GUILayer
 
 
             cmbMovieStartTime.DataSource = movieStartTime;
-            CtrMovie crtMovie = new CtrMovie();
+            CtrMovie ctrMovie = new CtrMovie();
             cmbMovie.DataSource = ctrMovie.FindAllMovies();
 
-            CtrCinema crtCinema = new CtrCinema();
+            CtrCinema ctrCinema = new CtrCinema();
             cmbCinema.DataSource = ctrCinema.FindAllCinemas();
 
 
@@ -100,5 +102,13 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
 
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            CtrShow ctrShow = new CtrShow();
+            Movie m = (Movie) cmbMovie.SelectedItem;
+            ctrShow.insertShow(cmbMovieStartTime.SelectedText, dtpMovieDate.ToString(), m.Id);
+        }
+
     }
 }

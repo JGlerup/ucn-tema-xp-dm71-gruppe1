@@ -1,62 +1,58 @@
 ﻿using System;
-using System.Collections;
+using System.Linq
+using System.Collections.Generic;
 using TemaXP_DM71_Group1.DBLayer;
 using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.ControllerLayer
 {
-    public class CtrShow// : IShow
+    public class CtrShow : IFdbShow
     {
-        public void insertShow(String time, String date, String playTime, int cinema, String movie)
+        public void InsertShow(string movieStartTime, string showDate, Movie movie)
         {
-            var dbShow = new DBShow();
-            var sObj = new CtrShow();
-            sObj.setTime(time);
-            sObj.setDate(date);
-            sObj.setPlayTime(playTime);
-            sObj.setCinema(cinema.number);
-            sObj.setMovie(movie);
-            dbShow.insertShow(cObj);
+            DBShow dbShow = new DBShow();
+            Show sObj = new Show();
+            sObj.MovieStartTime = movieStartTime;
+            sObj.ShowDate = showDate;
+            sObj.Movie = movie;
+            dbShow.insertShow(sObj);
         }
 
-        public void deleteShow(int id)
+        public void DeleteShow(int id)
         {
-            var dbShow = new DBShow();
-            dbShow.deleteShow(id);
+            DBShow dbShow = new DBShow();
+            dbShow.DeleteShow(id);
         }
 
-        public void updateShow(int id, String time, String date, String playTime, int cinema, String movie)
+        public void UpdateShow(int id, string movieStartTime, string showDate, Movie movie)
         {
-            int showID = findShowById(id).getShowID();
-            var dbShow = new DBShow();
-            var sObj = new Show();
-            sObj.setTime(time);
-            sObj.setDate(date);
-            sObj.setPlayTime(playTime);
-            sObj.setCinema(cinema);
-            sObj.setMovie(movie);
-            dbShow.updateShow(sObj);
+            DBShow dbShow = new DBShow();
+            Show sObj = findShowById(id);
+            sObj.MovieStartTime = movieStartTime;
+            sObj.ShowDate = showDate;
+            sObj.Movie = movie;
+            dbShow.UpdateShow(sObj);
         }
 
-        public ArrayList getAllShows()
+        public IList<Show> FindAllShows()
         {
-            var dbShow = new DBShow();
-            var allShow = new ArrayList<Show>();
-            allShow = dbShow.getAllShows(false);
-            return allShow;
+            DBShow dbShow = new DBShow();
+            IList<Show> showList = new List<Show>();
+            showList = dbShow.FindAllShows();
+            return showList;
         }
 
-        public show findShowById(int showid)
+        public Show FindShowById(int id)
         {
-            var dbshow = new DBShow();
-            return dbshow.findShowById(showid, true);
+            DBShow dbShow = new DBShow();
+            return dbShow.FindShowById(id);
         }
 
-        public ArrayList getAllShowsOneWeekAhead()
+        public IList<Show> GetAllShowsOneWeekAhead()
         {
             DBShow dbShow = new DBShow();   
-            ArrayList showList = new ArrayList();
-            showList = dbShow.sortShowByDate();
+            IList<Show> showList = new List<Show>();
+            showList = dbShow.sortShowByDate(false);
 
             return showList;
 

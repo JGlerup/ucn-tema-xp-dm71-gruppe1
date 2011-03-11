@@ -1,25 +1,35 @@
-﻿namespace TemaXP_DM71_Group1.ModelLayer
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace TemaXP_DM71_Group1.ModelLayer
 {
     public class Show
     {
-        public Show(string time, string date, Cinema cinema, Movie movie)
+        public Show(int id, string movieStartTime, Movie movie, string showDate)
         {
-            this.Time = time;
-            this.Date = date;
-            this.Cinema = cinema;
+            this.Id = id;
+            this.MovieStartTime = movieStartTime;
             this.Movie = movie;
+            this.ShowDate = showDate;
         }
 
         public Show()
         {
         }
 
-        public string Time { get; set; }
+        public int Id { get; set; }
 
-        public string Date { get; set; }
+        public string MovieStartTime { get; set; }
 
-        public Cinema Cinema { get; set; }
+        public string ShowDate { get; set; }
 
         public Movie Movie { get; set; }
+
+        public override string ToString()
+        {
+            return ShowDate + MovieStartTime + Movie.Title;
+        }
     }
 }
