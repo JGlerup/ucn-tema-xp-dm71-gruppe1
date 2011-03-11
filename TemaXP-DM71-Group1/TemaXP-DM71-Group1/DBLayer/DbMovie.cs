@@ -63,11 +63,11 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public void DeleteMovie(Movie m)
+        public void DeleteMovie(String title)
         {
             conn.Open();
             String sql = "DELETE FROM movie "
-                + " WHERE id = " + m.Id;
+                + " WHERE title = " + title;
             Console.WriteLine("Delete query:" + sql);
             try 
             { // delete movie

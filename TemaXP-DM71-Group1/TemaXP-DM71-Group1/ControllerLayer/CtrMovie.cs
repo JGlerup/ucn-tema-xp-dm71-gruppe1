@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using TemaXP_DM71_Group1.ModelLayer;
 using TemaXP_DM71_Group1.ControllerLayer;
+using TemaXP_DM71_Group1.DBLayer;
 
 
 namespace TemaXP_DM71_Group1.ControllerLayer
@@ -12,12 +13,12 @@ namespace TemaXP_DM71_Group1.ControllerLayer
     {
         public Movie FindMovie(string title)
         {
-            IFDBMovie dbMovie = new DBMovie();
+            IFdbMovie dbMovie = new DbMovie();
             return dbMovie.FindMovie(title);
         }
         public void InsertMovie(string releaseDate, string title, string distributor, string arrivalDate, string returnDate, string duration, string director, string actors, string movieDescription)
         {
-            IFDBMovie dbMovie = new DBMovie();
+            IFdbMovie dbMovie = new DbMovie();
             Movie mObj = new Movie();
             mObj.ReleaseDate = releaseDate;
             mObj.Title = title;
@@ -32,7 +33,7 @@ namespace TemaXP_DM71_Group1.ControllerLayer
         }
         public void UpdateMovie(string currentTitle, string releaseDate, string title, string distributor, string arrivalDate, string returnDate, string duration, string director, string actors, string movieDescription)
         {
-            IFDBMovie dbMovie = new DBMovie();
+            IFdbMovie dbMovie = new DbMovie();
             Movie mObj = FindMovie(currentTitle);
             mObj.ReleaseDate = releaseDate;
             mObj.Title = title;
@@ -43,12 +44,12 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             mObj.Director = director;
             mObj.Actors = actors;
             mObj.MovieDescription = movieDescription;
-            dbMovie.UpdateMovie(title, mObj);
+            dbMovie.UpdateMovie(mObj);
 
         }
         public void DeleteMovie(string title)
         {
-            IFDBMovie dbMovie = new DBMovie();
+            IFdbMovie dbMovie = new DbMovie();
             dbMovie.DeleteMovie(title);
 
         }
