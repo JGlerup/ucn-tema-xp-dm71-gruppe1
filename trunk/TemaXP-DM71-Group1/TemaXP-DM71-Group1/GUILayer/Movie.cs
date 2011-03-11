@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using TemaXP_DM71_Group1.ControllerLayer;
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
@@ -40,6 +41,32 @@ namespace TemaXP_DM71_Group1.GUILayer
             textBox7.Text = string.Join(", ", directors);
             textBox8.Text = string.Join(", ", casts);
             textBox9.Text = imdb.Storyline;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CtrMovie ctrMovie = new CtrMovie();
+                String date = textBox1.Text;
+                String title = textBox2.Text;
+                String distributor = textBox3.Text;
+                String arrivalDate = textBox4.Text;
+                String returnDate = textBox5.Text;
+                String duration = textBox6.Text;
+                String director = textBox7.Text;
+                String actors = textBox8.Text;
+                String movieDescription = textBox9.Text;
+                ctrMovie.InsertMovie(date, title, distributor, arrivalDate, returnDate, duration, director, actors,
+                                     movieDescription);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+
+            }
+            
+
         }
     }
 }
