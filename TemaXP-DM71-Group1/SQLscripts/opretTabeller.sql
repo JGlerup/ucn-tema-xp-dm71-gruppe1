@@ -13,8 +13,8 @@ create table Movie(
 
 create table Show(
 	Id int PRIMARY KEY IDENTITY,
-	Playtime time not null,
-	Date_ date not null,
+	MovieStartTime time not null,
+	ShowDate date not null,
 	MovieId int not null,
 	foreign key(MovieID) references Movie(Id))
 
