@@ -6,7 +6,7 @@ using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.DBLayer
 {
-    public interface IFdbMovie
+    public interface IFDBMovie
     {
         void InsertMovie(Movie m);
 
@@ -14,7 +14,9 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         void UpdateMovie(Movie m);
 
-        Movie FindMovie(String title);
+        Movie FindMovieByTitle(String title);
+
+        Movie FindMovieById(int id);
 
         IList<Movie> FindAllMovies();
     }

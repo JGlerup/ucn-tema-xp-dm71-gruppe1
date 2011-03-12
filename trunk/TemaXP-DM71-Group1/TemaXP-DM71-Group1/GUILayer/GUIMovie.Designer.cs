@@ -1,6 +1,6 @@
 ﻿namespace TemaXP_DM71_Group1.GUILayer
 {
-    partial class Movie
+    partial class GUIMovie
     {
         /// <summary> 
         /// Required designer variable.
@@ -296,7 +296,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Movie";
+            this.Name = "GUIMovie";
             this.Size = new System.Drawing.Size(542, 423);
             this.ResumeLayout(false);
             this.PerformLayout();

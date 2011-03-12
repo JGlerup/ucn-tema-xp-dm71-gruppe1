@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace TemaXP_DM71_Group1.DBLayer
 {
-    public class DbMovie : IFdbMovie
+    public class DBMovie : IFDBMovie
     {
         private DbCommand command;
         private DbConnection conn;
@@ -17,7 +17,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         private String connStr = null;
         private DbDataReader dbReader = null;
 
-        public DbMovie()
+        public DBMovie()
         {
 //            provider = ConfigurationManager.ConnectionStrings["TemaXP.Properties.Settings.DatabaseConnectionString"].ProviderName;
 //            connStr = ConfigurationManager.ConnectionStrings["TemaXP.Properties.Settings.DatabaseConnectionString"].ConnectionString;
@@ -113,11 +113,29 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public Movie FindMovie(string title)
+        public Movie FindMovieByTitle(string title)
         {
             conn.Open();
             Movie m = new Movie();
-            String sql = "SELECT * FROM movie where title = '" + title + "'";
+            String sql = "SELECT * FROM movie WHERE title = '" + title + "'";
+
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                m = CreateSingle(dbReader);
+            }
+
+            conn.Close();
+            return m;
+        }
+
+        public Movie FindMovieById(int id)
+        {
+            conn.Open();
+            Movie m = new Movie();
+            String sql = "SELECT * FROM movie WHERE id = '" + id + "'";
 
             command = CreateCommand(sql);
             dbReader = command.ExecuteReader();
@@ -136,7 +154,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         
             conn.Open();
             List<Movie> movieList = new List<Movie>();
-            String sql = "SELECT * FROM film";
+            String sql = "SELECT * FROM Movie";
             command = dbFactory.CreateCommand();
             command.CommandText = sql;
             command.Connection = conn;

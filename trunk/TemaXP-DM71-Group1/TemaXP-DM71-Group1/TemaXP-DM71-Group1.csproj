@@ -54,22 +54,25 @@
     <Reference Include="Telerik.OpenAccess.35.Extensions, Version=2010.3.1110.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cinema.generated.cs">
-      <DependentUpon>DomainModel_DM71_2.rlinq</DependentUpon>
-    </Compile>
-    <Compile Include="DomainModel_DM71_2.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DomainModel_DM71_2.rlinq</DependentUpon>
-    </Compile>
-    <Compile Include="Film.generated.cs">
-      <DependentUpon>DomainModel_DM71_2.rlinq</DependentUpon>
-    </Compile>
+    <Compile Include="ControllerLayer\CtrCinema.cs" />
+    <Compile Include="ControllerLayer\CtrMovie.cs" />
+    <Compile Include="ControllerLayer\CtrShow.cs" />
+    <Compile Include="ControllerLayer\Shows.cs" />
+    <Compile Include="DBLayer\DBMovie.cs" />
+    <Compile Include="DBLayer\DBShow.cs" />
+    <Compile Include="DBLayer\IFDBMovie.cs" />
+    <Compile Include="DBLayer\IFDBShow.cs" />
     <Compile Include="GUILayer\Cinema.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Cinema.Designer.cs">
       <DependentUpon>Cinema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\GUIShow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUILayer\GUIShow.Designer.cs">
+      <DependentUpon>GUIShow.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\Main.cs">
       <SubType>Form</SubType>
@@ -77,11 +80,11 @@
     <Compile Include="GUILayer\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\Shows.cs">
-      <SubType>Form</SubType>
+    <Compile Include="GUILayer\GUIMovie.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUILayer\Shows.Designer.cs">
-      <DependentUpon>Shows.cs</DependentUpon>
+    <Compile Include="GUILayer\GUIMovie.Designer.cs">
+      <DependentUpon>GUIMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="IMDb.cs" />
     <Compile Include="ModelLayer\Cinema.cs" />
@@ -89,20 +92,17 @@
     <Compile Include="ModelLayer\Show.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Show.generated.cs">
-      <DependentUpon>DomainModel_DM71_2.rlinq</DependentUpon>
-    </Compile>
-    <Compile Include="Test.generated.cs">
-      <DependentUpon>DomainModel_DM71_2.rlinq</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="GUILayer\Cinema.resx">
       <DependentUpon>Cinema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\GUIShow.resx">
+      <DependentUpon>GUIShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\Shows.resx">
-      <DependentUpon>Shows.cs</DependentUpon>
+    <EmbeddedResource Include="GUILayer\GUIMovie.resx">
+      <DependentUpon>GUIMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -115,10 +115,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
-    <OpenAccessDeploy Include="DomainModel_DM71_2.rlinq">
-      <Generator>MetaModelCodeGenerator</Generator>
-      <LastGenOutput>DomainModel_DM71_2.cs</LastGenOutput>
-    </OpenAccessDeploy>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -129,9 +125,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DBLayer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

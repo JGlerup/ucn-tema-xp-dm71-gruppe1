@@ -18,41 +18,6 @@ namespace TemaXP_DM71_Group1.GUILayer
             InitializeComponent();
         }
 
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void Show_Enter(object sender, EventArgs e)
         {
             CtrShow ctrShow= new CtrShow();
@@ -63,52 +28,61 @@ namespace TemaXP_DM71_Group1.GUILayer
             {
                 if (i < 10)
                 {
-                    movieStartTime.Add("0" + i + ":" + "00");
-                    movieStartTime.Add("0" + i + ":" + "30");
+                    movieStartTime.Add("0" + i + ":" + "00" + ":" + "00");
+                    movieStartTime.Add("0" + i + ":" + "30" + ":" + "00");
                 }
                 else
                 {
-                    movieStartTime.Add(i + ":" + "00");
-                    movieStartTime.Add(i + ":" + "30");
+                    movieStartTime.Add(i + ":" + "00" + ":" + "00");
+                    movieStartTime.Add(i + ":" + "30" + ":" + "00");
                 }
 
 
             }
-
-
-
             cmbMovieStartTime.DataSource = movieStartTime;
             CtrMovie ctrMovie = new CtrMovie();
             cmbMovie.DataSource = ctrMovie.FindAllMovies();
-
             CtrCinema ctrCinema = new CtrCinema();
-            cmbCinema.DataSource = ctrCinema.FindAllCinemas();
-
-
-
-        }
-
-        private void dtpMovieDate_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox4_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbMovie_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            //cmbCinema.DataSource = ctrCinema.FindAllCinemas();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            CtrShow ctrShow = new CtrShow();
-            Movie m = (Movie) cmbMovie.SelectedItem;
-            ctrShow.insertShow(cmbMovieStartTime.SelectedText, dtpMovieDate.ToString(), m.Id);
+            CtrShow ctrShow = new CtrShow();    
+            try
+            {
+                if(cmbMovie.SelectedValue.ToString().Trim() == "" || cmbMovieStartTime.SelectedValue.ToString().Trim() == "" /*|| cmbCinema.SelectedValue.ToString().Trim() == "" */)
+                {
+                    MessageBox.Show("Fejl: Udfyld venligst alle felter", "Operationen mislykkedes");
+                }
+                else
+                {
+                    Movie m = (Movie) cmbMovie.SelectedItem;
+                    string movieStartTime = cmbMovieStartTime.SelectedValue.ToString();
+                    string movieDate = dtpMovieDate.Value.ToString();
+                    ctrShow.InsertShow(movieStartTime, movieDate, m);
+                    MessageBox.Show("Forestillingen er oprettet", "Operationen lykkedes");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Fejl: " + ex.Message, "Operationen mislykkedes");
+            }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            CtrShow ctrShow = new CtrShow();
+            Show s = (Show) cmbShow.SelectedItem;
+            try
+            {
+                ctrShow.DeleteShow(s.Id);
+                MessageBox.Show("Forestillingen er slettet", "Operationen lykkedes");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl: " + ex.Message, "Operationen mislykkedes");
+            }
+        }
     }
 }

@@ -6,13 +6,13 @@ using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.DBLayer
 {
-    public interface IFdbShow
+    public interface IFDBShow
     {
-        void InsertShow(string movieStartTime, string showDate, Movie movie);
+        void InsertShow(Show s);
 
         void DeleteShow(int id);
 
-        void UpdateShow(int id, string movieStartTime, string showDate, Movie movie);
+        void UpdateShow(Show s);
 
         Show FindShowById(int id);
 

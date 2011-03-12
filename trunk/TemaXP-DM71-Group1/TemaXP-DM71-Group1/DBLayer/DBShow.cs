@@ -8,7 +8,7 @@ using System.Configuration;
 
 namespace TemaXP_DM71_Group1.DBLayer
 {
-    public class DBShow
+    public class DBShow : IFDBShow
     {
         private DbCommand command;
         private DbConnection conn;
@@ -42,19 +42,13 @@ namespace TemaXP_DM71_Group1.DBLayer
         //    return miscWhere("Date_ BETWEEN (Select DATEADD(DAY, -1, GETDATE()) AS NewDate1) AND (SELECT DATEADD(Week,1,GETDATE()) AS NewDate)", retrieveAssociation);
         //}
 
-        public void InsertShow(Show m)
+        public void InsertShow(Show s)
         {
             conn.Open();
-            String sql = "INSERT INTO show(MovieStartTime, MovieID, ShowDate)  VALUES('"
-               + m.ReleaseDate + "','"
-               + m.Title + "','"
-               + m.Distributor + "','"
-               + m.ArrivalDate + "','"
-               + m.ReturnDate + "','"
-               + m.Duration + "','"
-               + m.Director + "','"
-               + m.Actors + "','"
-               + m.ShowDescription + "')";
+            String sql = "INSERT INTO show (MovieStartTime, ShowDate, MovieID)  VALUES('"
+               + s.MovieStartTime + "','"
+               + s.ShowDate + "','"
+               + s.Movie.Id + "')";
 
             Console.WriteLine("insert : " + sql);
             try
@@ -68,15 +62,16 @@ namespace TemaXP_DM71_Group1.DBLayer
             catch (Exception ex)
             {
                 Console.WriteLine("Insert exception in show db: " + ex);
+                throw;
             }//end catch
             conn.Close();
         }
 
-        public void DeleteShow(String title)
+        public void DeleteShow(int id)
         {
             conn.Open();
             String sql = "DELETE FROM show "
-                + " WHERE title = " + title;
+                + " WHERE id = " + id;
             Console.WriteLine("Delete query:" + sql);
             try
             { // delete show
@@ -86,27 +81,20 @@ namespace TemaXP_DM71_Group1.DBLayer
             catch (Exception ex)
             {
                 Console.WriteLine("Delete exception in show db: " + ex);
+                throw;
             }//end catch
             conn.Close();
         }
 
-        public void UpdateShow(Show m)
+        public void UpdateShow(Show s)
         {
-            Show mm = m;
-
             conn.Open();
 
             String sql = "UPDATE Show SET "
-                    + "ReleaseDate = '" + mm.ReleaseDate + "', "
-                    + "Title = '" + m.Title + "', "
-                    + "Distributor = '" + m.Distributor + "', "
-                    + "ArrivalDate = '" + m.ArrivalDate + "', "
-                    + "ReturnDate = '" + m.ReturnDate + "', "
-                    + "Duration = '" + m.Duration + "', "
-                    + "Director = '" + m.Director + "', "
-                    + "Actors = '" + m.Actors + "', "
-                    + "ShowDescription = '" + m.ShowDescription + "' "
-                    + "WHERE Id = " + m.Id;
+                    + "MovieStartTime = '" + s.MovieStartTime + "', "
+                    + "ShowDate = '" + s.ShowDate + "', "
+                    + "MovieID = '" + s.Id + "', "
+                    + "WHERE Id = " + s.Id;
             Console.WriteLine("Update query:" + sql);
             try
             { // update show
@@ -122,11 +110,11 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public Show FindShow(string title)
+        public Show FindShowById(int id)
         {
             conn.Open();
             Show m = new Show();
-            String sql = "SELECT * FROM show where title = '" + title + "'";
+            String sql = "SELECT * FROM show WHERE id = '" + id + "'";
 
             command = CreateCommand(sql);
             dbReader = command.ExecuteReader();
@@ -145,7 +133,7 @@ namespace TemaXP_DM71_Group1.DBLayer
 
             conn.Open();
             List<Show> showList = new List<Show>();
-            String sql = "SELECT * FROM film";
+            String sql = "SELECT * FROM show";
             command = dbFactory.CreateCommand();
             command.CommandText = sql;
             command.Connection = conn;
@@ -161,28 +149,30 @@ namespace TemaXP_DM71_Group1.DBLayer
             return showList;
         }
 
+        public IList<Show> GetAllShowsOneWeekAhead()
+        {
+            throw new NotImplementedException();
+        }
+
         private Show CreateSingle(DbDataReader dbReader)
         {
-            Show mm = new Show();
+            Show s = new Show();
             try
             {
-                mm.Id = dbReader.GetInt32(0);
-                mm.ReleaseDate = dbReader.GetString(1);
-                mm.Title = dbReader.GetString(2);
-                mm.Distributor = dbReader.GetString(3);
-                mm.ArrivalDate = dbReader.GetString(4);
-                mm.ReturnDate = dbReader.GetString(5);
-                TimeSpan ts = (TimeSpan)dbReader.GetProviderSpecificValue(6);
-                mm.Duration = ts.ToString();
-                mm.Director = dbReader.GetString(7);
-                mm.Actors = dbReader.GetString(8);
-                mm.ShowDescription = dbReader.GetString(9);
+                s.Id = dbReader.GetInt32(0);
+                TimeSpan ts = (TimeSpan) dbReader.GetProviderSpecificValue(1);
+                s.MovieStartTime = ts.ToString();
+                s.ShowDate = dbReader.GetDateTime(2).ToString();
+                //get movie
+                IFDBMovie dbMovie = new DBMovie();
+                s.Movie = dbMovie.FindMovieById(dbReader.GetInt32(3));
+                //end "get movie"
             }
             catch (Exception e)
             {
                 Console.WriteLine("building show object" + e);
             }
-            return mm;
+            return s;
         }
 
         private DbCommand CreateCommand(String sql)
