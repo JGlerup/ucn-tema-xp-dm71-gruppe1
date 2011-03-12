@@ -96,5 +96,10 @@ namespace TemaXP_DM71_Group1.ModelLayer
             get { return movieDescription; }
             set { movieDescription = value; }
         }
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }

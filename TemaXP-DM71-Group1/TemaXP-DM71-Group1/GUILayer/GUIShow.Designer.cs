@@ -30,7 +30,7 @@
         {
             this.btnCreate = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(61, 252);
+            this.btnCreate.Location = new System.Drawing.Point(55, 242);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 0;
@@ -55,26 +55,27 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(142, 252);
+            this.button2.Location = new System.Drawing.Point(142, 242);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Opdater";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnDelete
             // 
-            this.button3.Location = new System.Drawing.Point(353, 76);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Slet";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(353, 73);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Slet";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 130);
+            this.label1.Location = new System.Drawing.Point(57, 136);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 3;
@@ -83,7 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 156);
+            this.label2.Location = new System.Drawing.Point(57, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 4;
@@ -92,7 +93,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 183);
+            this.label3.Location = new System.Drawing.Point(57, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 5;
@@ -101,7 +102,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 210);
+            this.label4.Location = new System.Drawing.Point(57, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 6;
@@ -119,11 +120,11 @@
             // cmbShow
             // 
             this.cmbShow.FormattingEnabled = true;
-            this.cmbShow.Location = new System.Drawing.Point(238, 49);
+            this.cmbShow.Location = new System.Drawing.Point(142, 46);
             this.cmbShow.Name = "cmbShow";
-            this.cmbShow.Size = new System.Drawing.Size(190, 21);
+            this.cmbShow.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.cmbShow.Size = new System.Drawing.Size(286, 21);
             this.cmbShow.TabIndex = 8;
-            this.cmbShow.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // cmbCinema
             // 
@@ -131,37 +132,34 @@
             this.cmbCinema.Items.AddRange(new object[] {
             "Sal 1",
             "Sal 2"});
-            this.cmbCinema.Location = new System.Drawing.Point(238, 210);
+            this.cmbCinema.Location = new System.Drawing.Point(142, 210);
             this.cmbCinema.Name = "cmbCinema";
-            this.cmbCinema.Size = new System.Drawing.Size(190, 21);
+            this.cmbCinema.Size = new System.Drawing.Size(288, 21);
             this.cmbCinema.TabIndex = 9;
             // 
             // cmbMovieStartTime
             // 
             this.cmbMovieStartTime.FormattingEnabled = true;
-            this.cmbMovieStartTime.Location = new System.Drawing.Point(238, 156);
+            this.cmbMovieStartTime.Location = new System.Drawing.Point(142, 156);
             this.cmbMovieStartTime.Name = "cmbMovieStartTime";
-            this.cmbMovieStartTime.Size = new System.Drawing.Size(190, 21);
+            this.cmbMovieStartTime.Size = new System.Drawing.Size(288, 21);
             this.cmbMovieStartTime.TabIndex = 11;
-            this.cmbMovieStartTime.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged_1);
             // 
             // cmbMovie
             // 
             this.cmbMovie.FormattingEnabled = true;
-            this.cmbMovie.Location = new System.Drawing.Point(238, 183);
+            this.cmbMovie.Location = new System.Drawing.Point(142, 183);
             this.cmbMovie.Name = "cmbMovie";
-            this.cmbMovie.Size = new System.Drawing.Size(190, 21);
+            this.cmbMovie.Size = new System.Drawing.Size(288, 21);
             this.cmbMovie.TabIndex = 12;
-            this.cmbMovie.SelectedIndexChanged += new System.EventHandler(this.cmbMovie_SelectedIndexChanged);
             // 
             // dtpMovieDate
             // 
-            this.dtpMovieDate.Location = new System.Drawing.Point(238, 130);
+            this.dtpMovieDate.Location = new System.Drawing.Point(142, 130);
             this.dtpMovieDate.MinDate = new System.DateTime(2011, 3, 11, 0, 0, 0, 0);
             this.dtpMovieDate.Name = "dtpMovieDate";
-            this.dtpMovieDate.Size = new System.Drawing.Size(190, 20);
+            this.dtpMovieDate.Size = new System.Drawing.Size(288, 20);
             this.dtpMovieDate.TabIndex = 13;
-            this.dtpMovieDate.ValueChanged += new System.EventHandler(this.dtpMovieDate_ValueChanged);
             // 
             // GUIShow
             // 
@@ -177,7 +175,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnCreate);
             this.Name = "GUIShow";
@@ -192,7 +190,7 @@
 
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

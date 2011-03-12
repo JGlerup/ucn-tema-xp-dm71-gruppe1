@@ -12,9 +12,9 @@ using System.Data.SqlClient;
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
-    public partial class Movie : UserControl
+    public partial class GUIMovie : UserControl
     {
-        public Movie()
+        public GUIMovie()
         {
             InitializeComponent();
             BindComboBox();
