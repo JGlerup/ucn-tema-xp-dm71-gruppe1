@@ -180,7 +180,7 @@ namespace TemaXP_DM71_Group1.DBLayer
                 s.Id = dbReader.GetInt32(0);
                 TimeSpan ts = (TimeSpan) dbReader.GetProviderSpecificValue(1);
                 s.MovieStartTime = ts.ToString();
-                s.ShowDate = dbReader.GetDateTime(2).ToString();
+                s.ShowDate = dbReader.GetDateTime(2).ToShortDateString();
                 //get movie
 //                IFDBMovie dbMovie = new DBMovie();
 //                s.Movie = dbMovie.FindMovieById(dbReader.GetInt32(3));
