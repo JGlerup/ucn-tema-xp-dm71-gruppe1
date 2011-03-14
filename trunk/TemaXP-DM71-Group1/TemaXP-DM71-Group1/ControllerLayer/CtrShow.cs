@@ -47,6 +47,13 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             return dbShow.FindShowById(id);
         }
 
+
+        public Show FindShowByMovieId(int id)
+        {
+            IFDBShow dbShow = new DBShow();
+            return dbShow.FindShowByMovieId(id);
+        }
+
         public IList<Show> GetAllShowsOneWeekAhead()
         {
             //DBShow dbShow = new DBShow();   

@@ -16,6 +16,8 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         Show FindShowById(int id);
 
+        Show FindShowByMovieId(int id);
+
         //IList<Show> SortShowByDate();
 
         IList<Show> FindAllShows();
