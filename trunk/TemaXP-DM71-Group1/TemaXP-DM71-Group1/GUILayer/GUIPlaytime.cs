@@ -18,17 +18,25 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             InitializeComponent();
             BindListBox();
+            //listView1.Dock = DockStyle.Fill;
+            listView1.View = View.Details;
+            listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            // Create and initialize column headers for myListView.
+            ColumnHeader columnHeader0 = new ColumnHeader();
+            columnHeader0.Text = "Dato";
+            columnHeader0.Width = -1;
+            ColumnHeader columnHeader1 = new ColumnHeader();
+            columnHeader1.Text = "Spilletider";
+            columnHeader1.Width = -2;
+            // Add the column headers to myListView.
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader0, columnHeader1 });
+
         }
 
 
         private void BindListBox()
         {
             listBox1.Items.Clear();
-            //string connString = "Data Source=balder.ucn.dk;initial catalog=DM71_2;User Id=DM71_2; Password=MaaGodt;";
-            //string query = "SELECT Title FROM Movie";
-            //SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connString);
-            //DataTable source = new DataTable();
-            //dataAdapter.Fill(source);
             CtrMovie ctrMovie = new CtrMovie();
             IList<Movie> movieList = ctrMovie.FindAllMovies();
             listBox1.DataSource = movieList;
@@ -40,19 +48,29 @@ namespace TemaXP_DM71_Group1.GUILayer
         private void BindListView()
         {
             listView1.Items.Clear();
-            string title = listBox1.SelectedItem.ToString();
-            string connString = "Data Source=balder.ucn.dk;initial catalog=DM71_2;User Id=DM71_2; Password=MaaGodt;";
-            Movie m = (Movie) listBox1.SelectedItem;
-            int movieId = m.Id;
-            //string query = "SELECT moviestarttime FROM Show WHERE movieid =" + movieId;
+            Movie m = (Movie)listBox1.SelectedItem;
+            //int movieId = m.Id;
             CtrShow ctrShow = new CtrShow();
             Show s = ctrShow.FindShowByMovieId(m.Id);
-            listView1.Items.Add(s.MovieStartTime);
+            //            listView1.Items.Add(s.MovieStartTime);
+            //            listView1.Columns.Add(s.ShowDate);
+            ListViewItem item0 = new ListViewItem(new string[] 
+            {s.ShowDate, 
+            s.MovieStartTime});
+            listView1.Items.AddRange(new ListViewItem[] { item0 });
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             BindListView();
+        }
+
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (listView1.Visible == false)
+            {
+                listView1.Visible = true;
+            }
         }
     }
 }
