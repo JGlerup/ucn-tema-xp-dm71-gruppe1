@@ -59,7 +59,7 @@ namespace TestCinemas
 
             try
             {
-                result = dbm.FindMovieByTitle(title);
+                result = dbm.FindMovieByTitle(title, false);
             }
             catch (Exception e)
             {
@@ -77,18 +77,51 @@ namespace TestCinemas
             Assert.AreEqual(dir, result.Director);
             Assert.AreEqual(actors, result.Actors);
             Assert.AreEqual(moDis, result.MovieDescription);
-       }
+
+            MyTestCleanup(title);
+            
+        }
 
         [TestMethod]
         public void TestFindMovie()
         {
             dbm = new DBMovie();
-            String title = "Die Hard";
-            String actors = "Erik G";
-            Movie result = new Movie();
+
+            String releaseDate = "1809-09-09";
+            String title = "TestFind";
+            String distributor = "xx";
+            String arr = "1809-09-09";
+            String ret = "1809-09-09";
+            String dur = "01:01:01";
+            String dir = "xx";
+            String actors = "Krbyr";
+            String moDis = "xx";
+
+            Movie nm = new Movie();
+            nm.ReleaseDate = releaseDate;
+            nm.Title = title;
+            nm.Distributor = distributor;
+            nm.ArrivalDate = arr;
+            nm.ReturnDate = ret;
+            nm.Duration = dur;
+            nm.Director = dir;
+            nm.Actors = actors;
+            nm.MovieDescription = moDis;
+
             try
             {
-                result = dbm.FindMovieByTitle(title);
+                dbm.InsertMovie(nm);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            Movie result = new Movie();
+
+            try
+            {
+                result = dbm.FindMovieByTitle(title, false);
             }
             catch(Exception e)
             {
@@ -147,7 +180,7 @@ namespace TestCinemas
 
             try
             {
-                result = dbm.FindMovieByTitle(title);
+                result = dbm.FindMovieByTitle(title, false);
             }
             catch (Exception e)
             {
@@ -196,7 +229,7 @@ namespace TestCinemas
 
             try
             {
-                mID = dbm.FindMovieByTitle(title);
+                mID = dbm.FindMovieByTitle(title, false);
             }
             catch (Exception e)
             {
@@ -216,7 +249,7 @@ namespace TestCinemas
 
             try
             {
-                result = dbm.FindMovieByTitle(newTitle);
+                result = dbm.FindMovieByTitle(newTitle, false);
             }
             catch (Exception e)
             {
@@ -236,8 +269,92 @@ namespace TestCinemas
             Assert.AreEqual(actors, result.Actors);
             Assert.AreEqual(moDis, result.MovieDescription);
 
+            MyTestCleanup(newTitle);
+
         }
 
+        [TestMethod]
+        public void TestFindList()
+        {
+            IList<Movie> movies = new List<Movie>();
+            dbm = new DBMovie();
+            try
+            {
+                movies = dbm.FindAllMovies(false);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+            int currentNumbersOfMovies = movies.Count;
+
+            string releaseDate = "1809-09-09";
+            String title = "TestFindList";
+            String distributor = "xx";
+            String arr = "1809-09-09";
+            String ret = "1809-09-09";
+            String dur = "01:01:01";
+            String dir = "xx";
+            String actors = "Krbyr";
+            String moDis = "xx";
+
+            Movie nm = new Movie();
+            nm.ReleaseDate = releaseDate;
+            nm.Title = title;
+            nm.Distributor = distributor;
+            nm.ArrivalDate = arr;
+            nm.ReturnDate = ret;
+            nm.Duration = dur;
+            nm.Director = dir;
+            nm.Actors = actors;
+            nm.MovieDescription = moDis;
+
+            try
+            {
+                dbm.InsertMovie(nm);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                movies = dbm.FindAllMovies(false);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            Assert.AreEqual(currentNumbersOfMovies + 1, movies.Count);
+
+            MyTestCleanup(title);
+        }
+
+
+        private void MyTestCleanup(string t)
+        {
+            Movie m = new Movie();
+            try
+            {
+                m = dbm.FindMovieByTitle(t, false);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                dbm.DeleteMovie(m);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+        }
 
 
     }

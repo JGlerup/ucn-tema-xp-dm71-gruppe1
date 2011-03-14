@@ -67,11 +67,11 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public void DeleteShow(int id)
+        public void DeleteShow(Show s)
         {
             conn.Open();
             String sql = "DELETE FROM show "
-                + " WHERE id = " + id;
+                + " WHERE id = " + s.Id;
             Console.WriteLine("Delete query:" + sql);
             try
             { // delete show
@@ -110,40 +110,40 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public Show FindShowById(int id)
+        public Show FindShowByMovieIdAndShowDate(Movie m, string date)
         {
             conn.Open();
-            Show m = new Show();
-            String sql = "SELECT * FROM show WHERE id = '" + id + "'";
+            Show s = new Show();
+            String sql = "SELECT * FROM show WHERE MovieId = '" + m.Id + "' AND ShowDate = '" + date + "'";
 
             command = CreateCommand(sql);
             dbReader = command.ExecuteReader();
 
             while (dbReader.Read())
             {
-                m = CreateSingle(dbReader);
+                s = CreateSingle(dbReader);
             }
 
             conn.Close();
-            return m;
+            return s;
         }
 
-        public Show FindShowByMovieId(int id)
+        public Show FindShowByMovieId(Movie m)
         {
             conn.Open();
-            Show m = new Show();
-            String sql = "SELECT * FROM show WHERE movieid = '" + id + "'";
+            Show s = new Show();
+            String sql = "SELECT * FROM show WHERE movieid = '" + m.Id + "'";
 
             command = CreateCommand(sql);
             dbReader = command.ExecuteReader();
 
             while (dbReader.Read())
             {
-                m = CreateSingle(dbReader);
+                s = CreateSingle(dbReader);
             }
 
             conn.Close();
-            return m;
+            return s;
         }
 
         public IList<Show> FindAllShows()
@@ -182,8 +182,8 @@ namespace TemaXP_DM71_Group1.DBLayer
                 s.MovieStartTime = ts.ToString();
                 s.ShowDate = dbReader.GetDateTime(2).ToString();
                 //get movie
-                IFDBMovie dbMovie = new DBMovie();
-                s.Movie = dbMovie.FindMovieById(dbReader.GetInt32(3));
+//                IFDBMovie dbMovie = new DBMovie();
+//                s.Movie = dbMovie.FindMovieById(dbReader.GetInt32(3));
                 //end "get movie"
             }
             catch (Exception e)
@@ -200,6 +200,27 @@ namespace TemaXP_DM71_Group1.DBLayer
             command.Connection = conn;
 
             return command;
+        }
+
+
+        public Show FindShowByMovieIdAndShowDate(Movie m, string date, bool retrieveAssociation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Show FindShowByMovieId(Movie m, bool retrieveAssociation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Show> FindAllShows(bool retrieveAssociation)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Show> GetAllShowsOneWeekAhead(bool retrieveAssociation)
+        {
+            throw new NotImplementedException();
         }
     }
 }

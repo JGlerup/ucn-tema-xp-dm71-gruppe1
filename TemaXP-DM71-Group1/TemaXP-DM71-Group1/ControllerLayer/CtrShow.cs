@@ -18,40 +18,39 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             dbShow.InsertShow(sObj);
         }
 
-        public void DeleteShow(int id)
+        public void DeleteShow(Show s)
         {
             IFDBShow dbShow = new DBShow();
-            dbShow.DeleteShow(id);
+            dbShow.DeleteShow(s);
         }
 
-        public void UpdateShow(int id, string movieStartTime, string showDate, Movie movie)
+        public void UpdateShow(Show s, string movieStartTime, string showDate, Movie movie)
         {
             IFDBShow dbShow = new DBShow();
-            Show sObj = FindShowById(id);
-            sObj.MovieStartTime = movieStartTime;
-            sObj.ShowDate = showDate;
-            sObj.Movie = movie;
-            dbShow.UpdateShow(sObj);
+            s.MovieStartTime = movieStartTime;
+            s.ShowDate = showDate;
+            s.Movie = movie;
+           dbShow.UpdateShow(s);
         }
 
         public IList<Show> FindAllShows()
         {
             IFDBShow dbShow = new DBShow();
-            IList<Show> showList = dbShow.FindAllShows();
+            IList<Show> showList = dbShow.FindAllShows(false);
             return showList;
         }
 
-        public Show FindShowById(int id)
+        public Show FindShowById(Movie m)
         {
             IFDBShow dbShow = new DBShow();
-            return dbShow.FindShowById(id);
+            return dbShow.FindShowByMovieId(m, false);
         }
 
 
-        public Show FindShowByMovieId(int id)
+        public Show FindShowByMovieId(Movie m, string date)
         {
             IFDBShow dbShow = new DBShow();
-            return dbShow.FindShowByMovieId(id);
+            return dbShow.FindShowByMovieIdAndShowDate(m, date, false);
         }
 
         public IList<Show> GetAllShowsOneWeekAhead()

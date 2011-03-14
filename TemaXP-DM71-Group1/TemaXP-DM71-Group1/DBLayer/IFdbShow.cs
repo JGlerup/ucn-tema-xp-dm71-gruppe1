@@ -10,19 +10,19 @@ namespace TemaXP_DM71_Group1.DBLayer
     {
         void InsertShow(Show s);
 
-        void DeleteShow(int id);
+        void DeleteShow(Show s);
 
         void UpdateShow(Show s);
 
-        Show FindShowById(int id);
+        Show FindShowByMovieIdAndShowDate(Movie m, string date, bool retrieveAssociation);
 
-        Show FindShowByMovieId(int id);
+        Show FindShowByMovieId(Movie m, bool retrieveAssociation);
 
         //IList<Show> SortShowByDate();
 
-        IList<Show> FindAllShows();
+        IList<Show> FindAllShows(bool retrieveAssociation);
 
-        IList<Show> GetAllShowsOneWeekAhead();
+        IList<Show> GetAllShowsOneWeekAhead(bool retrieveAssociation);
     }
 
 }
