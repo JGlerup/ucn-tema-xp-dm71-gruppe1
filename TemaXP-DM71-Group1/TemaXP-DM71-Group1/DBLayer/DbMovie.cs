@@ -63,11 +63,11 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public void DeleteMovie(String title)
+        public void DeleteMovie(Movie m)
         {
             conn.Open();
             String sql = "DELETE FROM movie "
-                + " WHERE title = " + title;
+                         + " WHERE title = " + m.Title;
             Console.WriteLine("Delete query:" + sql);
             try 
             { // delete movie
@@ -192,6 +192,36 @@ namespace TemaXP_DM71_Group1.DBLayer
                 Console.WriteLine("building movie object" + e);
             }
             return mm;
+        }
+
+        private IList<Movie> CreateList(DbDataReader dbReader, String sql)
+        {
+
+          IList<Movie> list = new List<Movie>();
+//            conn.Open();
+//            dbReader.GetEnumerator();
+//            Console.WriteLine("DbMovie " + sql);
+//            try
+//            { // read from movie
+//                
+//
+//               
+//                while (dbReader.NextResult())
+//                {
+//                    Car cObj = new Car();
+//                    cObj = buildCar(results);
+//                    list.add(cObj);
+//                }//end while
+//            
+//            }//end try
+//            catch (Exception e)
+//            {
+//                Console.WriteLine("Query exception - select movie : " + e.Message);
+//                
+//                
+//            }//end catch
+//            conn.Close();
+          return list;
         }
 
         private DbCommand CreateCommand(String sql)

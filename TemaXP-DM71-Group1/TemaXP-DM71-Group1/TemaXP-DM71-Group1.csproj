@@ -11,8 +11,7 @@
     <RootNamespace>TemaXP_DM71_Group1</RootNamespace>
     <AssemblyName>TemaXP-DM71-Group1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -36,12 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IMDb">
-      <HintPath>..\..\..\..\..\Downloads\IMDb.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\My Dropbox\3. semester\XP gruppe 1\IMDb.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,23 +47,33 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.OpenAccess, Version=2010.3.1110.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342, processorArchitecture=MSIL" />
-    <Reference Include="Telerik.OpenAccess.35.Extensions, Version=2010.3.1110.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllerLayer\CtrCinema.cs" />
-    <Compile Include="ControllerLayer\CtrMovie.cs" />
-    <Compile Include="ControllerLayer\CtrShow.cs" />
+    <Compile Include="ControllerLayer\CtrCinema.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControllerLayer\CtrMovie.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ControllerLayer\CtrShow.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ControllerLayer\Shows.cs" />
-    <Compile Include="DBLayer\DBMovie.cs" />
+    <Compile Include="DBLayer\DbMovie.cs" />
     <Compile Include="DBLayer\DBShow.cs" />
-    <Compile Include="DBLayer\IFDBMovie.cs" />
-    <Compile Include="DBLayer\IFDBShow.cs" />
+    <Compile Include="DBLayer\IFdbMovie.cs" />
+    <Compile Include="DBLayer\IFdbShow.cs" />
     <Compile Include="GUILayer\Cinema.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Cinema.Designer.cs">
       <DependentUpon>Cinema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\GUIMovie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUILayer\GUIMovie.Designer.cs">
+      <DependentUpon>GUIMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\GUIShow.cs">
       <SubType>UserControl</SubType>
@@ -80,14 +87,8 @@
     <Compile Include="GUILayer\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\GUIMovie.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUILayer\GUIMovie.Designer.cs">
-      <DependentUpon>GUIMovie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IMDb.cs" />
     <Compile Include="ModelLayer\Cinema.cs" />
+    <Compile Include="ModelLayer\Cinemas.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
     <Compile Include="ModelLayer\Show.cs" />
     <Compile Include="Program.cs" />
@@ -95,14 +96,14 @@
     <EmbeddedResource Include="GUILayer\Cinema.resx">
       <DependentUpon>Cinema.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\GUIMovie.resx">
+      <DependentUpon>GUIMovie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\GUIShow.resx">
       <DependentUpon>GUIShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\GUIMovie.resx">
-      <DependentUpon>GUIMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,9 +113,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
+    <None Include="ControllerLayer\.svn\all-wcprops" />
+    <None Include="ControllerLayer\.svn\entries" />
+    <None Include="ControllerLayer\.svn\text-base\CtrCinema.cs.svn-base" />
+    <None Include="ControllerLayer\.svn\text-base\CtrMovie.cs.svn-base" />
+    <None Include="ControllerLayer\.svn\text-base\CtrShow.cs.svn-base" />
+    <None Include="ControllerLayer\.svn\text-base\Shows.cs.svn-base" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -125,7 +130,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ControllerLayer\.svn\prop-base\" />
+    <Folder Include="ControllerLayer\.svn\props\" />
+    <Folder Include="ControllerLayer\.svn\tmp\prop-base\" />
+    <Folder Include="ControllerLayer\.svn\tmp\props\" />
+    <Folder Include="ControllerLayer\.svn\tmp\text-base\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -134,5 +145,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <Import Condition="Exists('$(MSBuildExtensionsPath)\OpenAccess.targets')" Project="$(MSBuildExtensionsPath)\OpenAccess.targets" />
 </Project>

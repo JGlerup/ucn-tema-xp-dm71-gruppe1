@@ -57,10 +57,10 @@ namespace TemaXP_DM71_Group1.ControllerLayer
 
         }
 
-        public void DeleteMovie(string title)
+        public void DeleteMovie(Movie m)
         {
             IFDBMovie DBMovie = new DBMovie();
-            DBMovie.DeleteMovie(title);
+            DBMovie.DeleteMovie(m);
 
         }
 
