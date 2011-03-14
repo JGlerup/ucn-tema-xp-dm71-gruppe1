@@ -47,10 +47,16 @@ namespace TemaXP_DM71_Group1.ControllerLayer
         }
 
 
-        public Show FindShowByMovieId(Movie m, string date)
+        public Show FindShowByMovieIdAndShowDate(Movie m, string date)
         {
             IFDBShow dbShow = new DBShow();
             return dbShow.FindShowByMovieIdAndShowDate(m, date, false);
+        }
+
+        public Show FindShowByMovieId(Movie m)
+        {
+            IFDBShow dbShow = new DBShow();
+            return dbShow.FindShowByMovieId(m, false);
         }
 
         public IList<Show> GetAllShowsOneWeekAhead()

@@ -76,7 +76,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             Show s = (Show) cmbShow.SelectedItem;
             try
             {
-                ctrShow.DeleteShow(s.Id);
+                ctrShow.DeleteShow(s);
                 MessageBox.Show("Forestillingen er slettet", "Operationen lykkedes");
             }
             catch (Exception ex)

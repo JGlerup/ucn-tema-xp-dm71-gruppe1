@@ -51,7 +51,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             Movie m = (Movie)listBox1.SelectedItem;
             //int movieId = m.Id;
             CtrShow ctrShow = new CtrShow();
-            Show s = ctrShow.FindShowByMovieId(m.Id);
+            Show s = ctrShow.FindShowByMovieId(m);
             //            listView1.Items.Add(s.MovieStartTime);
             //            listView1.Columns.Add(s.ShowDate);
             ListViewItem item0 = new ListViewItem(new string[] 
