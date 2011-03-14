@@ -128,6 +128,24 @@ namespace TemaXP_DM71_Group1.DBLayer
             return m;
         }
 
+        public Show FindShowByMovieId(int id)
+        {
+            conn.Open();
+            Show m = new Show();
+            String sql = "SELECT * FROM show WHERE movieid = '" + id + "'";
+
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                m = CreateSingle(dbReader);
+            }
+
+            conn.Close();
+            return m;
+        }
+
         public IList<Show> FindAllShows()
         {
 

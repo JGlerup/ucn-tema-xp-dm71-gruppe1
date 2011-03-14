@@ -35,11 +35,11 @@
             this.ShowsTab = new System.Windows.Forms.TabPage();
             this.guiShow1 = new TemaXP_DM71_Group1.GUILayer.GUIShow();
             this.MovieTab = new System.Windows.Forms.TabPage();
+            this.movie1 = new TemaXP_DM71_Group1.GUILayer.GUIMovie();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.PlaytimeTab = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.guiPlaytime1 = new TemaXP_DM71_Group1.GUILayer.GUIPlaytime();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.movie1 = new TemaXP_DM71_Group1.GUILayer.GUIMovie();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ShowsTab.SuspendLayout();
@@ -71,7 +71,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(761, 431);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -91,10 +91,10 @@
             // ShowsTab
             // 
             this.ShowsTab.Controls.Add(this.guiShow1);
-            this.ShowsTab.Location = new System.Drawing.Point(141, 4);
+            this.ShowsTab.Location = new System.Drawing.Point(57, 4);
             this.ShowsTab.Name = "ShowsTab";
             this.ShowsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ShowsTab.Size = new System.Drawing.Size(616, 423);
+            this.ShowsTab.Size = new System.Drawing.Size(700, 423);
             this.ShowsTab.TabIndex = 1;
             this.ShowsTab.Text = "Forestillinger";
             this.ShowsTab.UseVisualStyleBackColor = true;
@@ -111,27 +111,34 @@
             // MovieTab
             // 
             this.MovieTab.Controls.Add(this.movie1);
-            this.MovieTab.Location = new System.Drawing.Point(141, 4);
+            this.MovieTab.Location = new System.Drawing.Point(85, 4);
             this.MovieTab.Name = "MovieTab";
             this.MovieTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MovieTab.Size = new System.Drawing.Size(616, 423);
+            this.MovieTab.Size = new System.Drawing.Size(672, 423);
             this.MovieTab.TabIndex = 2;
             this.MovieTab.Text = "Film";
             this.MovieTab.UseVisualStyleBackColor = true;
             // 
+            // movie1
+            // 
+            this.movie1.Location = new System.Drawing.Point(0, 0);
+            this.movie1.Name = "movie1";
+            this.movie1.Size = new System.Drawing.Size(616, 423);
+            this.movie1.TabIndex = 0;
+            // 
             // tabPage3
             // 
-            this.tabPage3.Location = new System.Drawing.Point(141, 4);
+            this.tabPage3.Location = new System.Drawing.Point(113, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(616, 423);
+            this.tabPage3.Size = new System.Drawing.Size(644, 423);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // PlaytimeTab
             // 
-            this.PlaytimeTab.Controls.Add(this.listBox1);
+            this.PlaytimeTab.Controls.Add(this.guiPlaytime1);
             this.PlaytimeTab.Location = new System.Drawing.Point(141, 4);
             this.PlaytimeTab.Name = "PlaytimeTab";
             this.PlaytimeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -140,18 +147,13 @@
             this.PlaytimeTab.Text = "Spilletider";
             this.PlaytimeTab.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // guiPlaytime1
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 11;
-            this.listBox1.Items.AddRange(new object[] {
-            "Tits"});
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(610, 417);
-            this.listBox1.TabIndex = 0;
+            this.guiPlaytime1.Location = new System.Drawing.Point(3, 3);
+            this.guiPlaytime1.Name = "guiPlaytime1";
+            this.guiPlaytime1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.guiPlaytime1.Size = new System.Drawing.Size(613, 420);
+            this.guiPlaytime1.TabIndex = 1;
             // 
             // panel2
             // 
@@ -160,13 +162,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(759, 100);
             this.panel2.TabIndex = 1;
-            // 
-            // movie1
-            // 
-            this.movie1.Location = new System.Drawing.Point(0, 0);
-            this.movie1.Name = "movie1";
-            this.movie1.Size = new System.Drawing.Size(616, 423);
-            this.movie1.TabIndex = 0;
             // 
             // Main
             // 
@@ -196,9 +191,9 @@
         private System.Windows.Forms.TabPage MovieTab;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage PlaytimeTab;
-        private System.Windows.Forms.ListBox listBox1;
         private GUILayer.GUIShow guiShow1;
         private GUILayer.GUIMovie movie1;
+        private GUILayer.GUIPlaytime guiPlaytime1;
     }
 }
 
