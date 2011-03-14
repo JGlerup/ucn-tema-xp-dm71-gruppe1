@@ -128,7 +128,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             return s;
         }
 
-        public Show FindShowByMovieId(Movie m)
+        public Show FindShowByMovieId(Movie m, bool retrieveAssociation)
         {
             conn.Open();
             Show s = new Show();
@@ -204,11 +204,6 @@ namespace TemaXP_DM71_Group1.DBLayer
 
 
         public Show FindShowByMovieIdAndShowDate(Movie m, string date, bool retrieveAssociation)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Show FindShowByMovieId(Movie m, bool retrieveAssociation)
         {
             throw new NotImplementedException();
         }

@@ -46,7 +46,10 @@ namespace TemaXP_DM71_Group1.GUILayer
             textBox1.Text = imdb.ReleaseDate;
             textBox2.Text = imdb.Title;
             //textBox3.Text = imdb.
-            textBox4.Text = Convert.ToString(DateTime.Now);
+            string year = DateTime.Now.Year.ToString();
+            string month = DateTime.Now.Month.ToString();
+            string date = DateTime.Now.Day.ToString();
+            textBox4.Text = year + "-" + month + "-" + date;
             textBox6.Text = imdb.Runtime;
             List<string> directors = (from string d in imdb.Directors select d.ToString()).ToList();
             List<string> casts = (from string c in imdb.Cast select c.ToString()).ToList();
