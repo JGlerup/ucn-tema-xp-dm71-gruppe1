@@ -10,6 +10,7 @@ using IMDb_Scraper;
 using TemaXP_DM71_Group1.ControllerLayer;
 using System.Data.Odbc;
 using System.Data.SqlClient;
+using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
@@ -21,7 +22,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             BindComboBox();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void clearTextBoxes()
         {
             textBox1.Text = "";
             textBox2.Text = "";
@@ -32,6 +33,11 @@ namespace TemaXP_DM71_Group1.GUILayer
             textBox7.Text = "";
             textBox8.Text = "";
             textBox9.Text = "";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            clearTextBoxes();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -59,12 +65,16 @@ namespace TemaXP_DM71_Group1.GUILayer
                 String distributor = textBox3.Text;
                 String arrivalDate = textBox4.Text;
                 String returnDate = textBox5.Text;
-                String duration = textBox6.Text;
+                int imdbDuration = Convert.ToInt32(textBox6.Text);
+                int min = imdbDuration % 60;
+                int hours = (imdbDuration - min) / 60;
+                string duration = "0" + hours + ":" + min + ":" + "00";
                 String director = textBox7.Text;
                 String actors = textBox8.Text;
                 String movieDescription = textBox9.Text;
                 ctrMovie.InsertMovie(date, title, distributor, arrivalDate, returnDate, duration, director, actors,
                                      movieDescription);
+                BindComboBox();
             }
             catch (Exception ex)
             {
@@ -73,27 +83,46 @@ namespace TemaXP_DM71_Group1.GUILayer
             }
         }
 
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            //Movie m = (Movie)comboBox1.SelectedItem;
+            //textBox1.Text = m.ReleaseDate;
+            //textBox2.Text = m.Title;
+            //textBox3.Text = m.Distributor;
+            //textBox4.Text = m.ArrivalDate;
+            //textBox5.Text = m.ReturnDate;
+            //textBox6.Text = m.Duration;
+            //textBox7.Text = m.Director;
+            //textBox8.Text = m.Actors;
+            //textBox9.Text = m.MovieDescription;
         }
 
         private void BindComboBox()
         {
-            string connString = "Data Source=balder.ucn.dk;initial catalog=DM71_2;User Id=DM71_2; Password=MaaGodt;";
-            string query = "SELECT Title FROM Movie";
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connString);
-            DataTable source = new DataTable();
-            dataAdapter.Fill(source);
-            comboBox1.DataSource = source;
-            comboBox1.DisplayMember = "Title";
-            comboBox1.ValueMember = "Title";
-            comboBox1.SelectedValue.ToString();
+            CtrMovie ctrMovie = new CtrMovie();
+            comboBox1.DataSource = ctrMovie.FindAllMovies();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             BindComboBox();
+        }
+
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Movie m = (Movie)comboBox1.SelectedItem;
+            clearTextBoxes();
+            textBox1.Text = m.ReleaseDate;
+            textBox2.Text = m.Title;
+            textBox3.Text = m.Distributor;
+            textBox4.Text = m.ArrivalDate;
+            textBox5.Text = m.ReturnDate;
+            textBox6.Text = m.Duration;
+            textBox7.Text = m.Director;
+            textBox8.Text = m.Actors;
+            textBox9.Text = m.MovieDescription;
         }
     }
 }
