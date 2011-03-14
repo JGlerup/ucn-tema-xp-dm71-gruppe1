@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using IMDb_Scraper;
 using TemaXP_DM71_Group1.ControllerLayer;
 using System.Data.Odbc;
 using System.Data.SqlClient;

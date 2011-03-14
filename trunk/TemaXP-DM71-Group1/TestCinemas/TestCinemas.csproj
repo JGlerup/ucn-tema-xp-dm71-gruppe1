@@ -49,6 +49,7 @@
     <Compile Include="TestCinemas.cs" />
     <Compile Include="TestCtrCinema.cs" />
     <Compile Include="TestCtrMovie.cs" />
+    <Compile Include="TestDbMovie.cs" />
     <Compile Include="TestShow.cs" />
   </ItemGroup>
   <ItemGroup>

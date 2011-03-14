@@ -10,7 +10,7 @@ namespace TemaXP_DM71_Group1.DBLayer
     {
         void InsertMovie(Movie m);
 
-        void DeleteMovie(String title);
+        void DeleteMovie(Movie m);
 
         void UpdateMovie(Movie m);
 

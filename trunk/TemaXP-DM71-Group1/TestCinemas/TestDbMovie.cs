@@ -12,7 +12,7 @@ namespace TestCinemas
     public class TestDbMovie
     {
 
-        private IFdbMovie dbm;
+        private IFDBMovie dbm;
 
         public TestDbMovie()
         {
@@ -24,7 +24,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestInsert()
         {
-            dbm = new DbMovie();
+            dbm = new DBMovie();
             
             String releaseDate = "1809-09-09";
             String title = "Sjov";
@@ -59,7 +59,7 @@ namespace TestCinemas
 
             try
             {
-                result = dbm.FindMovie(title);
+                result = dbm.FindMovieByTitle(title);
             }
             catch (Exception e)
             {
@@ -82,13 +82,13 @@ namespace TestCinemas
         [TestMethod]
         public void TestFindMovie()
         {
-            dbm = new DbMovie();
+            dbm = new DBMovie();
             String title = "Die Hard";
             String actors = "Erik G";
             Movie result = new Movie();
             try
             {
-                result = dbm.FindMovie(title);
+                result = dbm.FindMovieByTitle(title);
             }
             catch(Exception e)
             {
@@ -103,17 +103,17 @@ namespace TestCinemas
         [TestMethod]
         public void TestDeleteMovie()
         {
-            dbm = new DbMovie();
+            dbm = new DBMovie();
             
-            String releaseDate = "2009.09.09";
-            String title = "Test";
-            String distributor = "xx";
-            String arr = "2009.09.09";
-            String ret = "2009.09.09";
-            String dur = "01:01:01";
-            String dir = "xx";
-            String actors = "Krbyr";
-            String moDis = "xx";
+            string releaseDate = "2009.09.09";
+            string title = "Test";
+            string distributor = "xx";
+            string arr = "2009.09.09";
+            string ret = "2009.09.09";
+            string dur = "01:01:01";
+            string dir = "xx";
+            string actors = "Krbyr";
+            string moDis = "xx";
             Movie nm = new Movie();
             
             nm.ReleaseDate = releaseDate;
@@ -147,7 +147,7 @@ namespace TestCinemas
 
             try
             {
-                result = dbm.FindMovie(title);
+                result = dbm.FindMovieByTitle(title);
             }
             catch (Exception e)
             {
@@ -160,7 +160,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestUpdateMovie()
         {
-            dbm = new DbMovie();
+            dbm = new DBMovie();
             
             String releaseDate = "1909-09-09";
             String title = "Tester";
@@ -196,7 +196,7 @@ namespace TestCinemas
 
             try
             {
-                mID = dbm.FindMovie(title);
+                mID = dbm.FindMovieByTitle(title);
             }
             catch (Exception e)
             {
@@ -216,7 +216,7 @@ namespace TestCinemas
 
             try
             {
-                result = dbm.FindMovie(newTitle);
+                result = dbm.FindMovieByTitle(newTitle);
             }
             catch (Exception e)
             {
