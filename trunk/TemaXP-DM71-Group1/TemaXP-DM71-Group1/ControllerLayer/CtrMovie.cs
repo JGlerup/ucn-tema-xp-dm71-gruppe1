@@ -15,14 +15,14 @@ namespace TemaXP_DM71_Group1.ControllerLayer
         public Movie FindMovieByTitle(string title)
         {
             IFDBMovie DBMovie = new DBMovie();
-            return DBMovie.FindMovieByTitle(title);
+            return DBMovie.FindMovieByTitle(title, false);
         }
 
-        public Movie FindMovieById(int id)
-        {
-            IFDBMovie DBMovie = new DBMovie();
-            return DBMovie.FindMovieById(id); 
-        }
+//        public Movie FindMovieById(int id)
+//        {
+//            IFDBMovie DBMovie = new DBMovie();
+//            return DBMovie.FindMovieById(id); 
+//        }
 
         public void InsertMovie(string releaseDate, string title, string distributor, string arrivalDate, string returnDate, string duration, string director, string actors, string movieDescription)
         {
@@ -67,7 +67,7 @@ namespace TemaXP_DM71_Group1.ControllerLayer
         public IList<Movie> FindAllMovies()
         {
             IFDBMovie dbMovie = new DBMovie();
-            IList<Movie> movieList = dbMovie.FindAllMovies();
+            IList<Movie> movieList = dbMovie.FindAllMovies(false);
             return movieList;
         }
 

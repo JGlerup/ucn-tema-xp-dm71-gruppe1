@@ -14,10 +14,10 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         void UpdateMovie(Movie m);
 
-        Movie FindMovieByTitle(String title);
+        Movie FindMovieByTitle(String title, bool retrieveAssociation);
 
-        Movie FindMovieById(int id);
+//        Movie FindMovieById(int id, bool retrieveAssociation);
 
-        IList<Movie> FindAllMovies();
+        IList<Movie> FindAllMovies(bool retrieveAssociation);
     }
 }

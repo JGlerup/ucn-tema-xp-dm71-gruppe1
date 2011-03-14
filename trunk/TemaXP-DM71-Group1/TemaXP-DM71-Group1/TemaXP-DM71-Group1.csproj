@@ -75,6 +75,12 @@
     <Compile Include="GUILayer\GUIMovie.Designer.cs">
       <DependentUpon>GUIMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\GUIPlaytime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUILayer\GUIPlaytime.Designer.cs">
+      <DependentUpon>GUIPlaytime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\GUIShow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\GUIMovie.resx">
       <DependentUpon>GUIMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\GuiPlaytime.resx">
+      <DependentUpon>GUIPlaytime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\GUIShow.resx">
       <DependentUpon>GUIShow.cs</DependentUpon>

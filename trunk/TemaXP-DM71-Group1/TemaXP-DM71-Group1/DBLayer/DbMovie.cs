@@ -67,7 +67,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         {
             conn.Open();
             String sql = "DELETE FROM movie "
-                         + " WHERE title = " + m.Title;
+                         + " WHERE id = " + m.Id;
             Console.WriteLine("Delete query:" + sql);
             try 
             { // delete movie
@@ -113,7 +113,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public Movie FindMovieByTitle(string title)
+        public Movie FindMovieByTitle(string title, bool retrieveAssociation)
         {
             conn.Open();
             Movie m = new Movie();
@@ -124,53 +124,50 @@ namespace TemaXP_DM71_Group1.DBLayer
 
             while (dbReader.Read())
             {
-                m = CreateSingle(dbReader);
+                m = CreateSingle(dbReader, retrieveAssociation);
             }
 
             conn.Close();
             return m;
         }
 
-        public Movie FindMovieById(int id)
+//        public Movie FindMovieById(int id, bool retrieveAssociation)
+//        {
+//            conn.Open();
+//            Movie m = new Movie();
+//            String sql = "SELECT * FROM movie WHERE id = '" + id + "'";
+//
+//            command = CreateCommand(sql);
+//            dbReader = command.ExecuteReader();
+//
+//            while (dbReader.Read())
+//            {
+//                m = CreateSingle(dbReader, retrieveAssociation);
+//            }
+//
+//            conn.Close();
+//            return m;
+//        }
+
+        public IList<Movie> FindAllMovies(bool retrieveAssociation)
         {
             conn.Open();
-            Movie m = new Movie();
-            String sql = "SELECT * FROM movie WHERE id = '" + id + "'";
-
-            command = CreateCommand(sql);
-            dbReader = command.ExecuteReader();
-
-            while (dbReader.Read())
-            {
-                m = CreateSingle(dbReader);
-            }
-
-            conn.Close();
-            return m;
-        }
-
-        public IList<Movie> FindAllMovies()
-        {
-        
-            conn.Open();
-            List<Movie> movieList = new List<Movie>();
-            String sql = "SELECT * FROM Movie";
+            
+            IList<Movie> movieList = new List<Movie>();
+            string sql = "SELECT * FROM Movie";
             command = dbFactory.CreateCommand();
             command.CommandText = sql;
             command.Connection = conn;
 
-            DbDataReader dbReader = command.ExecuteReader();
+            dbReader = command.ExecuteReader();
 
-            while (dbReader.Read())
-            {
-                movieList.Add(CreateSingle(dbReader));
-            }
+            movieList = CreateList(dbReader, sql, retrieveAssociation);
 
             conn.Close();
             return movieList;
         }
 
-        private Movie CreateSingle(DbDataReader dbReader)
+        private Movie CreateSingle(DbDataReader dbReader, bool retrieveAssociation)
         {
             Movie mm = new Movie();
             try
@@ -186,6 +183,11 @@ namespace TemaXP_DM71_Group1.DBLayer
                 mm.Director = dbReader.GetString(7);
                 mm.Actors = dbReader.GetString(8);
                 mm.MovieDescription = dbReader.GetString(9);
+
+                if(retrieveAssociation)
+                {
+
+                }
             }
             catch (Exception e)
             {
@@ -194,33 +196,29 @@ namespace TemaXP_DM71_Group1.DBLayer
             return mm;
         }
 
-        private IList<Movie> CreateList(DbDataReader dbReader, String sql)
+        private IList<Movie> CreateList(DbDataReader dbReader, string sql, bool retrieveAssociation)
         {
 
           IList<Movie> list = new List<Movie>();
-//            conn.Open();
-//            dbReader.GetEnumerator();
-//            Console.WriteLine("DbMovie " + sql);
-//            try
-//            { // read from movie
-//                
-//
-//               
-//                while (dbReader.NextResult())
-//                {
-//                    Car cObj = new Car();
-//                    cObj = buildCar(results);
-//                    list.add(cObj);
-//                }//end while
-//            
-//            }//end try
-//            catch (Exception e)
-//            {
-//                Console.WriteLine("Query exception - select movie : " + e.Message);
-//                
-//                
-//            }//end catch
-//            conn.Close();
+
+
+            Console.WriteLine("DbMovie List" + sql);
+            try
+            { // read from movie
+                
+               
+                while (dbReader.Read())
+                {
+                    list.Add(CreateSingle(dbReader, retrieveAssociation));
+                }//end while
+            
+            }//end try
+            catch (Exception e)
+            {
+                Console.WriteLine("Query exception - select movie : " + e.Message);
+                
+            }//end catch
+            
           return list;
         }
 
@@ -231,6 +229,22 @@ namespace TemaXP_DM71_Group1.DBLayer
             command.Connection = conn;
 
             return command;
+        }
+
+
+        public Movie FindMovieByTitle(string title)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Movie FindMovieById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Movie> FindAllMovies()
+        {
+            throw new NotImplementedException();
         }
     }
 }
