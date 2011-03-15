@@ -27,7 +27,7 @@ namespace TemaXP_DM71_Group1.ModelLayer
         }
 
 
-        public string CinemaName1
+        public string CinemaName
         {
             get { return CinemaName; }
             set { CinemaName = value; }
@@ -39,7 +39,7 @@ namespace TemaXP_DM71_Group1.ModelLayer
             set { ID = value; }
         }
 
-        public int NoOfSeats1
+        public int NoOfSeats
         {
             get { return noOfSeats; }
             set { noOfSeats = value; }
