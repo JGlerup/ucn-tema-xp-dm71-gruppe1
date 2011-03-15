@@ -93,7 +93,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             String sql = "UPDATE Show SET "
                     + "MovieStartTime = '" + s.MovieStartTime + "', "
                     + "ShowDate = '" + s.ShowDate + "', "
-                    + "MovieID = '" + s.Id + "', "
+                    + "MovieID = " + s.Movie.Id + " "
                     + "WHERE Id = " + s.Id;
             Console.WriteLine("Update query:" + sql);
             try
@@ -110,23 +110,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-        public Show FindShowByMovieIdAndShowDate(Movie m, string date)
-        {
-            conn.Open();
-            Show s = new Show();
-            String sql = "SELECT * FROM show WHERE MovieId = '" + m.Id + "' AND ShowDate = '" + date + "'";
-
-            command = CreateCommand(sql);
-            dbReader = command.ExecuteReader();
-
-            while (dbReader.Read())
-            {
-                s = CreateSingle(dbReader);
-            }
-
-            conn.Close();
-            return s;
-        }
+    
 
         public Show FindShowByMovieId(Movie m, bool retrieveAssociation)
         {
@@ -139,40 +123,14 @@ namespace TemaXP_DM71_Group1.DBLayer
 
             while (dbReader.Read())
             {
-                s = CreateSingle(dbReader);
+                s = CreateSingle(dbReader, retrieveAssociation);
             }
 
             conn.Close();
             return s;
         }
 
-        public IList<Show> FindAllShows()
-        {
-
-            conn.Open();
-            List<Show> showList = new List<Show>();
-            String sql = "SELECT * FROM show";
-            command = dbFactory.CreateCommand();
-            command.CommandText = sql;
-            command.Connection = conn;
-
-            DbDataReader dbReader = command.ExecuteReader();
-
-            while (dbReader.Read())
-            {
-                showList.Add(CreateSingle(dbReader));
-            }
-
-            conn.Close();
-            return showList;
-        }
-
-        public IList<Show> GetAllShowsOneWeekAhead()
-        {
-            throw new NotImplementedException();
-        }
-
-        private Show CreateSingle(DbDataReader dbReader)
+        private Show CreateSingle(DbDataReader dbReader, bool retriveAssociation)
         {
             Show s = new Show();
             try
@@ -181,10 +139,14 @@ namespace TemaXP_DM71_Group1.DBLayer
                 TimeSpan ts = (TimeSpan) dbReader.GetProviderSpecificValue(1);
                 s.MovieStartTime = ts.ToString();
                 s.ShowDate = dbReader.GetDateTime(2).ToShortDateString();
-                //get movie
-//                IFDBMovie dbMovie = new DBMovie();
-//                s.Movie = dbMovie.FindMovieById(dbReader.GetInt32(3));
-                //end "get movie"
+                Movie m = new Movie();
+                m.Id = dbReader.GetInt32(3);
+                if (retriveAssociation)
+                {
+                    IFDBMovie dbMovie = new DBMovie();
+                    s.Movie = dbMovie.FindMovieById(m, false);
+                }
+                s.Movie = m;
             }
             catch (Exception e)
             {
@@ -205,15 +167,47 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         public Show FindShowByMovieIdAndShowDate(Movie m, string date, bool retrieveAssociation)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            Show s = new Show();
+            String sql = "SELECT * FROM show WHERE MovieId = '" + m.Id + "' AND ShowDate = '" + date + "'";
+
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                s = CreateSingle(dbReader, retrieveAssociation);
+            }
+
+            conn.Close();
+            return s;
         }
 
         public IList<Show> FindAllShows(bool retrieveAssociation)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            IList<Show> showList = new List<Show>();
+            string sql = "SELECT * FROM show";
+            command = CreateCommand(sql);
+
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                showList.Add(CreateSingle(dbReader, retrieveAssociation));
+            }
+
+            conn.Close();
+            return showList;
         }
 
         public IList<Show> GetAllShowsOneWeekAhead(bool retrieveAssociation)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Show FindShowByCinemaID(Cinema c, bool retrieveAssociation)
         {
             throw new NotImplementedException();
         }

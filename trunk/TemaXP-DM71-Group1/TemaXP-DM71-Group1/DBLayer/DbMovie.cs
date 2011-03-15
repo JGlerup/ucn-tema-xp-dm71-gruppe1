@@ -131,23 +131,23 @@ namespace TemaXP_DM71_Group1.DBLayer
             return m;
         }
 
-//        public Movie FindMovieById(int id, bool retrieveAssociation)
-//        {
-//            conn.Open();
-//            Movie m = new Movie();
-//            String sql = "SELECT * FROM movie WHERE id = '" + id + "'";
-//
-//            command = CreateCommand(sql);
-//            dbReader = command.ExecuteReader();
-//
-//            while (dbReader.Read())
-//            {
-//                m = CreateSingle(dbReader, retrieveAssociation);
-//            }
-//
-//            conn.Close();
-//            return m;
-//        }
+        public Movie FindMovieById(Movie m, bool retrieveAssociation)
+        {
+            conn.Open();
+            Movie nm = new Movie();
+            String sql = "SELECT * FROM movie WHERE id = '" + m.Id + "'";
+
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                nm = CreateSingle(dbReader, retrieveAssociation);
+            }
+
+            conn.Close();
+            return nm;
+        }
 
         public IList<Movie> FindAllMovies(bool retrieveAssociation)
         {

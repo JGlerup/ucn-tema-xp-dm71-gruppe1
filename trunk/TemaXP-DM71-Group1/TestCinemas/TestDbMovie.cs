@@ -131,6 +131,8 @@ namespace TestCinemas
             Assert.AreEqual(title, result.Title);
             Assert.AreEqual(actors, result.Actors);
 
+            MyTestCleanup(title);
+
         }
 
         [TestMethod]
@@ -138,11 +140,11 @@ namespace TestCinemas
         {
             dbm = new DBMovie();
             
-            string releaseDate = "2009.09.09";
+            string releaseDate = "2009.09.19";
             string title = "Test";
             string distributor = "xx";
-            string arr = "2009.09.09";
-            string ret = "2009.09.09";
+            string arr = "2009.09.19";
+            string ret = "2009.09.19";
             string dur = "01:01:01";
             string dir = "xx";
             string actors = "Krbyr";
@@ -171,6 +173,15 @@ namespace TestCinemas
 
             try
             {
+                nm = dbm.FindMovieByTitle(title, false);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("virkede ikke" + e.Message);
+            }
+
+            try
+            {
                 dbm.DeleteMovie(nm);
             }
             catch (Exception e)
@@ -187,6 +198,9 @@ namespace TestCinemas
 
                 Assert.Fail(e.Message);
             }
+
+            Assert.AreEqual(0, result.Id);
+            Assert.AreEqual(null, result.MovieDescription);
 
          }
 

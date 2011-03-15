@@ -59,8 +59,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ControllerLayer\Shows.cs" />
+    <Compile Include="DBLayer\DBCinema.cs" />
     <Compile Include="DBLayer\DbMovie.cs" />
     <Compile Include="DBLayer\DBShow.cs" />
+    <Compile Include="DBLayer\IFdbCinema.cs" />
     <Compile Include="DBLayer\IFdbMovie.cs" />
     <Compile Include="DBLayer\IFdbShow.cs" />
     <Compile Include="GUILayer\Cinema.cs">
