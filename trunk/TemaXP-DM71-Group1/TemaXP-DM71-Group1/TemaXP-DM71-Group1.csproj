@@ -65,12 +65,6 @@
     <Compile Include="DBLayer\IFdbCinema.cs" />
     <Compile Include="DBLayer\IFdbMovie.cs" />
     <Compile Include="DBLayer\IFdbShow.cs" />
-    <Compile Include="GUILayer\Cinema.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\Cinema.Designer.cs">
-      <DependentUpon>Cinema.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUILayer\GUIMovie.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,15 +89,13 @@
     <Compile Include="GUILayer\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMDb.cs" />
     <Compile Include="ModelLayer\Cinema.cs" />
-    <Compile Include="ModelLayer\Cinemas.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
+    <Compile Include="ModelLayer\Row.cs" />
     <Compile Include="ModelLayer\Show.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUILayer\Cinema.resx">
-      <DependentUpon>Cinema.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\GUIMovie.resx">
       <DependentUpon>GUIMovie.cs</DependentUpon>
     </EmbeddedResource>
