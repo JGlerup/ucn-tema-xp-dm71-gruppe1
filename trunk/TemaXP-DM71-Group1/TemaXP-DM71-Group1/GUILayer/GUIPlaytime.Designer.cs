@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("cocks");
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
@@ -45,8 +44,6 @@
             // 
             // listView1
             // 
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.listView1.Location = new System.Drawing.Point(186, 7);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(329, 124);
