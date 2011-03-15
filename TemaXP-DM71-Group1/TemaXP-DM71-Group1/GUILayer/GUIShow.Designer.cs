@@ -55,6 +55,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(142, 242);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -64,6 +65,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(353, 73);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
@@ -119,6 +121,7 @@
             // 
             // cmbShow
             // 
+            this.cmbShow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShow.FormattingEnabled = true;
             this.cmbShow.Location = new System.Drawing.Point(142, 46);
             this.cmbShow.Name = "cmbShow";
@@ -128,6 +131,7 @@
             // 
             // cmbCinema
             // 
+            this.cmbCinema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCinema.FormattingEnabled = true;
             this.cmbCinema.Items.AddRange(new object[] {
             "Sal 1",
@@ -139,6 +143,7 @@
             // 
             // cmbMovieStartTime
             // 
+            this.cmbMovieStartTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMovieStartTime.FormattingEnabled = true;
             this.cmbMovieStartTime.Location = new System.Drawing.Point(142, 156);
             this.cmbMovieStartTime.Name = "cmbMovieStartTime";
@@ -147,6 +152,7 @@
             // 
             // cmbMovie
             // 
+            this.cmbMovie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMovie.FormattingEnabled = true;
             this.cmbMovie.Location = new System.Drawing.Point(142, 183);
             this.cmbMovie.Name = "cmbMovie";
