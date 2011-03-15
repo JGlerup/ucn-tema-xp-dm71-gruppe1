@@ -7,7 +7,7 @@ using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.DBLayer
 {
-    class DBCinema : IFdbCinema
+    public class DBCinema : IFdbCinema
     {
         private DbCommand command;
         private DbConnection conn;
@@ -34,32 +34,142 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         public void InsertCinema(Cinema c)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            String sql = "INSERT INTO Cinema (CinemaName, NoOfSeats, NoOfRows)  VALUES('"
+               + c.CinemaName + "', "
+               + c.NoOfSeats + ", "
+               + c.NoOfRows + ")";
+
+            Console.WriteLine("insert : " + sql);
+            try
+            { // insert new cinema
+                command = CreateCommand(sql);
+
+                dbReader = command.ExecuteReader();
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Insert exception in cinema db: " + ex);
+                throw;
+            }//end catch
+            conn.Close();
+        }
+
+        public Cinema FindCinemaByCinemaName(string cinemaName, bool retrieveAssociation)
+        {
+            conn.Open();
+            Cinema c = new Cinema();
+            String sql = "SELECT * FROM Cinema WHERE cinemaName = '" + cinemaName + "'";
+
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                c = CreateSingle(dbReader, retrieveAssociation);
+            }
+
+            conn.Close();
+            return c;
+        }
+
+        public Cinema FindCinemaByNoOfSeats(int noOfSeats, bool retrieveAssociation)
+        {
+            conn.Open();
+            Cinema c = new Cinema();
+            String sql = "SELECT * FROM Cinema WHERE NoOfSeats = " + noOfSeats;
+
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                c = CreateSingle(dbReader, retrieveAssociation);
+            }
+
+            conn.Close();
+            return c;
         }
 
         public void DeleteCinema(Cinema c)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            string sql = "DELETE FROM Cinema "
+                + " WHERE id = " + c.Id;
+            Console.WriteLine("Delete query:" + sql);
+            try
+            { // delete cinema
+                command = CreateCommand(sql);
+
+                dbReader = command.ExecuteReader();
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Delete exception in cinema db: " + ex);
+            }//end catch
+            conn.Close();
         }
 
         public void UpdateCinema(Cinema c)
         {
-            throw new NotImplementedException();
+            conn.Open();
+
+            String sql = "UPDATE Cinema SET "
+                    + "cinemaName = '" + c.CinemaName + "', "
+                    + "noOfSeats = " + c.NoOfSeats + ", "
+                    + "noOfRows = " + c.NoOfRows + " "
+                    + "WHERE Id = " + c.Id;
+            Console.WriteLine("Update query:" + sql);
+            try
+            { // update show
+                command = CreateCommand(sql);
+                dbReader = command.ExecuteReader();
+
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Update exception in cinema db: " + ex);
+            }//end catch
+
+            conn.Close();
         }
 
-        public Cinema FindCinemaByNoOfCinema(int noOfCinema, bool retrieveAssociation)
+
+
+        public IList<Cinema> FindCinemasByShowID(Show s, bool retrieveAssociation)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            IList<Cinema> cinemaList = new List<Cinema>();
+            string sql = "SELECT * FROM Cinema WHERE Id in(SELECT CinemaId FROM Cinema_Show WHERE ShowId =  " + s.Id + ")";
+            command = CreateCommand(sql);
+
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                cinemaList.Add(CreateSingle(dbReader, retrieveAssociation));
+            }
+
+            conn.Close();
+            return cinemaList;
         }
 
-        public Cinema FindCinemaByShowID(Show s, bool retrieveAssociation)
+        public IList<Cinema> FindAllCinemas(bool retrieveAssociation)
         {
-            throw new NotImplementedException();
-        }
+            conn.Open();
+            IList<Cinema> cinemaList = new List<Cinema>();
+            string sql = "SELECT * FROM Cinema";
+            command = CreateCommand(sql);
 
-        public IList<Cinema> FindAllShows(bool retrieveAssociation)
-        {
-            throw new NotImplementedException();
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                cinemaList.Add(CreateSingle(dbReader, retrieveAssociation));
+            }
+
+            conn.Close();
+            return cinemaList;
         }
 
         private Cinema CreateSingle(DbDataReader dbReader, bool retriveAssociation)
@@ -68,24 +178,32 @@ namespace TemaXP_DM71_Group1.DBLayer
             try
             {
                 c.Id = dbReader.GetInt32(0);
-                c.CinemaName =
-                TimeSpan ts = (TimeSpan)dbReader.GetProviderSpecificValue(1);
-                s.MovieStartTime = ts.ToString();
-                s.ShowDate = dbReader.GetDateTime(2).ToShortDateString();
-                Movie m = new Movie();
-                m.Id = dbReader.GetInt32(3);
+                c.CinemaName = dbReader.GetString(1);
+                c.NoOfSeats = dbReader.GetInt32(2);
+                c.NoOfRows = dbReader.GetInt32(3);
+                IList<Row> rs = new List<Row>();
                 if (retriveAssociation)
                 {
-                    IFDBMovie dbMovie = new DBMovie();
-                    s.Movie = dbMovie.FindMovieById(m, false);
+//                    IFdbRow dbRow = new DBRow();
+//                    rs = dbRow.findRowsById(c.Id, false)
                 }
-                s.Movie = m;
+                c.Rows = rs;
             }
             catch (Exception e)
             {
                 Console.WriteLine("building show object" + e);
             }
-            return s;
+            return c;
         }
+
+        private DbCommand CreateCommand(String sql)
+        {
+            command = dbFactory.CreateCommand();
+            command.CommandText = sql;
+            command.Connection = conn;
+
+            return command;
+        }
+
     }
 }

@@ -70,7 +70,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         public void DeleteShow(Show s)
         {
             conn.Open();
-            String sql = "DELETE FROM show "
+            string sql = "DELETE FROM show "
                 + " WHERE id = " + s.Id;
             Console.WriteLine("Delete query:" + sql);
             try
@@ -81,7 +81,6 @@ namespace TemaXP_DM71_Group1.DBLayer
             catch (Exception ex)
             {
                 Console.WriteLine("Delete exception in show db: " + ex);
-                throw;
             }//end catch
             conn.Close();
         }

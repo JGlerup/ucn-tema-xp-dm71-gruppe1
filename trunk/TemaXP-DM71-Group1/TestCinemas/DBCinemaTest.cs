@@ -15,155 +15,348 @@ namespace TestCinemas
     [TestClass()]
     public class DBCinemaTest
     {
+        private IFdbCinema dbc;
+    
 
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
+        public DBCinemaTest()
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
+            dbc = new DBCinema();
         }
 
-        #region Additional test attributes
-        // 
-        //You can use the following additional attributes as you write your tests:
-        //
-        //Use ClassInitialize to run code before running the first test in the class
-        //[ClassInitialize()]
-        //public static void MyClassInitialize(TestContext testContext)
-        //{
-        //}
-        //
-        //Use ClassCleanup to run code after all tests in a class have run
-        //[ClassCleanup()]
-        //public static void MyClassCleanup()
-        //{
-        //}
-        //
-        //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
-        //
-        //Use TestCleanup to run code after each test has run
-        //[TestCleanup()]
-        //public void MyTestCleanup()
-        //{
-        //}
-        //
-        #endregion
-
-
-        /// <summary>
-        ///A test for DBCinema Constructor
+       /// <summary>
+        ///A test for InsertCinema
         ///</summary>
         [TestMethod()]
-        [DeploymentItem("TemaXP-DM71-Group1.exe")]
-        public void DBCinemaConstructorTest()
+        public void InsertCinemaTest()
         {
-            DBCinema_Accessor target = new DBCinema_Accessor();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            dbc = new DBCinema(); 
+            Cinema c = new Cinema();
+            string cinemaName = "TestInsert";
+            int noOfSeats = 10;
+            int noOfRows = 2;
+            IList<Row> rs = new List<Row>();
+
+            c.CinemaName = cinemaName;
+            c.NoOfSeats = noOfSeats;
+            c.NoOfRows = noOfRows;
+            c.Rows = rs;
+           
+            Cinema result = new Cinema();
+            try
+            {
+                dbc.InsertCinema(c);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                result = dbc.FindCinemaByCinemaName(cinemaName, false);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+
+            Assert.AreEqual(cinemaName, result.CinemaName);
+            Assert.AreEqual(noOfSeats, result.NoOfSeats);
+            Assert.AreEqual(noOfRows, result.NoOfRows);
+            Assert.AreEqual(rs.Count, result.Rows.Count);
+
+
+            MyTestCleanup(cinemaName);
+        }
+
+        /// <summary>
+        ///A test for FindCinemaByCinemaName
+        ///</summary>
+        [TestMethod()]
+        public void FindCinemaByCinemaNameTest()
+        {
+            dbc = new DBCinema();
+            Cinema c = new Cinema();
+            string cinemaName = "TestFind";
+            int noOfSeats = 10;
+            int noOfRows = 2;
+            IList<Row> rs = new List<Row>();
+
+            c.CinemaName = cinemaName;
+            c.NoOfSeats = noOfSeats;
+            c.NoOfRows = noOfRows;
+            c.Rows = rs;
+
+            Cinema result = new Cinema();
+            try
+            {
+                dbc.InsertCinema(c);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                result = dbc.FindCinemaByCinemaName(cinemaName, false);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+
+            Assert.AreEqual(cinemaName, result.CinemaName);
+            Assert.AreEqual(noOfSeats, result.NoOfSeats);
+            Assert.AreEqual(noOfRows, result.NoOfRows);
+            Assert.AreEqual(rs.Count, result.Rows.Count);
+
+
+            MyTestCleanup(cinemaName);
         }
 
         /// <summary>
         ///A test for DeleteCinema
         ///</summary>
         [TestMethod()]
-        [DeploymentItem("TemaXP-DM71-Group1.exe")]
         public void DeleteCinemaTest()
         {
-            DBCinema_Accessor target = new DBCinema_Accessor(); // TODO: Initialize to an appropriate value
-            Cinema c = null; // TODO: Initialize to an appropriate value
-            target.DeleteCinema(c);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            dbc = new DBCinema();
+            Cinema c = new Cinema();
+            string cinemaName = "TestDelete";
+            int noOfSeats = 10;
+            int noOfRows = 2;
+            IList<Row> rs = new List<Row>();
+
+            c.CinemaName = cinemaName;
+            c.NoOfSeats = noOfSeats;
+            c.NoOfRows = noOfRows;
+            c.Rows = rs;
+
+            Cinema find = new Cinema();
+            Cinema result = new Cinema();
+            try
+            {
+                dbc.InsertCinema(c);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                find = dbc.FindCinemaByCinemaName(cinemaName, false);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                dbc.DeleteCinema(find);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                result = dbc.FindCinemaByCinemaName(cinemaName, false);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+
+            Assert.AreEqual(null, result.CinemaName);
+            Assert.AreEqual(0, result.NoOfSeats);
+            Assert.AreEqual(0, result.NoOfRows);
+//            Assert.AreEqual(rs.Count, result.Rows.Count);
+            
         }
+
 
         /// <summary>
         ///A test for FindAllShows
         ///</summary>
         [TestMethod()]
-        [DeploymentItem("TemaXP-DM71-Group1.exe")]
-        public void FindAllShowsTest()
+        public void FindAllCinemasTest()
         {
-            DBCinema_Accessor target = new DBCinema_Accessor(); // TODO: Initialize to an appropriate value
-            bool retrieveAssociation = false; // TODO: Initialize to an appropriate value
-            IList<Cinema> expected = null; // TODO: Initialize to an appropriate value
-            IList<Cinema> actual;
-            actual = target.FindAllShows(retrieveAssociation);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            dbc = new DBCinema();
+
+            Cinema c = new Cinema();
+            string cinemaName = "TestFindAll";
+            int noOfSeats = 10;
+            int noOfRows = 2;
+            IList<Row> rs = new List<Row>();
+
+            c.CinemaName = cinemaName;
+            c.NoOfSeats = noOfSeats;
+            c.NoOfRows = noOfRows;
+            c.Rows = rs;
+            IList<Cinema> current = new List<Cinema>();
+            IList<Cinema> result = new List<Cinema>();
+            try
+            {
+                current = dbc.FindAllCinemas(false);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                dbc.InsertCinema(c);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                result = dbc.FindAllCinemas(false);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            Assert.AreEqual(current.Count + 1, result.Count);
+
+            MyTestCleanup(cinemaName);
         }
 
-        /// <summary>
-        ///A test for FindCinemaByNoOfCinema
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("TemaXP-DM71-Group1.exe")]
-        public void FindCinemaByNoOfCinemaTest()
-        {
-            DBCinema_Accessor target = new DBCinema_Accessor(); // TODO: Initialize to an appropriate value
-            int noOfCinema = 0; // TODO: Initialize to an appropriate value
-            bool retrieveAssociation = false; // TODO: Initialize to an appropriate value
-            Cinema expected = null; // TODO: Initialize to an appropriate value
-            Cinema actual;
-            actual = target.FindCinemaByNoOfCinema(noOfCinema, retrieveAssociation);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+        
 
         /// <summary>
         ///A test for FindCinemaByShowID
         ///</summary>
         [TestMethod()]
-        [DeploymentItem("TemaXP-DM71-Group1.exe")]
         public void FindCinemaByShowIDTest()
         {
-            DBCinema_Accessor target = new DBCinema_Accessor(); // TODO: Initialize to an appropriate value
-            Show s = null; // TODO: Initialize to an appropriate value
-            bool retrieveAssociation = false; // TODO: Initialize to an appropriate value
-            Cinema expected = null; // TODO: Initialize to an appropriate value
-            Cinema actual;
-            actual = target.FindCinemaByShowID(s, retrieveAssociation);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            dbc = new DBCinema();
+
+            Cinema c = new Cinema();
+            Show s = new Show();
+            s.Id = 1;
+            IList<Cinema> result = new List<Cinema>();
+            try
+            {
+                result = dbc.FindCinemasByShowID(s, false);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            Assert.AreEqual(3, result.Count);
+
+          
         }
 
-        /// <summary>
-        ///A test for InsertCinema
-        ///</summary>
-        [TestMethod()]
-        [DeploymentItem("TemaXP-DM71-Group1.exe")]
-        public void InsertCinemaTest()
-        {
-            DBCinema_Accessor target = new DBCinema_Accessor(); // TODO: Initialize to an appropriate value
-            Cinema c = null; // TODO: Initialize to an appropriate value
-            target.InsertCinema(c);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
-        }
-
+        
         /// <summary>
         ///A test for UpdateCinema
         ///</summary>
         [TestMethod()]
-        [DeploymentItem("TemaXP-DM71-Group1.exe")]
         public void UpdateCinemaTest()
         {
-            DBCinema_Accessor target = new DBCinema_Accessor(); // TODO: Initialize to an appropriate value
-            Cinema c = null; // TODO: Initialize to an appropriate value
-            target.UpdateCinema(c);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            dbc = new DBCinema();
+            Cinema c = new Cinema();
+            string cinemaName = "TestUpdate";
+            string cinemaNameUpdate = "UpdatedTestUpdate";
+            int noOfSeats = 10;
+            int noOfRows = 2;
+            IList<Row> rs = new List<Row>();
+
+            c.CinemaName = cinemaName;
+            c.NoOfSeats = noOfSeats;
+            c.NoOfRows = noOfRows;
+            c.Rows = rs;
+
+            Cinema toUpdate = new Cinema();
+            Cinema result = new Cinema();
+            try
+            {
+                dbc.InsertCinema(c);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                toUpdate = dbc.FindCinemaByCinemaName(cinemaName, false);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            toUpdate.CinemaName = cinemaNameUpdate;
+
+            try
+            {
+                dbc.UpdateCinema(toUpdate);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                result = dbc.FindCinemaByCinemaName(cinemaNameUpdate, false);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            Assert.AreEqual(toUpdate.Id, result.Id);
+            Assert.AreEqual(toUpdate.CinemaName, result.CinemaName);
+            Assert.AreEqual(toUpdate.NoOfSeats, result.NoOfSeats);
+            Assert.AreEqual(toUpdate.NoOfRows, result.NoOfRows);
+            Assert.AreEqual(toUpdate.Rows.Count, result.Rows.Count);
+
+            MyTestCleanup(cinemaNameUpdate);
+        }
+
+        public void MyTestCleanup(string cinemaName)
+        {
+
+            Cinema c = new Cinema();
+            try
+            {
+                c = dbc.FindCinemaByCinemaName(cinemaName, false);
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("virker ikke " + e.Message);
+            }
+
+            try
+            {
+                dbc.DeleteCinema(c);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("virker ikke " + e.Message);
+            }
         }
     }
 }
