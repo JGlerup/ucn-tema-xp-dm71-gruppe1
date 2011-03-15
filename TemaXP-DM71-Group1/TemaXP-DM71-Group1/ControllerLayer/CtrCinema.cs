@@ -8,34 +8,41 @@ namespace TemaXP_DM71_Group1.ControllerLayer
 {
     public class CtrCinema
     {
-        //public Cinema FindCinema(int noOfCinema)
-        //{
-        //    IFDBCinema dbCinema = new DBCinema();
-        //    return dbCinema.FindCinema(noOfCinema);
-        //}
-        //public void InsertCinema(int noOfCinema, int noOfSeats)
-        //{
-        //    IFDBCinema dbCinema = new DBCinema();
-        //    Cinema cObj = new Cinema();
-        //    cObj.NoOfCinema = noOfCinema;
-        //    cObj.NoOfSeats = noOfSeats;
-        //    dbCinema.InsertCinema(cObj);
-        //}
-        //public void UpdateCinema(int currentNoOfCinema, int noOfCinema, int noOfSeats)
-        //{
-        //    IFDBCinema dbCinema = new DBCinema();
-        //    Cinema cObj = FindCinema(currentNoOfCinema);
-        //    cObj.NoOfCinema = noOfCinema;
-        //    cObj.NoOfSeats = noOfSeats;
-        //    dbCinema.UpdateCinema(currentNoOfCinema, cObj);
+        public Cinema FindCinemaByName(Cinema c, bool retrieveAssociation)
+        {
+            IFDBCinema dbCinema = new DBCinema();
+            return dbCinema.FindCinema(c, retrieveAssociation);
+        }
 
-        //}
-        //public void DeleteCinema(int noOfCinema)
-        //{
-        //    IFDBCinema dbCinema = new DBCinema();
-        //    dbCinema.DeleteCinema(noOfCinema);
+        public void InsertCinema(string cinemaName, int noOfRows)
+        {
+            IFDBCinema dbCinema = new DBCinema();
+            Cinema cObj = new Cinema();
+            cObj.CinemaName = cinemaName;
+            cObj.NoOfRows = noOfRows;
+            cObj.NoOfSeats = 0;
+            dbCinema.InsertCinema(cObj);
+        }
 
-        //}
+        public void AddSeatsToRow(Cinema c, int rowNumber, int noOfSeats)
+        {
+            for(int i = 0; i < noOfSeats; i++)
+            {
+                c.Rows[rowNumber].Seats.Add(i);
+            }
+        }
 
+        public void UpdateCinema(Cinema c, string cinemaName)
+        {
+            IFDBCinema dbCinema = new DBCinema();
+            c.CinemaName = cinemaName;
+            dbCinema.UpdateCinema(currentNoOfCinema, cObj);
+        }
+
+        public void DeleteCinema(Cinema c)
+        {
+            IFDBCinema dbCinema = new DBCinema();
+            dbCinema.DeleteCinema(c);
+        }
     }
 }
