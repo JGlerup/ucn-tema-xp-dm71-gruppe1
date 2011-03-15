@@ -20,8 +20,17 @@ create table Show(
 
 create table Cinema(
 	Id int PRIMARY KEY IDENTITY,
-	NoOfCinema int not null,
-	NoOfSeats int not null,)
+	CinemaName varchar(50) not null,
+	NoOfSeats int not null,
+	NoOfRows int not null,
+	unique(CinemaName))
+
+create table Row(
+	Id int PRIMARY KEY IDENTITY,
+	RowNo int not null,
+	NoOfSeats int not null,
+	CinemaID int not null,
+	foreign key(CinemaID) references Cinema(Id))
 	
 create table Cinema_Show(
 	Id int PRIMARY KEY IDENTITY,
@@ -29,4 +38,5 @@ create table Cinema_Show(
 	CinemaID int not null,
 	foreign key(ShowID) references Show(Id),
 	foreign key(CinemaID) references Cinema(Id))
+	
 	

@@ -54,6 +54,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBCinemaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCinemas.cs" />
     <Compile Include="TestCtrCinema.cs" />
@@ -67,6 +68,9 @@
       <Project>{F9255F55-A796-417F-BFC6-94F22508DAA4}</Project>
       <Name>TemaXP-DM71-Group1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Shadow Include="Test References\TemaXP-DM71-Group1.accessor" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

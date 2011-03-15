@@ -16,7 +16,7 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         Movie FindMovieByTitle(String title, bool retrieveAssociation);
 
-//        Movie FindMovieById(int id, bool retrieveAssociation);
+        Movie FindMovieById(Movie m, bool retrieveAssociation);
 
         IList<Movie> FindAllMovies(bool retrieveAssociation);
     }

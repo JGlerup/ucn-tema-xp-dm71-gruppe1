@@ -7,15 +7,19 @@ namespace TemaXP_DM71_Group1.ModelLayer
 {
     public class Cinema
     {
-        private int noOfCinema;
+        private int ID;
+        private String CinemaName;
         private int noOfSeats;
+        private int noOfRows;
+        private IList<Row> rows;
+
         //private IList<Seats> seats;
 
-        public Cinema(int noOfCinema, int noOfSeats)
-        {
-            this.noOfCinema = noOfCinema;
-            this.noOfSeats = noOfSeats;
-        }
+//        public Cinema(int cinemaName, int noOfSeats)
+//        {
+//            this.CinemaName = cinemaName;
+//            this.noOfSeats = noOfSeats;
+//        }
 
         public Cinema()
         {
@@ -23,16 +27,34 @@ namespace TemaXP_DM71_Group1.ModelLayer
         }
 
 
-        public int NoOfCinema
+        public string CinemaName1
         {
-            get { return noOfCinema; }
-            set { noOfCinema = value; }
+            get { return CinemaName; }
+            set { CinemaName = value; }
         }
 
-        public int NoOfSeats
+        public int Id
+        {
+            get { return ID; }
+            set { ID = value; }
+        }
+
+        public int NoOfSeats1
         {
             get { return noOfSeats; }
             set { noOfSeats = value; }
+        }
+
+        public int NoOfRows
+        {
+            get { return noOfRows; }
+            set { noOfRows = value; }
+        }
+
+        public IList<Row> Rows
+        {
+            get { return rows; }
+            set { rows = value; }
         }
     }
 }
