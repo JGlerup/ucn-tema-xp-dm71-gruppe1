@@ -42,20 +42,37 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            IMDb imdb = new IMDb(textBox2.Text, true);
-            textBox1.Text = imdb.ReleaseDate;
-            textBox2.Text = imdb.Title;
-            //textBox3.Text = imdb.
-            string year = DateTime.Now.Year.ToString();
-            string month = DateTime.Now.Month.ToString();
-            string date = DateTime.Now.Day.ToString();
-            textBox4.Text = year + "-" + month + "-" + date;
-            textBox6.Text = imdb.Runtime;
-            List<string> directors = (from string d in imdb.Directors select d.ToString()).ToList();
-            List<string> casts = (from string c in imdb.Cast select c.ToString()).ToList();
-            textBox7.Text = string.Join(", ", directors);
-            textBox8.Text = string.Join(", ", casts);
-            textBox9.Text = imdb.Storyline;
+            try
+            {
+                IMDb imdb = new IMDb(textBox2.Text, true);
+                
+                textBox1.Text = imdb.ReleaseDate;
+                textBox2.Text = imdb.Title;
+                //textBox3.Text = imdb.
+                string year = DateTime.Now.Year.ToString();
+                string month = DateTime.Now.Month.ToString();
+                string date = DateTime.Now.Day.ToString();
+                String releaseDate = year + "-" + month + "-" + date;
+                if (Convert.ToInt32(month) >= 9)
+                {
+                    textBox4.Text = year + "-" + month + "-" + date;
+                }
+                else
+                {
+                    textBox4.Text = year + "-0" + month + "-" + date;
+                }
+                textBox6.Text = imdb.Runtime;
+                List<string> directors = (from string d in imdb.Directors select d.ToString()).ToList();
+                List<string> casts = (from string c in imdb.Cast select c.ToString()).ToList();
+                textBox7.Text = string.Join(", ", directors);
+                textBox8.Text = string.Join(", ", casts);
+                textBox9.Text = imdb.Storyline;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -77,29 +94,13 @@ namespace TemaXP_DM71_Group1.GUILayer
                 String movieDescription = textBox9.Text;
                 ctrMovie.InsertMovie(date, title, distributor, arrivalDate, returnDate, duration, director, actors,
                                      movieDescription);
+                clearTextBoxes();
                 BindComboBox();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
-
+                MessageBox.Show(ex.Message);
             }
-        }
-
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            //Movie m = (Movie)comboBox1.SelectedItem;
-            //textBox1.Text = m.ReleaseDate;
-            //textBox2.Text = m.Title;
-            //textBox3.Text = m.Distributor;
-            //textBox4.Text = m.ArrivalDate;
-            //textBox5.Text = m.ReturnDate;
-            //textBox6.Text = m.Duration;
-            //textBox7.Text = m.Director;
-            //textBox8.Text = m.Actors;
-            //textBox9.Text = m.MovieDescription;
         }
 
         private void BindComboBox()
@@ -115,17 +116,25 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Movie m = (Movie)comboBox1.SelectedItem;
-            clearTextBoxes();
-            textBox1.Text = m.ReleaseDate;
-            textBox2.Text = m.Title;
-            textBox3.Text = m.Distributor;
-            textBox4.Text = m.ArrivalDate;
-            textBox5.Text = m.ReturnDate;
-            textBox6.Text = m.Duration;
-            textBox7.Text = m.Director;
-            textBox8.Text = m.Actors;
-            textBox9.Text = m.MovieDescription;
+            try
+            {
+                Movie m = (Movie)comboBox1.SelectedItem;
+                clearTextBoxes();
+                textBox1.Text = m.ReleaseDate;
+                textBox2.Text = m.Title;
+                textBox3.Text = m.Distributor;
+                textBox4.Text = m.ArrivalDate;
+                textBox5.Text = m.ReturnDate;
+                textBox6.Text = m.Duration;
+                textBox7.Text = m.Director;
+                textBox8.Text = m.Actors;
+                textBox9.Text = m.MovieDescription;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }
