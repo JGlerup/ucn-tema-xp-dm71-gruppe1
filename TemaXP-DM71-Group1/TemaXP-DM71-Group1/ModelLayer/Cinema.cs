@@ -8,7 +8,7 @@ namespace TemaXP_DM71_Group1.ModelLayer
     public class Cinema
     {
         private int ID;
-        private String CinemaName;
+        private String cinemaName;
         private int noOfSeats;
         private int noOfRows;
         private IList<Row> rows;
@@ -29,8 +29,8 @@ namespace TemaXP_DM71_Group1.ModelLayer
 
         public string CinemaName
         {
-            get { return CinemaName; }
-            set { CinemaName = value; }
+            get { return cinemaName; }
+            set { cinemaName = value; }
         }
 
         public int Id

@@ -25,8 +25,6 @@ namespace TestCinemas
         {
             dbs = new DBShow();
             
-            
-            
             Show s = new Show();
             string movieStartTime = "13:30:00";
             string showDate = "2012-03-19";
