@@ -12,6 +12,7 @@ namespace TestCinemas
     public class TestDBRow
     {
 
+
         private IFdbRow dbr;
 
         [TestMethod]
