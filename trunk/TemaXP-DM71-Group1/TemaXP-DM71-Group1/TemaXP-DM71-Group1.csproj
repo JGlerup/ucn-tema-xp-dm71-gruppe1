@@ -11,7 +11,8 @@
     <RootNamespace>TemaXP_DM71_Group1</RootNamespace>
     <AssemblyName>TemaXP-DM71-Group1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -39,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,6 +97,7 @@
     <Compile Include="GUILayer\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="IMDb.cs" />
     <Compile Include="ModelLayer\Cinema.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
     <Compile Include="ModelLayer\Row.cs" />
@@ -124,7 +127,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="ControllerLayer\.svn\all-wcprops" />
     <None Include="ControllerLayer\.svn\entries" />
     <None Include="ControllerLayer\.svn\text-base\CtrCinema.cs.svn-base" />
