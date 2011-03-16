@@ -1,11 +1,11 @@
 use dm71_2
 create table Movie(
 	Id int PRIMARY KEY IDENTITY,
-	ReleaseDate varchar(50),
+	ReleaseDate date,
 	Title varchar(50),
 	Distributor varchar(50),
-	ArrivalDate varchar(50),
-	ReturnDate varchar(50),
+	ArrivalDate date,
+	ReturnDate date,
 	Duration time,
 	Director varchar(50),
 	Actors varchar(50),
@@ -30,7 +30,17 @@ create table Row(
 	RowNo int not null,
 	NoOfSeats int not null,
 	CinemaID int not null,
+	unique(RowNo,CinemaID),
 	foreign key(CinemaID) references Cinema(Id))
+	
+create table Seat(
+	Id int PRIMARY KEY IDENTITY,
+	SeatNo int not null,
+	RowID int not null,
+	Taken varchar(10) not null,
+	Reserved varchar(10) not null,
+	unique(SeatNo,RowId),
+	foreign key(RowID) references Row(Id))	
 	
 create table Cinema_Show(
 	Id int PRIMARY KEY IDENTITY,
