@@ -173,11 +173,11 @@ namespace TemaXP_DM71_Group1.DBLayer
             try
             {
                 mm.Id = dbReader.GetInt32(0);
-                mm.ReleaseDate = dbReader.GetString(1);
+                mm.ReleaseDate = checkDate(dbReader.GetString(1));
                 mm.Title = dbReader.GetString(2);
                 mm.Distributor = dbReader.GetString(3);
-                mm.ArrivalDate = dbReader.GetString(4);
-                mm.ReturnDate = dbReader.GetString(5);
+                mm.ArrivalDate = checkDate(dbReader.GetString(4));
+                mm.ReturnDate = checkDate(dbReader.GetString(5));
                 TimeSpan ts = (TimeSpan)dbReader.GetProviderSpecificValue(6);
                 mm.Duration = ts.ToString();
                 mm.Director = dbReader.GetString(7);
@@ -245,6 +245,19 @@ namespace TemaXP_DM71_Group1.DBLayer
         public IList<Movie> FindAllMovies()
         {
             throw new NotImplementedException();
+        }
+
+        private string checkDate(string date)
+        {
+            string reverse = date;
+            if(date.Substring(2, 1).Equals("-"))
+            {
+                string year = date.Substring(6, 4);
+                string month = date.Substring(3, 2);
+                string day = date.Substring(1, 2);
+                reverse = year + "-" + month + "-" + day;
+            }//end if
+            return reverse;
         }
     }
 }

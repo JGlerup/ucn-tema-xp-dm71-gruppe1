@@ -137,7 +137,7 @@ namespace TemaXP_DM71_Group1.DBLayer
                 s.Id = dbReader.GetInt32(0);
                 TimeSpan ts = (TimeSpan) dbReader.GetProviderSpecificValue(1);
                 s.MovieStartTime = ts.ToString();
-                s.ShowDate = dbReader.GetDateTime(2).ToShortDateString();
+                s.ShowDate = checkDate(dbReader.GetDateTime(2).ToShortDateString());
                 Movie m = new Movie();
                 m.Id = dbReader.GetInt32(3);
                 if (retriveAssociation)
@@ -209,6 +209,19 @@ namespace TemaXP_DM71_Group1.DBLayer
         public Show FindShowByCinemaID(Cinema c, bool retrieveAssociation)
         {
             throw new NotImplementedException();
+        }
+
+        private string checkDate(string date)
+        {
+            string reverse = date;
+            if (date.Substring(2, 1).Equals("-"))
+            {
+                string year = date.Substring(6, 4);
+                string month = date.Substring(3, 2);
+                string day = date.Substring(1, 2);
+                reverse = year + "-" + month + "-" + day;
+            }//end if
+            return reverse;
         }
     }
 }
