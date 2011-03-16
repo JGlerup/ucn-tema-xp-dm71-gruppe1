@@ -10,7 +10,9 @@ namespace TemaXP_DM71_Group1.ModelLayer
         private int id;
         private int rowNo;
         private List<int> seats;
-        private Cinema c;
+        private int noOfSeats;
+        private Cinema cinema;
+
         public Row()
         {
         }
@@ -33,10 +35,16 @@ namespace TemaXP_DM71_Group1.ModelLayer
             set { seats = value; }
         }
 
-        public Cinema C
+        public int NoOfSeats
         {
-            get { return c; }
-            set { c = value; }
+            get { return noOfSeats; }
+            set { noOfSeats = value; }
+        }
+
+        public Cinema Cinema
+        {
+            get { return cinema; }
+            set { cinema = value; }
         }
     }
 }
