@@ -62,10 +62,7 @@ namespace TemaXP_DM71_Group1.GUILayer
                 {
                     dtpArrivalDate.Text = year + "-0" + month + "-" + date;
                 }
-                int imdbDuration = Convert.ToInt32(imdb.Runtime);
-                int min = imdbDuration%60;
-                int hours = (imdbDuration - min)/60;
-                mtxtDuration.Text = hours.ToString() + min.ToString();
+                mtxtDuration.Text = imdb.Runtime;
                 List<string> directors = (from string d in imdb.Directors select d.ToString()).ToList();
                 List<string> casts = (from string c in imdb.Cast select c.ToString()).ToList();
                 txtDirector.Text = string.Join(", ", directors);
