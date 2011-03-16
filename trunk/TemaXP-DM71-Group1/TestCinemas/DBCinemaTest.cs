@@ -6,8 +6,6 @@ using System.Collections.Generic;
 
 namespace TestCinemas
 {
-    
-    
     /// <summary>
     ///This is a test class for DBCinemaTest and is intended
     ///to contain all DBCinemaTest Unit Tests
