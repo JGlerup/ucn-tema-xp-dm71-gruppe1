@@ -25,12 +25,12 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         public void clearTextBoxes()
         {
-            txtReleaseDate.Text = "";
+            dtpReleaseDate.Text = "";
             txtTitle.Text = "";
             txtDistributor.Text = "";
-            txtArrivalDate.Text = "";
-            txtReturnDate.Text = "";
-            txtDuration.Text = "";
+            dtpArrivalDate.Text = "";
+            dtpReturnDate.Text = "";
+            mtxtDuration.Text = "";
             txtDirector.Text = "";
             txtActors.Text = "";
             txtMovieDescription.Text = "";
@@ -47,7 +47,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             {
                 IMDb imdb = new IMDb(txtTitle.Text, true);
                 
-                txtReleaseDate.Text = imdb.ReleaseDate;
+                dtpReleaseDate.Text = imdb.ReleaseDate;
                 txtTitle.Text = imdb.Title;
                 //textBox3.Text = imdb.
                 string year = DateTime.Now.Year.ToString();
@@ -56,13 +56,16 @@ namespace TemaXP_DM71_Group1.GUILayer
                 String releaseDate = year + "-" + month + "-" + date;
                 if (Convert.ToInt32(month) >= 9)
                 {
-                    txtArrivalDate.Text = year + "-" + month + "-" + date;
+                    dtpArrivalDate.Text = year + "-" + month + "-" + date;
                 }
                 else
                 {
-                    txtArrivalDate.Text = year + "-0" + month + "-" + date;
+                    dtpArrivalDate.Text = year + "-0" + month + "-" + date;
                 }
-                txtDuration.Text = imdb.Runtime;
+                int imdbDuration = Convert.ToInt32(imdb.Runtime);
+                int min = imdbDuration%60;
+                int hours = (imdbDuration - min)/60;
+                mtxtDuration.Text = hours.ToString() + min.ToString();
                 List<string> directors = (from string d in imdb.Directors select d.ToString()).ToList();
                 List<string> casts = (from string c in imdb.Cast select c.ToString()).ToList();
                 txtDirector.Text = string.Join(", ", directors);
@@ -81,12 +84,12 @@ namespace TemaXP_DM71_Group1.GUILayer
             try
             {
                 CtrMovie ctrMovie = new CtrMovie();
-                String date = txtReleaseDate.Text;
+                String date = dtpReleaseDate.Text;
                 String title = txtTitle.Text;
                 String distributor = txtDistributor.Text;
-                String arrivalDate = txtArrivalDate.Text;
-                String returnDate = txtReturnDate.Text;
-                int imdbDuration = Convert.ToInt32(txtDuration.Text);
+                String arrivalDate = dtpArrivalDate.Text;
+                String returnDate = dtpReturnDate.Text;
+                int imdbDuration = Convert.ToInt32(mtxtDuration.Text);
                 int min = imdbDuration % 60;
                 int hours = (imdbDuration - min) / 60;
                 string duration = "0" + hours + ":" + min + ":" + "00";
@@ -122,12 +125,12 @@ namespace TemaXP_DM71_Group1.GUILayer
             {
                 Movie m = (Movie)comboBox1.SelectedItem;
                 clearTextBoxes();
-                txtReleaseDate.Text = m.ReleaseDate;
+                dtpReleaseDate.Text = m.ReleaseDate;
                 txtTitle.Text = m.Title;
                 txtDistributor.Text = m.Distributor;
-                txtArrivalDate.Text = m.ArrivalDate;
-                txtReturnDate.Text = m.ReturnDate;
-                txtDuration.Text = m.Duration;
+                dtpArrivalDate.Text = m.ArrivalDate;
+                dtpReturnDate.Text = m.ReturnDate;
+                mtxtDuration.Text = m.Duration;
                 txtDirector.Text = m.Director;
                 txtActors.Text = m.Actors;
                 txtMovieDescription.Text = m.MovieDescription;
@@ -152,12 +155,12 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void disableFields()
         {
-            txtReleaseDate.Enabled = false;
+            dtpReleaseDate.Enabled = false;
             txtTitle.Enabled = true;
             txtDistributor.Enabled = true;
-            txtArrivalDate.Enabled = false;
-            txtReturnDate.Enabled = true;
-            txtDuration.Enabled = false;
+            dtpArrivalDate.Enabled = true;
+            dtpReturnDate.Enabled = true;
+            mtxtDuration.Enabled = false;
             txtDirector.Enabled = false;
             txtActors.Enabled = false;
             txtMovieDescription.Enabled = false;
@@ -165,12 +168,12 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void enableFields()
         {
-            txtReleaseDate.Enabled = true;
+            dtpReleaseDate.Enabled = true;
             txtTitle.Enabled = true;
             txtDistributor.Enabled = true;
-            txtArrivalDate.Enabled = true;
-            txtReturnDate.Enabled = true;
-            txtDuration.Enabled = true;
+            dtpArrivalDate.Enabled = true;
+            dtpReturnDate.Enabled = true;
+            mtxtDuration.Enabled = true;
             txtDirector.Enabled = true;
             txtActors.Enabled = true;
             txtMovieDescription.Enabled = true;
@@ -195,6 +198,21 @@ namespace TemaXP_DM71_Group1.GUILayer
                 MessageBox.Show(
                     "Filmen er stadigvæk aktiv i en forstilling, derfor kan den ikke slettes. For at slette filmen skal den først fjernes fra forestillinger.");
             }
+
+        }
+
+        private void txtArrivalDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mtxtDuration_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
 
         }
     }
