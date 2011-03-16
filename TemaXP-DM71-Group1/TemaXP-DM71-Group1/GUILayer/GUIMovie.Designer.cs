@@ -273,11 +273,10 @@
             // mtxtDuration
             // 
             this.mtxtDuration.Location = new System.Drawing.Point(114, 135);
-            this.mtxtDuration.Mask = "00:00";
+            this.mtxtDuration.Mask = "000";
             this.mtxtDuration.Name = "mtxtDuration";
             this.mtxtDuration.Size = new System.Drawing.Size(303, 20);
             this.mtxtDuration.TabIndex = 50;
-            this.mtxtDuration.ValidatingType = typeof(System.DateTime);
             this.mtxtDuration.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // GUIMovie
