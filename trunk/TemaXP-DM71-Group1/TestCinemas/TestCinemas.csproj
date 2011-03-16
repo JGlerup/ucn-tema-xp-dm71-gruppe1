@@ -59,6 +59,7 @@
     <Compile Include="TestCtrCinema.cs" />
     <Compile Include="TestCtrMovie.cs" />
     <Compile Include="TestDbMovie.cs" />
+    <Compile Include="TestDBRow.cs" />
     <Compile Include="TestDBShow.cs" />
     <Compile Include="TestShow.cs" />
   </ItemGroup>
