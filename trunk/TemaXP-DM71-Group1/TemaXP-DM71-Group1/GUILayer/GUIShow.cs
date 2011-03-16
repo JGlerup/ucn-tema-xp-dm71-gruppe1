@@ -42,7 +42,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             cmbMovieStartTime.DataSource = movieStartTime;
             CtrMovie ctrMovie = new CtrMovie();
             cmbMovie.DataSource = ctrMovie.FindAllMovies();
-            CtrCinema ctrCinema = new CtrCinema();
+            //CtrCinema ctrCinema = new CtrCinema();
             //cmbCinema.DataSource = ctrCinema.FindAllCinemas();
         }
 
@@ -59,7 +59,10 @@ namespace TemaXP_DM71_Group1.GUILayer
                 {
                     Movie m = (Movie) cmbMovie.SelectedItem;
                     string movieStartTime = cmbMovieStartTime.SelectedValue.ToString();
-                    string movieDate = dtpMovieDate.Value.ToString();
+                    string year = dtpMovieDate.Value.Year.ToString();
+                    string month = dtpMovieDate.Value.Month.ToString();
+                    string day = dtpMovieDate.Value.Day.ToString();
+                    String movieDate = year + "-" + month + "-" + day;
                     ctrShow.InsertShow(movieStartTime, movieDate, m);
                     MessageBox.Show("Forestillingen er oprettet", "Operationen lykkedes");
                 }
