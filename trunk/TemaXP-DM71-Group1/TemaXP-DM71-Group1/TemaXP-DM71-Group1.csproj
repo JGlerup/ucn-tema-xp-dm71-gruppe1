@@ -63,9 +63,11 @@
     <Compile Include="ControllerLayer\Shows.cs" />
     <Compile Include="DBLayer\DBCinema.cs" />
     <Compile Include="DBLayer\DbMovie.cs" />
+    <Compile Include="DBLayer\DBRow.cs" />
     <Compile Include="DBLayer\DBShow.cs" />
     <Compile Include="DBLayer\IFdbCinema.cs" />
     <Compile Include="DBLayer\IFdbMovie.cs" />
+    <Compile Include="DBLayer\IFdbRow.cs" />
     <Compile Include="DBLayer\IFdbShow.cs" />
     <Compile Include="GUILayer\GUICinema.cs">
       <SubType>UserControl</SubType>
@@ -101,6 +103,7 @@
     <Compile Include="ModelLayer\Cinema.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
     <Compile Include="ModelLayer\Row.cs" />
+    <Compile Include="ModelLayer\Seat.cs" />
     <Compile Include="ModelLayer\Show.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
