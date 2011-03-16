@@ -42,7 +42,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             listBox1.DataSource = movieList;
             listBox1.DisplayMember = "Title";
             listBox1.ValueMember = "Title";
-            listBox1.SelectedValue.ToString();
+            //listBox1.SelectedValue.ToString();
         }
 
         private void BindListView()
