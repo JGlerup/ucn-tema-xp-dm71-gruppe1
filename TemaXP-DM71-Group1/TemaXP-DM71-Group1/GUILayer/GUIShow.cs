@@ -21,7 +21,14 @@ namespace TemaXP_DM71_Group1.GUILayer
         private void Show_Enter(object sender, EventArgs e)
         {
             CtrShow ctrShow= new CtrShow();
-            cmbShow.DataSource = ctrShow.FindAllShows();
+            try
+            {
+                cmbShow.DataSource = ctrShow.FindAllShows(true);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Fejl: " + ex.Message, "Operationen mislykkedes");
+            }
             dtpMovieDate.MinDate = DateTime.Today;
             List<string> movieStartTime = new List<string>();
             for (int i = 0; i <= 23; i++)

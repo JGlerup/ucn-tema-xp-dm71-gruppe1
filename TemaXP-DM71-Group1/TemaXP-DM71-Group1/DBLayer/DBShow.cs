@@ -150,6 +150,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             catch (Exception e)
             {
                 Console.WriteLine("building show object" + e);
+                throw;
             }
             return s;
         }

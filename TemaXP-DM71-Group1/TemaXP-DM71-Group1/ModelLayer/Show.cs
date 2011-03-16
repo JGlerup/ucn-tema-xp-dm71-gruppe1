@@ -50,7 +50,7 @@ namespace TemaXP_DM71_Group1.ModelLayer
 
         public override string ToString()
         {
-            return /*"Dato: " + ShowDate + " " + "Starttidspunkt: " + MovieStartTime + " " + */Movie.ToString();
+            return "Dato: " + ShowDate + " " + "Starttidspunkt: " + MovieStartTime + " " + Movie;
         }
     }
 }

@@ -33,10 +33,10 @@ namespace TemaXP_DM71_Group1.ControllerLayer
            dbShow.UpdateShow(s);
         }
 
-        public IList<Show> FindAllShows()
+        public IList<Show> FindAllShows(bool retrieveAssociation)
         {
             IFDBShow dbShow = new DBShow();
-            IList<Show> showList = dbShow.FindAllShows(false);
+            IList<Show> showList = dbShow.FindAllShows(retrieveAssociation);
             return showList;
         }
 
@@ -56,7 +56,7 @@ namespace TemaXP_DM71_Group1.ControllerLayer
         public Show FindShowByMovieId(Movie m)
         {
             IFDBShow dbShow = new DBShow();
-            return dbShow.FindShowByMovieId(m, false);
+            return dbShow.FindShowByMovieId(m, true);
         }
 
         public IList<Show> GetAllShowsOneWeekAhead()
