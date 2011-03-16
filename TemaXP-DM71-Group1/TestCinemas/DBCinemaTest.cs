@@ -239,31 +239,31 @@ namespace TestCinemas
 
         
 
-        /// <summary>
-        ///A test for FindCinemaByShowID
-        ///</summary>
-        [TestMethod()]
-        public void FindCinemaByShowIDTest()
-        {
-            dbc = new DBCinema();
-
-            Cinema c = new Cinema();
-            Show s = new Show();
-            s.Id = 1;
-            IList<Cinema> result = new List<Cinema>();
-            try
-            {
-                result = dbc.FindCinemasByShowID(s, false);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("virker ikke " + e.Message);
-            }
-
-            Assert.AreEqual(3, result.Count);
-
-          
-        }
+//        /// <summary>
+//        ///A test for FindCinemaByShowID
+//        ///</summary>
+//        [TestMethod()]
+//        public void FindCinemaByShowIDTest()
+//        {
+//            dbc = new DBCinema();
+//
+//            Cinema c = new Cinema();
+//            Show s = new Show();
+//            s.Id = 1;
+//            IList<Cinema> result = new List<Cinema>();
+//            try
+//            {
+//                result = dbc.FindCinemasByShowID(s, false);
+//            }
+//            catch (Exception e)
+//            {
+//                Console.WriteLine("virker ikke " + e.Message);
+//            }
+//
+//            Assert.AreEqual(3, result.Count);
+//
+//          
+//        }
 
         
         /// <summary>
