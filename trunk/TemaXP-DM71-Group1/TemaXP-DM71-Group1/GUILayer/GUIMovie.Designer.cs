@@ -35,17 +35,12 @@
             this.txtMovieDescription = new System.Windows.Forms.TextBox();
             this.txtActors = new System.Windows.Forms.TextBox();
             this.txtDirector = new System.Windows.Forms.TextBox();
-            this.txtDuration = new System.Windows.Forms.TextBox();
-            this.txtReturnDate = new System.Windows.Forms.TextBox();
-            this.txtArrivalDate = new System.Windows.Forms.TextBox();
             this.txtDistributor = new System.Windows.Forms.TextBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtReleaseDate = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +48,11 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cbCreateManually = new System.Windows.Forms.CheckBox();
             this.btnDeleteMovie = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpArrivalDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpReleaseDate = new System.Windows.Forms.DateTimePicker();
+            this.mtxtDuration = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // button4
@@ -121,30 +121,6 @@
             this.txtDirector.Size = new System.Drawing.Size(303, 20);
             this.txtDirector.TabIndex = 37;
             // 
-            // txtDuration
-            // 
-            this.txtDuration.Location = new System.Drawing.Point(114, 139);
-            this.txtDuration.Name = "txtDuration";
-            this.txtDuration.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDuration.Size = new System.Drawing.Size(303, 20);
-            this.txtDuration.TabIndex = 36;
-            // 
-            // txtReturnDate
-            // 
-            this.txtReturnDate.Location = new System.Drawing.Point(114, 113);
-            this.txtReturnDate.Name = "txtReturnDate";
-            this.txtReturnDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtReturnDate.Size = new System.Drawing.Size(303, 20);
-            this.txtReturnDate.TabIndex = 35;
-            // 
-            // txtArrivalDate
-            // 
-            this.txtArrivalDate.Location = new System.Drawing.Point(114, 87);
-            this.txtArrivalDate.Name = "txtArrivalDate";
-            this.txtArrivalDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtArrivalDate.Size = new System.Drawing.Size(303, 20);
-            this.txtArrivalDate.TabIndex = 34;
-            // 
             // txtDistributor
             // 
             this.txtDistributor.Location = new System.Drawing.Point(114, 61);
@@ -160,14 +136,6 @@
             this.txtTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtTitle.Size = new System.Drawing.Size(303, 20);
             this.txtTitle.TabIndex = 32;
-            // 
-            // txtReleaseDate
-            // 
-            this.txtReleaseDate.Location = new System.Drawing.Point(114, 9);
-            this.txtReleaseDate.Name = "txtReleaseDate";
-            this.txtReleaseDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtReleaseDate.Size = new System.Drawing.Size(303, 20);
-            this.txtReleaseDate.TabIndex = 31;
             // 
             // label9
             // 
@@ -204,15 +172,6 @@
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 27;
             this.label6.Text = "Varighed";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 116);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 13);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Afleveringsdato";
             // 
             // label4
             // 
@@ -281,10 +240,54 @@
             this.btnDeleteMovie.UseVisualStyleBackColor = true;
             this.btnDeleteMovie.Click += new System.EventHandler(this.btnDeleteMovie_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Afleveringsdato";
+            // 
+            // dtpReturnDate
+            // 
+            this.dtpReturnDate.Location = new System.Drawing.Point(114, 108);
+            this.dtpReturnDate.Name = "dtpReturnDate";
+            this.dtpReturnDate.Size = new System.Drawing.Size(303, 20);
+            this.dtpReturnDate.TabIndex = 47;
+            // 
+            // dtpArrivalDate
+            // 
+            this.dtpArrivalDate.Location = new System.Drawing.Point(114, 82);
+            this.dtpArrivalDate.Name = "dtpArrivalDate";
+            this.dtpArrivalDate.Size = new System.Drawing.Size(302, 20);
+            this.dtpArrivalDate.TabIndex = 48;
+            // 
+            // dtpReleaseDate
+            // 
+            this.dtpReleaseDate.Location = new System.Drawing.Point(114, 9);
+            this.dtpReleaseDate.Name = "dtpReleaseDate";
+            this.dtpReleaseDate.Size = new System.Drawing.Size(303, 20);
+            this.dtpReleaseDate.TabIndex = 49;
+            // 
+            // mtxtDuration
+            // 
+            this.mtxtDuration.Location = new System.Drawing.Point(114, 135);
+            this.mtxtDuration.Mask = "00:00";
+            this.mtxtDuration.Name = "mtxtDuration";
+            this.mtxtDuration.Size = new System.Drawing.Size(303, 20);
+            this.mtxtDuration.TabIndex = 50;
+            this.mtxtDuration.ValidatingType = typeof(System.DateTime);
+            this.mtxtDuration.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
             // GUIMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.mtxtDuration);
+            this.Controls.Add(this.dtpReleaseDate);
+            this.Controls.Add(this.dtpArrivalDate);
+            this.Controls.Add(this.dtpReturnDate);
             this.Controls.Add(this.btnDeleteMovie);
             this.Controls.Add(this.cbCreateManually);
             this.Controls.Add(this.comboBox1);
@@ -295,12 +298,8 @@
             this.Controls.Add(this.txtMovieDescription);
             this.Controls.Add(this.txtActors);
             this.Controls.Add(this.txtDirector);
-            this.Controls.Add(this.txtDuration);
-            this.Controls.Add(this.txtReturnDate);
-            this.Controls.Add(this.txtArrivalDate);
             this.Controls.Add(this.txtDistributor);
             this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.txtReleaseDate);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -326,17 +325,12 @@
         private System.Windows.Forms.TextBox txtMovieDescription;
         private System.Windows.Forms.TextBox txtActors;
         private System.Windows.Forms.TextBox txtDirector;
-        private System.Windows.Forms.TextBox txtDuration;
-        private System.Windows.Forms.TextBox txtReturnDate;
-        private System.Windows.Forms.TextBox txtArrivalDate;
         private System.Windows.Forms.TextBox txtDistributor;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.TextBox txtReleaseDate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -344,6 +338,11 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.CheckBox cbCreateManually;
         private System.Windows.Forms.Button btnDeleteMovie;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpReturnDate;
+        private System.Windows.Forms.DateTimePicker dtpArrivalDate;
+        private System.Windows.Forms.DateTimePicker dtpReleaseDate;
+        private System.Windows.Forms.MaskedTextBox mtxtDuration;
 
     }
 }
