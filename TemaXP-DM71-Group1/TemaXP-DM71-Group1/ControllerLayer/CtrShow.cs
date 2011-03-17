@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-using TemaXP_DM71_Group1.DBLayer;
-using TemaXP_DM71_Group1.ModelLayer;
+using TemaXP_DM71_Group1_ServiceLib.DBLayer;
+using TemaXP_DM71_Group1_ServiceLib.ModelLayer;
 
-namespace TemaXP_DM71_Group1.ControllerLayer
+namespace TemaXP_DM71_Group1_ServiceLib.ControllerLayer
 {
-    public class CtrShow
+    public class CtrShow : IService1
     {
         public void InsertShow(string movieStartTime, string showDate, Movie movie)
         {
