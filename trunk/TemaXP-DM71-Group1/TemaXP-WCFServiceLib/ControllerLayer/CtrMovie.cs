@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using TemaXP_DM71_Group1.DBLayer;
-using TemaXP_DM71_Group1.ModelLayer;
+using TemaXP_WCFServiceLib.DBLayer;
+using TemaXP_WCFServiceLib.ModelLayer;
 
-namespace TemaXP_DM71_Group1.ControllerLayer
+namespace TemaXP_WCFServiceLib.ControllerLayer
 {
-    class CtrMovie
+    public class CtrMovie : IService2
     {
         public Movie FindMovieByTitle(string title) 
         {

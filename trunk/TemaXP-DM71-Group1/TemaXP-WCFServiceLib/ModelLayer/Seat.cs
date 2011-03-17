@@ -1,4 +1,6 @@
-﻿namespace TemaXP_DM71_Group1.ModelLayer
+﻿using TemaXP_WCFServiceLib.ModelLayer;
+
+namespace TemaXP_DM71_Group1.ModelLayer
 {
     public class Seat
     {
