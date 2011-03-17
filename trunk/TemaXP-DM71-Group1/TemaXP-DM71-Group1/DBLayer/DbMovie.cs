@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using TemaXP_DM71_Group1.ModelLayer;
-using System.Configuration;
+using TemaXP_DM71_Group1_ServiceLib.ModelLayer;
 
-namespace TemaXP_DM71_Group1.DBLayer
+namespace TemaXP_DM71_Group1_ServiceLib.DBLayer
 {
     public class DBMovie : IFDBMovie
     {
