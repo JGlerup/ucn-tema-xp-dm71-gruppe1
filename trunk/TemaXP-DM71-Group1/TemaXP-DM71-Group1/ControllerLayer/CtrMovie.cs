@@ -6,7 +6,7 @@ namespace TemaXP_DM71_Group1_ServiceLib.ControllerLayer
 {
     class CtrMovie
     {
-        public Movie FindMovieByTitle(string title)
+        public Movie FindMovieByTitle(string title) 
         {
             IFDBMovie DBMovie = new DBMovie();
             return DBMovie.FindMovieByTitle(title, false);
