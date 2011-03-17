@@ -62,5 +62,55 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             IFdbCinema dbCinema = new DBCinema();
             dbCinema.DeleteCinema(c);
         }
+
+        public void InsertRow(Cinema c, int noOfSeats, int rowNo)
+        {
+            IFdbRow dbRow = new DBRow();
+            Row rObj = new Row();
+            rObj.Cinema = c;
+            rObj.NoOfSeats = noOfSeats;
+            rObj.RowNo = rowNo;
+            dbRow.InsertRow(rObj);
+        }
+
+        public void DeleteRow(Row row)
+        {
+            IFdbRow dbRow = new DBRow();
+            dbRow.DeleteRow(row);
+        }
+
+        public void UpdateRow(Row row)
+        {
+            IFdbRow dbRow = new DBRow();
+            Row rObj = row;
+            dbRow.UpdateRow(rObj);
+        }
+
+        public Row FindRowByRowNoAndCinema(int rowNo, Cinema cinema, bool retrieveAssociation)
+        {
+            IFdbRow dbRow = new DBRow();
+            return dbRow.FindRowByRowNoAndCinema(rowNo, cinema, retrieveAssociation);
+        }
+
+        public Row FindRowById(Row row, bool retrieveAssociation)
+        {
+            IFdbRow dbRow = new DBRow();
+            return dbRow.FindRowById(row, retrieveAssociation);
+        }
+
+        public IList<Row> FindRowsByCinemaId(Cinema c, bool retrieveAssociation)
+        {
+            IFdbRow dbRow = new DBRow();
+            IList<Row> rowList = dbRow.FindRowsByCinemaId(c, retrieveAssociation);
+            return rowList;
+        }
+
+        public IList<Row> FindAllRows(bool retrieveAssociation)
+        {
+            IFdbRow dbRow = new DBRow();
+            IList<Row> rowList = dbRow.FindAllRows(retrieveAssociation);
+            return rowList;
+        }
+
     }
 }
