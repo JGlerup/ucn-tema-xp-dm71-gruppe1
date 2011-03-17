@@ -173,11 +173,11 @@ namespace TemaXP_DM71_Group1.DBLayer
             try
             {
                 mm.Id = dbReader.GetInt32(0);
-                mm.ReleaseDate = checkDate(dbReader.GetString(1));
+                mm.ReleaseDate = checkDate(dbReader.GetDateTime(1).ToShortDateString());
                 mm.Title = dbReader.GetString(2);
                 mm.Distributor = dbReader.GetString(3);
-                mm.ArrivalDate = checkDate(dbReader.GetString(4));
-                mm.ReturnDate = checkDate(dbReader.GetString(5));
+                mm.ArrivalDate = checkDate(dbReader.GetDateTime(4).ToShortDateString());
+                mm.ReturnDate = checkDate(dbReader.GetDateTime(5).ToShortDateString());
                 TimeSpan ts = (TimeSpan)dbReader.GetProviderSpecificValue(6);
                 mm.Duration = ts.ToString();
                 mm.Director = dbReader.GetString(7);
