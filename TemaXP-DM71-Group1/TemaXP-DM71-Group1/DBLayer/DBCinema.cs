@@ -182,10 +182,11 @@ namespace TemaXP_DM71_Group1_ServiceLib.DBLayer
                 IList<Row> rs = new List<Row>();
                 if (retriveAssociation)
                 {
-//                    IFdbRow dbRow = new DBRow();
-//                    rs = dbRow.findRowsById(c.Id, false)
+                    IFdbRow dbRow = new DBRow();
+                    rs = dbRow.FindRowsByCinemaId(c, false);
                 }
                 c.Rows = rs;
+                c.FillRows();
             }
             catch (Exception e)
             {

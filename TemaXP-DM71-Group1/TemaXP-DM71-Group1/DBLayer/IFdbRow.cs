@@ -15,6 +15,8 @@ namespace TemaXP_DM71_Group1_ServiceLib.DBLayer
 
         Row FindRowById(Row row, bool retrieveAssociation);
 
+        IList<Row> FindRowsByCinemaId(Cinema c, bool retrieveAssociation);
+
         IList<Row> FindAllRows(bool retrieveAssociation);
     }
 }

@@ -210,5 +210,22 @@ namespace TemaXP_DM71_Group1_ServiceLib.DBLayer
 
             return command;
         }
+
+
+        public IList<Row> FindRowsByCinemaId(Cinema c, bool retrieveAssociation)
+        {
+            conn.Open();
+
+            IList<Row> rowList = new List<Row>();
+            string sql = "SELECT * FROM row WHERE cinemaid =" + c.Id;
+            command = CreateCommand(sql);
+
+            dbReader = command.ExecuteReader();
+
+            rowList = CreateList(dbReader, sql, retrieveAssociation);
+
+            conn.Close();
+            return rowList;
+        }
     }
 }

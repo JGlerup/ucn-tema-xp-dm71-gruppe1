@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using TemaXP_DM71_Group1.ControllerLayer;
 using TemaXP_DM71_Group1.ModelLayer;
+using System.Collections;
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
@@ -20,14 +21,16 @@ namespace TemaXP_DM71_Group1.GUILayer
             listView1.View = View.Details;
             listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             // Create and initialize column headers for myListView.
-            ColumnHeader columnHeader0 = new ColumnHeader();
-            columnHeader0.Text = "Rækker";
-            columnHeader0.Width = -2;
-            ColumnHeader columnHeader1 = new ColumnHeader();
-            columnHeader1.Text = "Antal Sæder";
-            columnHeader1.Width = -2;
+            ColumnHeader header1, header2;
+            header1 = new ColumnHeader();
+            header2 = new ColumnHeader();
+            header1.Text = "Række";
+            header2.Text = "Sæder";
+            header1.Width = -2;
+            header2.Width = -2;
             // Add the column headers to myListView.
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader0, columnHeader1 });
+            listView1.Columns.Add(header1);
+            listView1.Columns.Add(header2);
             BindComboBox();
         }
 
@@ -51,16 +54,16 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             try
             {
+                listView1.Items.Clear();
                 Cinema c = (Cinema)comboBox4.SelectedItem;
-                int index = 0;
-                ListViewItem listViewItem = new ListViewItem("Rows");
-                while(index < c.Rows.Count)
+                CtrCinema cc = new CtrCinema();
+                c = cc.FindCinemaByName(c.CinemaName, true);
+                foreach (Row r in c.Rows)
                 {
-                    listViewItem.SubItems.Add(c.Rows.ElementAt(index).RowNo.ToString());
-                    
+                    ListViewItem item0 = new ListViewItem(new string[] {r.RowNo.ToString()});
+                    int Iitem0 = Convert.ToInt32(item0.Text);
+                    listView1.Items.AddRange(new ListViewItem[] {Iitem0});
                 }
-                index++;
-                listView1.Items.Add(listViewItem);
             }
             catch (Exception ex)
             {
@@ -68,17 +71,24 @@ namespace TemaXP_DM71_Group1.GUILayer
             }
         }
 
-        //public void clearTextBoxes()
-        //{
-        //    dtpReleaseDate.Text = "";
-        //    txtTitle.Text = "";
-        //    txtDistributor.Text = "";
-        //    dtpArrivalDate.Text = "";
-        //    dtpReturnDate.Text = "";
-        //    mtxtDuration.Text = "";
-        //    txtDirector.Text = "";
-        //    txtActors.Text = "";
-        //    txtMovieDescription.Text = "";
-        //}
+        class ListViewItemComparer : IComparer
+        {
+            private int col;
+            public ListViewItemComparer()
+            {
+                col = 0;
+            }
+            public ListViewItemComparer(int column)
+            {
+                col = column;
+            }
+            public int Compare(object x, object y)
+            {
+                int returnVal = -1;
+                returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
+                ((ListViewItem)y).SubItems[col].Text);
+                return returnVal;
+            }
+        }
     }
 }
