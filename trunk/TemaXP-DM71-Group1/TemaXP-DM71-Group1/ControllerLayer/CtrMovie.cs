@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using TemaXP_DM71_Group1.ModelLayer;
-using TemaXP_DM71_Group1.ControllerLayer;
-using TemaXP_DM71_Group1.DBLayer;
+﻿using System.Collections.Generic;
+using TemaXP_DM71_Group1_ServiceLib.DBLayer;
+using TemaXP_DM71_Group1_ServiceLib.ModelLayer;
 
-
-namespace TemaXP_DM71_Group1.ControllerLayer
+namespace TemaXP_DM71_Group1_ServiceLib.ControllerLayer
 {
     class CtrMovie
     {
