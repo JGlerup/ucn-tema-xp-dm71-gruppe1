@@ -93,10 +93,10 @@
             // ShowsTab
             // 
             this.ShowsTab.Controls.Add(this.guiShow1);
-            this.ShowsTab.Location = new System.Drawing.Point(57, 4);
+            this.ShowsTab.Location = new System.Drawing.Point(141, 4);
             this.ShowsTab.Name = "ShowsTab";
             this.ShowsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ShowsTab.Size = new System.Drawing.Size(700, 423);
+            this.ShowsTab.Size = new System.Drawing.Size(616, 423);
             this.ShowsTab.TabIndex = 1;
             this.ShowsTab.Text = "Forestillinger";
             this.ShowsTab.UseVisualStyleBackColor = true;
@@ -106,10 +106,10 @@
             // MovieTab
             // 
             this.MovieTab.Controls.Add(this.movie1);
-            this.MovieTab.Location = new System.Drawing.Point(85, 4);
+            this.MovieTab.Location = new System.Drawing.Point(141, 4);
             this.MovieTab.Name = "MovieTab";
             this.MovieTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MovieTab.Size = new System.Drawing.Size(672, 423);
+            this.MovieTab.Size = new System.Drawing.Size(616, 423);
             this.MovieTab.TabIndex = 2;
             this.MovieTab.Text = "Film";
             this.MovieTab.UseVisualStyleBackColor = true;
@@ -117,10 +117,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.guiCinema1);
-            this.tabPage3.Location = new System.Drawing.Point(113, 4);
+            this.tabPage3.Location = new System.Drawing.Point(141, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(644, 423);
+            this.tabPage3.Size = new System.Drawing.Size(616, 423);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Sale";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -179,8 +179,9 @@
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
-            this.Text = "KinoKæk";
+            this.Text = "KinoErKæk";
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.ShowsTab.ResumeLayout(false);
