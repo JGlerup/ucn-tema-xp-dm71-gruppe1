@@ -52,26 +52,6 @@
     <Compile Include="DBLayer\IFdbMovie.cs" />
     <Compile Include="DBLayer\IFdbRow.cs" />
     <Compile Include="DBLayer\IFdbShow.cs" />
-    <Compile Include="GUILayer\GUICinema.cs" />
-    <Compile Include="GUILayer\GUICinema.Designer.cs">
-      <DependentUpon>GUICinema.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\GUIMovie.cs" />
-    <Compile Include="GUILayer\GUIMovie.Designer.cs">
-      <DependentUpon>GUIMovie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\GUIPlaytime.cs" />
-    <Compile Include="GUILayer\GUIPlaytime.Designer.cs">
-      <DependentUpon>GUIPlaytime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\GUIShow.cs" />
-    <Compile Include="GUILayer\GUIShow.Designer.cs">
-      <DependentUpon>GUIShow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\Main.cs" />
-    <Compile Include="GUILayer\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="ModelLayer\Cinema.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
@@ -83,23 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="GUILayer\GUICinema.resx">
-      <DependentUpon>GUICinema.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\GUIMovie.resx">
-      <DependentUpon>GUIMovie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\GuiPlaytime.resx">
-      <DependentUpon>GUIPlaytime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\GUIShow.resx">
-      <DependentUpon>GUIShow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
