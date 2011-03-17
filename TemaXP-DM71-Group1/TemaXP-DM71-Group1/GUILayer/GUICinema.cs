@@ -51,22 +51,34 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             try
             {
-                Cinema c = (Cinema) comboBox4.SelectedItem;
-                clearTextBoxes();
-                dtpReleaseDate.Text = c.ReleaseDate;
-                txtTitle.Text = c.Title;
-                txtDistributor.Text = c.Distributor;
-                dtpArrivalDate.Text = c.ArrivalDate;
-                dtpReturnDate.Text = c.ReturnDate;
-                mtxtDuration.Text = c.Duration;
-                txtDirector.Text = c.Director;
-                txtActors.Text = c.Actors;
-                txtMovieDescription.Text = c.MovieDescription;
+                Cinema c = (Cinema)comboBox4.SelectedItem;
+                int index = 0;
+                ListViewItem listViewItem = new ListViewItem("Rows");
+                while(index < c.Rows.Count)
+                {
+                    listViewItem.SubItems.Add(c.Rows.ElementAt(index).RowNo.ToString());
+                    
+                }
+                index++;
+                listView1.Items.Add(listViewItem);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        //public void clearTextBoxes()
+        //{
+        //    dtpReleaseDate.Text = "";
+        //    txtTitle.Text = "";
+        //    txtDistributor.Text = "";
+        //    dtpArrivalDate.Text = "";
+        //    dtpReturnDate.Text = "";
+        //    mtxtDuration.Text = "";
+        //    txtDirector.Text = "";
+        //    txtActors.Text = "";
+        //    txtMovieDescription.Text = "";
+        //}
     }
 }
