@@ -43,5 +43,10 @@ namespace TemaXP_DM71_Group1_ServiceLib.ModelLayer
             get { return cinema; }
             set { cinema = value; }
         }
+
+        public override string ToString()
+        {
+            return RowNo.ToString();
+        }
     }
 }

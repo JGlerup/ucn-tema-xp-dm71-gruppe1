@@ -55,6 +55,19 @@ namespace TemaXP_DM71_Group1_ServiceLib.ModelLayer
             set { rows = value; }
         }
 
+        public IList<Row> FillRows()
+        {
+            IList<Row> list = new List<Row>();
+            int i = 1;
+            while (i <= noOfRows)
+            {
+                Row r = new Row();
+                r.RowNo = i;
+                i++;
+            }
+            return list;
+        }
+
         public override string ToString()
         {
             return cinemaName;
