@@ -13,6 +13,8 @@ namespace TemaXP_DM71_Group1.GUILayer
 {
     public partial class GUIShow : UserControl
     {
+
+
         public GUIShow()
         {
             InitializeComponent();
