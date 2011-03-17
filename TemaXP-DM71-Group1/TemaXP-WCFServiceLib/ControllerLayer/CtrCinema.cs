@@ -13,10 +13,23 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
             return dbCinema.FindCinemaByCinemaName(cinemaName, retrieveAssociation);
         }
 
+        public Cinema FindCinemaByNoOfSeats(int noOfSeats, bool retrieveAssociation)
+        {
+            IFdbCinema dbCinema = new DBCinema();
+            return dbCinema.FindCinemaByNoOfSeats(noOfSeats, retrieveAssociation);
+        }
+
         public IList<Cinema> FindAllCinemas(bool retrieveAssociation)
         {
             IFdbCinema dbCinema = new DBCinema();
-            IList<Cinema> cinemaList = dbCinema.FindAllCinemas(false);
+            IList<Cinema> cinemaList = dbCinema.FindAllCinemas(retrieveAssociation);
+            return cinemaList;
+        }
+
+        public IList<Cinema> FindAllCinemasByShowID(Show s, bool retrieveAssociation)
+        {
+            IFdbCinema dbCinema = new DBCinema();
+            IList<Cinema> cinemaList = dbCinema.FindCinemasByShowID(s, retrieveAssociation);
             return cinemaList;
         }
 
@@ -32,7 +45,7 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
 
         public void AddSeatsToRow(Cinema c, int rowNumber, int noOfSeats)
         {
-            for(int i = 0; i < noOfSeats; i++)
+            for (int i = 0; i < noOfSeats; i++)
             {
                 c.Rows[rowNumber].Seats.Add(i);
             }
