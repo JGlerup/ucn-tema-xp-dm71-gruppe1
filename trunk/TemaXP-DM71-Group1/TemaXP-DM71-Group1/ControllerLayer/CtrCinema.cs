@@ -12,10 +12,23 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             return dbCinema.FindCinemaByCinemaName(cinemaName, retrieveAssociation);
         }
 
+        public Cinema FindCinemaByNoOfSeats(int noOfSeats, bool retrieveAssociation)
+        {
+            IFdbCinema dbCinema = new DBCinema();
+            return dbCinema.FindCinemaByNoOfSeats(noOfSeats, retrieveAssociation);
+        }
+
         public IList<Cinema> FindAllCinemas(bool retrieveAssociation)
         {
             IFdbCinema dbCinema = new DBCinema();
-            IList<Cinema> cinemaList = dbCinema.FindAllCinemas(false);
+            IList<Cinema> cinemaList = dbCinema.FindAllCinemas(retrieveAssociation);
+            return cinemaList;
+        }
+
+        public IList<Cinema> FindAllCinemasByShowID(Show s, bool retrieveAssociation)
+        {
+            IFdbCinema dbCinema = new DBCinema();
+            IList<Cinema> cinemaList = dbCinema.FindCinemasByShowID(s, retrieveAssociation);
             return cinemaList;
         }
 
