@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using TemaXP_DM71_Group1_ServiceLib.ModelLayer;
+using TemaXP_DM71_Group1.ModelLayer;
 
-namespace TemaXP_DM71_Group1_ServiceLib.DBLayer
+namespace TemaXP_DM71_Group1.DBLayer
 {
     public class DBRow : IFdbRow
     {

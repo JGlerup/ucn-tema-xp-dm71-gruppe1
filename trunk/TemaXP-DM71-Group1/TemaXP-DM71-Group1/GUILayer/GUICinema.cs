@@ -61,8 +61,8 @@ namespace TemaXP_DM71_Group1.GUILayer
                 foreach (Row r in c.Rows)
                 {
                     ListViewItem item0 = new ListViewItem(new string[] {r.RowNo.ToString()});
-                    int Iitem0 = Convert.ToInt32(item0.Text);
-                    listView1.Items.AddRange(new ListViewItem[] {Iitem0});
+                    //int Iitem0 = Convert.ToInt32(item0.Text);
+                    listView1.Items.AddRange(new ListViewItem[] {item0});
                 }
             }
             catch (Exception ex)
