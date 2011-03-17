@@ -6,17 +6,17 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
 {
     public class CtrMovie : IService2
     {
-        public Movie FindMovieByTitle(string title) 
+        public Movie FindMovieByTitle(string title, bool retrieveAssociation)
         {
-            IFDBMovie DBMovie = new DBMovie();
-            return DBMovie.FindMovieByTitle(title, false);
+            IFDBMovie dbMovie = new DBMovie();
+            return dbMovie.FindMovieByTitle(title, retrieveAssociation);
         }
 
-//        public Movie FindMovieById(int id)
-//        {
-//            IFDBMovie DBMovie = new DBMovie();
-//            return DBMovie.FindMovieById(id); 
-//        }
+        public Movie FindMovieById(Movie m, bool retrieveAssociation)
+        {
+            IFDBMovie DBMovie = new DBMovie();
+            return DBMovie.FindMovieById(m, retrieveAssociation);
+        }
 
         public void InsertMovie(string releaseDate, string title, string distributor, string arrivalDate, string returnDate, string duration, string director, string actors, string movieDescription)
         {
@@ -37,7 +37,7 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
         public void UpdateMovie(string currentTitle, string releaseDate, string title, string distributor, string arrivalDate, string returnDate, string duration, string director, string actors, string movieDescription)
         {
             IFDBMovie DBMovie = new DBMovie();
-            Movie mObj = FindMovieByTitle(currentTitle);
+            Movie mObj = FindMovieByTitle(currentTitle, false);
             mObj.ReleaseDate = releaseDate;
             mObj.Title = title;
             mObj.Distributor = distributor;
@@ -58,10 +58,10 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
 
         }
 
-        public IList<Movie> FindAllMovies()
+        public IList<Movie> FindAllMovies(bool retrieveAssociation)
         {
             IFDBMovie dbMovie = new DBMovie();
-            IList<Movie> movieList = dbMovie.FindAllMovies(false);
+            IList<Movie> movieList = dbMovie.FindAllMovies(retrieveAssociation);
             return movieList;
         }
 
