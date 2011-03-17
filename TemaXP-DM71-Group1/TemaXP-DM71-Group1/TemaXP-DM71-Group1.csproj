@@ -60,7 +60,6 @@
     <Compile Include="ControllerLayer\CtrShow.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ControllerLayer\Shows.cs" />
     <Compile Include="DBLayer\DBCinema.cs" />
     <Compile Include="DBLayer\DbMovie.cs" />
     <Compile Include="DBLayer\DBRow.cs" />
