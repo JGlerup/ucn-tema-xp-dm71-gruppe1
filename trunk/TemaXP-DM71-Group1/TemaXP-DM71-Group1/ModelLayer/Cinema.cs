@@ -56,5 +56,10 @@ namespace TemaXP_DM71_Group1.ModelLayer
             get { return rows; }
             set { rows = value; }
         }
+
+        public override string ToString()
+        {
+            return cinemaName;
+        }
     }
 }
