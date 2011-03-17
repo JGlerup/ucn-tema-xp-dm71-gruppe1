@@ -19,7 +19,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             InitializeComponent();
             //listView1.Dock = DockStyle.Fill;
             listView1.View = View.Details;
-            listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
             // Create and initialize column headers for myListView.
             ColumnHeader header1, header2;
             header1 = new ColumnHeader();
@@ -62,7 +62,9 @@ namespace TemaXP_DM71_Group1.GUILayer
                 {
                     ListViewItem item0 = new ListViewItem(new string[] {r.RowNo.ToString()});
                     //int Iitem0 = Convert.ToInt32(item0.Text);
+                    listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
                     listView1.Items.AddRange(new ListViewItem[] {item0});
+                    listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
                 }
             }
             catch (Exception ex)
