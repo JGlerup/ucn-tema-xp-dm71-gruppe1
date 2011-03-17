@@ -15,6 +15,13 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             return dbCinema.FindCinemaByCinemaName(cinemaName, retrieveAssociation);
         }
 
+        public IList<Cinema> FindAllCinemas(bool retrieveAssociation)
+        {
+            IFdbCinema dbCinema = new DBCinema();
+            IList<Cinema> cinemaList = dbCinema.FindAllCinemas(false);
+            return cinemaList;
+        }
+
         public void InsertCinema(string cinemaName, int noOfRows)
         {
             IFdbCinema dbCinema = new DBCinema();

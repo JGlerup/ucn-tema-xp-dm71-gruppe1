@@ -74,6 +74,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Opret";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -84,6 +85,7 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Opdater";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -205,6 +207,7 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(178, 21);
             this.comboBox4.TabIndex = 18;
+            this.comboBox4.SelectionChangeCommitted += new System.EventHandler(this.comboBox4_SelectionChangeCommitted);
             // 
             // button5
             // 
