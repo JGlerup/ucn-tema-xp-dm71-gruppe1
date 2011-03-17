@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using TemaXP_DM71_Group1.DBLayer;
-using TemaXP_DM71_Group1.ModelLayer;
+using TemaXP_WCFServiceLib.DBLayer;
+using TemaXP_WCFServiceLib.ModelLayer;
+using TemaXP_WCFServiceLib;
 
-namespace TemaXP_DM71_Group1.ControllerLayer
+namespace TemaXP_WCFServiceLib.ControllerLayer
 {
-    public class CtrCinema
+    public class CtrCinema : IService1
     {
         public Cinema FindCinemaByName(string cinemaName, bool retrieveAssociation)
         {

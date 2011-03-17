@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TemaXP_DM71_Group1.ModelLayer;
+using TemaXP_WCFServiceLib.ModelLayer;
 
-namespace TemaXP_DM71_Group1.DBLayer
+namespace TemaXP_WCFServiceLib.DBLayer
 {
     public interface IFDBShow
     {
