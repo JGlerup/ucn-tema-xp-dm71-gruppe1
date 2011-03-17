@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>NaughtyKino.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="IMDb">
       <HintPath>..\..\..\..\Documents\My Dropbox\3. semester\XP gruppe 1\IMDb.dll</HintPath>
@@ -154,9 +157,13 @@
     <Folder Include="ControllerLayer\.svn\tmp\prop-base\" />
     <Folder Include="ControllerLayer\.svn\tmp\props\" />
     <Folder Include="ControllerLayer\.svn\tmp\text-base\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NaughtyKino.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
