@@ -10,6 +10,7 @@ namespace TemaXP_DM71_Group1.ModelLayer
         private int noOfSeats;
         private int noOfRows;
         private IList<Row> rows;
+        private IList<Seat> seats;
 
         //private IList<Seats> seats;
 
@@ -55,6 +56,11 @@ namespace TemaXP_DM71_Group1.ModelLayer
             set { rows = value; }
         }
 
+        public IList<Seat> Seats
+        {
+            get { return seats; }
+            set { seats = value; }
+        }
         public IList<Row> FillRows()
         {
             IList<Row> list = new List<Row>();
