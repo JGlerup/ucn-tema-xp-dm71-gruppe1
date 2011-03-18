@@ -61,11 +61,17 @@ namespace TemaXP_DM71_Group1.GUILayer
                 foreach (Row r in c.Rows)
                 {
                     ListViewItem item0 = new ListViewItem(new string[] {r.RowNo.ToString()});
-                    //int Iitem0 = Convert.ToInt32(item0.Text);
-                    listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
+                    ListViewItem.ListViewSubItem item1 = new ListViewItem.ListViewSubItem(item0, r.NoOfSeats.ToString());
                     listView1.Items.AddRange(new ListViewItem[] {item0});
+                    item0.SubItems.Add(item1);
+                    //listView1.Items.AddRange(new ListViewItem[] {item1});
                     listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
                 }
+                //foreach (Seat s in c.Seats)
+                //{
+                //    ListViewItem item1 = new ListViewItem(new string[] {s.SeatNo.ToString()});
+                //    listView1.Items.AddRange(new ListViewItem[] {item1});
+                //}
             }
             catch (Exception ex)
             {
