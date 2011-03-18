@@ -50,7 +50,7 @@ namespace TemaXP_DM71_Group1.GUILayer
             }
             cmbMovieStartTime.DataSource = movieStartTime;
             CtrMovie ctrMovie = new CtrMovie();
-            cmbMovie.DataSource = ctrMovie.FindAllMovies();
+            cmbMovie.DataSource = ctrMovie.FindAllMovies(false);
             //CtrCinema ctrCinema = new CtrCinema();
             //cmbCinema.DataSource = ctrCinema.FindAllCinemas();
         }
