@@ -11,15 +11,6 @@ namespace TemaXP_WCFServiceLib.ModelLayer
         private int noOfRows;
         private IList<Show> shows;
         private IList<Row> rows;
-        private IList<Seat> seats;
-
-        //private IList<Seats> seats;
-
-        //        public Cinema(int cinemaName, int noOfSeats)
-        //        {
-        //            this.CinemaName = cinemaName;
-        //            this.noOfSeats = noOfSeats;
-        //        }
 
         public Cinema()
         {
@@ -57,11 +48,6 @@ namespace TemaXP_WCFServiceLib.ModelLayer
             set { rows = value; }
         }
 
-        public IList<Seat> Seats
-        {
-            get { return seats; }
-            set { seats = value; }
-        }
         public IList<Row> FillRows()
         {
             IList<Row> list = new List<Row>();
