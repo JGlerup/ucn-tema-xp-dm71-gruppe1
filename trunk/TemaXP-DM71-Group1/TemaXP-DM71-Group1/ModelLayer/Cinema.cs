@@ -9,6 +9,7 @@ namespace TemaXP_DM71_Group1.ModelLayer
         private String cinemaName;
         private int noOfSeats;
         private int noOfRows;
+        private IList<Show> shows;
         private IList<Row> rows;
         private IList<Seat> seats;
 
@@ -72,6 +73,12 @@ namespace TemaXP_DM71_Group1.ModelLayer
                 i++;
             }
             return list;
+        }
+
+        public IList<Show> Shows
+        {
+            get { return shows; }
+            set { shows = value; }
         }
 
         public override string ToString()

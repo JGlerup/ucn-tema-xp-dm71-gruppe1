@@ -181,7 +181,6 @@ namespace TemaXP_DM71_Group1.DBLayer
 
             IList<Row> list = new List<Row>();
 
-
             Console.WriteLine("DbRow List" + sql);
             try
             { // read from Row

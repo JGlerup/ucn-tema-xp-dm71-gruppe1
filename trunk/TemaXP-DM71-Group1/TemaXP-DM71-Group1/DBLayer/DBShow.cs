@@ -5,7 +5,7 @@ using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.DBLayer
 {
-    public class DBShow : IFDBShow
+    public class DbShow : IFDBShow
     {
         private DbCommand command;
         private DbConnection conn;
@@ -14,7 +14,7 @@ namespace TemaXP_DM71_Group1.DBLayer
         private String connStr = null;
         private DbDataReader dbReader = null;
 
-        public DBShow()
+        public DbShow()
         {
             //            provider = ConfigurationManager.ConnectionStrings["TemaXP.Properties.Settings.DatabaseConnectionString"].ProviderName;
             //            connStr = ConfigurationManager.ConnectionStrings["TemaXP.Properties.Settings.DatabaseConnectionString"].ConnectionString;
@@ -29,15 +29,6 @@ namespace TemaXP_DM71_Group1.DBLayer
 
             Console.WriteLine("Database is open: {0}", conn.State);
         }
-
-        //public IList<Show> sortShowByDate(bool retrieveAssosiation)
-        //{
-        //    //IList<Show> sObj = new IList();
-            
-        //    //sObj = singleWhere("SELECT * FROM show WHERE Date_ BETWEEN (Select DATEADD(DAY, -1, GETDATE()) AS NewDate1) AND (SELECT DATEADD(Week,1,GETDATE()) AS NewDate)", retrieveAssociation);
-
-        //    return miscWhere("Date_ BETWEEN (Select DATEADD(DAY, -1, GETDATE()) AS NewDate1) AND (SELECT DATEADD(Week,1,GETDATE()) AS NewDate)", retrieveAssociation);
-        //}
 
         public void InsertShow(Show s)
         {
@@ -106,8 +97,6 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
         }
 
-    
-
         public Show FindShowByMovieId(Movie m, bool retrieveAssociation)
         {
             conn.Open();
@@ -125,33 +114,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             conn.Close();
             return s;
         }
-
-        private Show CreateSingle(DbDataReader dbReader, bool retriveAssociation)
-        {
-            Show s = new Show();
-            try
-            {
-                s.Id = dbReader.GetInt32(0);
-                TimeSpan ts = (TimeSpan) dbReader.GetProviderSpecificValue(1);
-                s.MovieStartTime = ts.ToString();
-                s.ShowDate = checkDate(dbReader.GetDateTime(2).ToShortDateString());
-                Movie m = new Movie();
-                m.Id = dbReader.GetInt32(3);
-                if (retriveAssociation)
-                {
-                    IFDBMovie dbMovie = new DBMovie();
-                    s.Movie = dbMovie.FindMovieById(m, false);
-                }
-                s.Movie = m;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("building show object" + e);
-                throw;
-            }
-            return s;
-        }
-
+        
         private DbCommand CreateCommand(String sql)
         {
             command = dbFactory.CreateCommand();
@@ -189,10 +152,7 @@ namespace TemaXP_DM71_Group1.DBLayer
 
             dbReader = command.ExecuteReader();
 
-            while (dbReader.Read())
-            {
-                showList.Add(CreateSingle(dbReader, retrieveAssociation));
-            }
+            showList = CreateList(dbReader, sql, retrieveAssociation);
 
             conn.Close();
             return showList;
@@ -200,13 +160,50 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         public IList<Show> GetAllShowsOneWeekAhead(bool retrieveAssociation)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            IList<Show> sList = new List<Show>();
+            String sql = "SELECT * FROM show WHERE Date_ BETWEEN (Select DATEADD(DAY, -1, GETDATE()) AS NewDate1) AND (SELECT DATEADD(Week,1,GETDATE()) AS NewDate)";
+            command = CreateCommand(sql);
+
+            dbReader = command.ExecuteReader();
+
+            sList = CreateList(dbReader, sql, retrieveAssociation);
+            conn.Close();
+            return sList;
         }
 
-
-        public Show FindShowByCinemaID(Cinema c, bool retrieveAssociation)
+        public Show FindShowById(Show show, bool retrieveAssociation)
         {
-            throw new NotImplementedException();
+            conn.Open();
+            Show s = new Show();
+            string sql = "SELECT * FROM show WHERE ShowId = '" + show.Id ;
+            
+            command = CreateCommand(sql);
+            dbReader = command.ExecuteReader();
+
+            while (dbReader.Read())
+            {
+                s = CreateSingle(dbReader, retrieveAssociation);
+            }
+
+            conn.Close();
+            return s;
+        }
+
+        
+        public IList<Show> FindShowsByCinemaId(Cinema c, bool retrieveAssociation)
+        {
+            conn.Open();
+            IList<Show> sList = new List<Show>();
+            string sql = "SELECT * FROM Cinema_Show WHERE CinemaId = '" + c.Id;
+
+            command = CreateCommand(sql);
+
+            dbReader = command.ExecuteReader();
+
+            sList = CreateList(dbReader, sql, retrieveAssociation);
+            conn.Close();
+            return sList;
         }
 
         private string checkDate(string date)
@@ -220,6 +217,104 @@ namespace TemaXP_DM71_Group1.DBLayer
                 reverse = year + "-" + month + "-" + day;
             }//end if
             return reverse;
+        }
+
+        private IList<Show> CreateList(DbDataReader dbRead, string sql, bool retrieveAssociation)
+        {
+
+            IList<Show> list = new List<Show>();
+
+            Console.WriteLine("DbShow List" + sql);
+            try
+            { // read from Show
+
+
+                while (dbRead.Read())
+                {
+                    list.Add(CreateSingle(dbRead, retrieveAssociation));
+                }//end while
+
+            }//end try
+            catch (Exception e)
+            {
+                Console.WriteLine("Query exception - select Row : " + e.Message);
+
+            }//end catch
+
+            return list;
+        }
+
+        private Show CreateSingle(DbDataReader dbReader, bool retriveAssociation)
+        {
+            Show s = new Show();
+            try
+            {
+                s.Id = dbReader.GetInt32(0);
+                TimeSpan ts = (TimeSpan)dbReader.GetProviderSpecificValue(1);
+                s.MovieStartTime = ts.ToString();
+                s.ShowDate = checkDate(dbReader.GetDateTime(2).ToShortDateString());
+                Movie m = new Movie();
+                m.Id = dbReader.GetInt32(3);
+                if (retriveAssociation)
+                {
+                    IFDBMovie dbMovie = new DBMovie();
+                    s.Movie = dbMovie.FindMovieById(m, false);
+                }
+                s.Movie = m;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("building show object" + e);
+                throw;
+            }
+            return s;
+        }
+
+        public void InsertCinemaShow(Cinema c, Show s)
+        {
+            conn.Open();
+            String sql = "INSERT INTO Cinema_Show (ShowID, CinamaID)  VALUES("
+               + s.Id + ", "
+               + c.Id + ")";
+
+            Console.WriteLine("insert : " + sql);
+            try
+            { // insert new show
+                command = CreateCommand(sql);
+
+                dbReader = command.ExecuteReader();
+
+
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Insert exception in cinema_show db: " + ex);
+                throw;
+            }//end catch
+            conn.Close();
+        }
+
+        public void DeleteCinemaShow(Cinema c, Show s)
+        {
+            conn.Open();
+            string sql = "DELETE FROM Cinema_Show "
+                + " WHERE ShowID = " + s.Id + " AND CinemaID = " + c.Id;
+            Console.WriteLine("Delete query:" + sql);
+            try
+            { // delete cinema show
+                command = CreateCommand(sql);
+                dbReader = command.ExecuteReader();
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Delete exception in show db: " + ex);
+            }//end catch
+            conn.Close();
+        }
+
+        public void UpdateCinemaShow(Cinema c, Show s)
+        {
+            throw new NotImplementedException();
         }
     }
 }
