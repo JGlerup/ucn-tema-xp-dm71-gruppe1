@@ -312,9 +312,24 @@ namespace TemaXP_WCFServiceLib.DBLayer
             conn.Close();
         }
 
-        public void UpdateCinemaShow(Cinema c, Show s)
+        public void UpdateCinemaShow(Cinema oldc, Show olds, Cinema newc, Show news)
         {
-            throw new NotImplementedException();
+            conn.Open();
+
+            String sql = "UPDATE Cinema_Show SET ShowID = " + news.Id + ", CinemaID = " + newc.Id + " WHERE Id in(SELECT Id FROM Cinema_Show WHERE ShowID =" + olds.Id + " AND CinemaID = " + oldc.Id + " )" ;
+            Console.WriteLine("Update query:" + sql);
+            try
+            { // update Cinema_show
+                command = CreateCommand(sql);
+                dbReader = command.ExecuteReader();
+
+            }//end try
+            catch (Exception ex)
+            {
+                Console.WriteLine("Update exception in Cinema_show db: " + ex);
+            }//end catch
+
+            conn.Close();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace TemaXP_DM71_Group1.DBLayer
 
         void DeleteCinemaShow(Cinema c, Show s);
 
-        void UpdateCinemaShow(Cinema c, Show s);
+        void UpdateCinemaShow(Cinema oldc, Show olds, Cinema newc, Show news);
     }
 
 }
