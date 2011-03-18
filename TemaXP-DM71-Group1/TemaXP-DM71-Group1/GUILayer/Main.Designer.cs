@@ -33,14 +33,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FrontpageTab = new System.Windows.Forms.TabPage();
             this.ShowsTab = new System.Windows.Forms.TabPage();
-            this.MovieTab = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.PlaytimeTab = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.guiShow1 = new TemaXP_DM71_Group1.GUILayer.GUIShow();
+            this.MovieTab = new System.Windows.Forms.TabPage();
             this.movie1 = new TemaXP_DM71_Group1.GUILayer.GUIMovie();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.guiCinema1 = new TemaXP_DM71_Group1.GUILayer.GUICinema();
+            this.PlaytimeTab = new System.Windows.Forms.TabPage();
             this.guiPlaytime1 = new TemaXP_DM71_Group1.GUILayer.GUIPlaytime();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ShowsTab.SuspendLayout();
@@ -103,6 +103,13 @@
             this.ShowsTab.Click += new System.EventHandler(this.ShowsTab_Click);
             this.ShowsTab.Enter += new System.EventHandler(this.ShowsTab_Enter);
             // 
+            // guiShow1
+            // 
+            this.guiShow1.Location = new System.Drawing.Point(0, 0);
+            this.guiShow1.Name = "guiShow1";
+            this.guiShow1.Size = new System.Drawing.Size(619, 424);
+            this.guiShow1.TabIndex = 0;
+            // 
             // MovieTab
             // 
             this.MovieTab.Controls.Add(this.movie1);
@@ -113,6 +120,13 @@
             this.MovieTab.TabIndex = 2;
             this.MovieTab.Text = "Film";
             this.MovieTab.UseVisualStyleBackColor = true;
+            // 
+            // movie1
+            // 
+            this.movie1.Location = new System.Drawing.Point(0, 0);
+            this.movie1.Name = "movie1";
+            this.movie1.Size = new System.Drawing.Size(616, 423);
+            this.movie1.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -125,6 +139,13 @@
             this.tabPage3.Text = "Sale";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // guiCinema1
+            // 
+            this.guiCinema1.Location = new System.Drawing.Point(2, 3);
+            this.guiCinema1.Name = "guiCinema1";
+            this.guiCinema1.Size = new System.Drawing.Size(611, 414);
+            this.guiCinema1.TabIndex = 0;
+            // 
             // PlaytimeTab
             // 
             this.PlaytimeTab.Controls.Add(this.guiPlaytime1);
@@ -136,6 +157,13 @@
             this.PlaytimeTab.Text = "Spilletider";
             this.PlaytimeTab.UseVisualStyleBackColor = true;
             // 
+            // guiPlaytime1
+            // 
+            this.guiPlaytime1.Location = new System.Drawing.Point(4, 3);
+            this.guiPlaytime1.Name = "guiPlaytime1";
+            this.guiPlaytime1.Size = new System.Drawing.Size(606, 414);
+            this.guiPlaytime1.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
@@ -143,34 +171,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(759, 100);
             this.panel2.TabIndex = 1;
-            // 
-            // guiShow1
-            // 
-            this.guiShow1.Location = new System.Drawing.Point(0, 0);
-            this.guiShow1.Name = "guiShow1";
-            this.guiShow1.Size = new System.Drawing.Size(619, 424);
-            this.guiShow1.TabIndex = 0;
-            // 
-            // movie1
-            // 
-            this.movie1.Location = new System.Drawing.Point(0, 0);
-            this.movie1.Name = "movie1";
-            this.movie1.Size = new System.Drawing.Size(616, 423);
-            this.movie1.TabIndex = 0;
-            // 
-            // guiCinema1
-            // 
-            this.guiCinema1.Location = new System.Drawing.Point(2, 3);
-            this.guiCinema1.Name = "guiCinema1";
-            this.guiCinema1.Size = new System.Drawing.Size(611, 414);
-            this.guiCinema1.TabIndex = 0;
-            // 
-            // guiPlaytime1
-            // 
-            this.guiPlaytime1.Location = new System.Drawing.Point(4, 3);
-            this.guiPlaytime1.Name = "guiPlaytime1";
-            this.guiPlaytime1.Size = new System.Drawing.Size(606, 414);
-            this.guiPlaytime1.TabIndex = 0;
             // 
             // Main
             // 
