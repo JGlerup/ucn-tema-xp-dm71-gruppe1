@@ -71,5 +71,21 @@ namespace TemaXP_DM71_Group1.ControllerLayer
             showList = dbShow.GetAllShowsOneWeekAhead(retrieveAssociation);
             return showList;
         }
+
+        public void InsertCinemaShow(Cinema c, Show s)
+        {
+            IFDBShow dbShow = new DbShow();
+            dbShow.InsertCinemaShow(c,s);
+        }
+
+        public void DeleteCinemaShow(Cinema c, Show s)
+        {
+            IFDBShow dbShow = new DbShow();
+            dbShow.DeleteCinemaShow(c, s);
+        }
+
+        public void UpdateCinemaShow(Cinema oldc, Show olds, Cinema newc, Show news)
+        {
+        }
     }
 }
