@@ -38,7 +38,7 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             listBox1.Items.Clear();
             CtrMovie ctrMovie = new CtrMovie();
-            IList<Movie> movieList = ctrMovie.FindAllMovies();
+            IList<Movie> movieList = ctrMovie.FindAllMovies(false);
             listBox1.DataSource = movieList;
             listBox1.DisplayMember = "Title";
             listBox1.ValueMember = "Title";

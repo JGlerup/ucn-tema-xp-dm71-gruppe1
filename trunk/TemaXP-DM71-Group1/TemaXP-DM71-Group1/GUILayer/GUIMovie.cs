@@ -108,7 +108,7 @@ namespace TemaXP_DM71_Group1.GUILayer
         private void BindComboBox()
         {
             CtrMovie ctrMovie = new CtrMovie();
-            comboBox1.DataSource = ctrMovie.FindAllMovies();
+            comboBox1.DataSource = ctrMovie.FindAllMovies(false);
         }
 
         private void button5_Click(object sender, EventArgs e)
