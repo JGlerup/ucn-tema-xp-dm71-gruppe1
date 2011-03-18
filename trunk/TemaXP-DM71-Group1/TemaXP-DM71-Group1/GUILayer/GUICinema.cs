@@ -42,7 +42,16 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BindComboBox();
+            try
+            {
+                CtrCinema cc = new CtrCinema();
+                cc.InsertCinema(textBox1.Text, comboBox1.SelectedIndex);
+                BindComboBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,18 +69,12 @@ namespace TemaXP_DM71_Group1.GUILayer
                 c = cc.FindCinemaByName(c.CinemaName, true);
                 foreach (Row r in c.Rows)
                 {
-                    ListViewItem item0 = new ListViewItem(new string[] {r.RowNo.ToString()});
+                    ListViewItem item0 = new ListViewItem(new string[] { r.RowNo.ToString() });
                     ListViewItem.ListViewSubItem item1 = new ListViewItem.ListViewSubItem(item0, r.NoOfSeats.ToString());
-                    listView1.Items.AddRange(new ListViewItem[] {item0});
+                    listView1.Items.AddRange(new ListViewItem[] { item0 });
                     item0.SubItems.Add(item1);
-                    //listView1.Items.AddRange(new ListViewItem[] {item1});
                     listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
                 }
-                //foreach (Seat s in c.Seats)
-                //{
-                //    ListViewItem item1 = new ListViewItem(new string[] {s.SeatNo.ToString()});
-                //    listView1.Items.AddRange(new ListViewItem[] {item1});
-                //}
             }
             catch (Exception ex)
             {
@@ -96,6 +99,78 @@ namespace TemaXP_DM71_Group1.GUILayer
                 returnVal = String.Compare(((ListViewItem)x).SubItems[col].Text,
                 ((ListViewItem)y).SubItems[col].Text);
                 return returnVal;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (button5.Text.Equals("Rediger"))
+            {
+                button5.Text = "Redigering slut";
+                button3.Enabled = true;
+                comboBox1.Enabled = true;
+                comboBox3.Enabled = true;
+                comboBox2.Enabled = true;
+                button4.Enabled = true;
+                button2.Enabled = true;
+            }
+            else
+            {
+                button5.Text = "Rediger";
+                button3.Enabled = false;
+                comboBox1.Enabled = false;
+                comboBox3.Enabled = false;
+                comboBox2.Enabled = false;
+                button4.Enabled = false;
+                button2.Enabled = false;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Cinema c = (Cinema)comboBox4.SelectedItem;
+            CtrCinema ctrCinema = new CtrCinema();
+            //CtrShow ctrShow = new CtrShow();
+            if (c.Id == ctrCinema.FindCinemaByName(c.CinemaName, true).Id)
+            {
+                Cinema cObj = ctrCinema.FindCinemaByName(c.CinemaName, true);
+                ctrCinema.DeleteCinema(cObj);
+                BindComboBox();
+            }
+            else
+            {
+                MessageBox.Show("Biografen er lame og er der derfor stadigvæk, hvilket er super lame, så prøv igen.");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cinema c = (Cinema)comboBox4.SelectedItem;
+                CtrCinema cc = new CtrCinema();
+                cc.InsertRow(c, Convert.ToInt32(comboBox2.SelectedItem.ToString()), Convert.ToInt32(comboBox3.SelectedItem.ToString()));
+                BindListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BindListView()
+        {
+            listView1.Items.Clear();
+            Cinema c = (Cinema)comboBox4.SelectedItem;
+            CtrCinema cc = new CtrCinema();
+            c = cc.FindCinemaByName(c.CinemaName, true);
+            foreach (Row r in c.Rows)
+            {
+                ListViewItem item0 = new ListViewItem(new string[] { r.RowNo.ToString() });
+                ListViewItem.ListViewSubItem item1 = new ListViewItem.ListViewSubItem(item0, r.NoOfSeats.ToString());
+                listView1.Items.AddRange(new ListViewItem[] { item0 });
+                item0.SubItems.Add(item1);
+                listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
             }
         }
     }
