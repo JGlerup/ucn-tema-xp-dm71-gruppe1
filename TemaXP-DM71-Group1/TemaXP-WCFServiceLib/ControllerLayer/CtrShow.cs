@@ -29,7 +29,7 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
             s.MovieStartTime = movieStartTime;
             s.ShowDate = showDate;
             s.Movie = movie;
-           dbShow.UpdateShow(s);
+            dbShow.UpdateShow(s);
         }
 
         public IList<Show> FindAllShows(bool retrieveAssociation)
@@ -39,12 +39,12 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
             return showList;
         }
 
-        public Show FindShowById(Movie m)
+        public IList<Show> FindShowsByCinemaId(Cinema c, bool retrieveAssociation)
         {
             IFDBShow dbShow = new DBShow();
-            return dbShow.FindShowByMovieId(m, false);
+            IList<Show> showList = dbShow.FindShowsByCinemaId(c, retrieveAssociation);
+            return showList;
         }
-
 
         public Show FindShowByMovieIdAndShowDate(Movie m, string date)
         {
@@ -54,17 +54,22 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
 
         public Show FindShowByMovieId(Movie m)
         {
-            IFDBShow dbShow = new DBShow();
+            IFDBShow dbShow = new DbShow();
             return dbShow.FindShowByMovieId(m, true);
         }
 
-        public IList<Show> GetAllShowsOneWeekAhead()
+        public Show FindShowById(Show s, bool retrievAssociation)
         {
-            //DBShow dbShow = new DBShow();   
-            //IList<Show> showList = new List<Show>();
-            //showList = dbShow.sortShowByDate(false);
-            //return showList;
-            throw new NotImplementedException();
+            IFDBShow dbShow = new DBShow();
+            return dbShow.FindShowById(s, retrievAssociation);
+        }
+
+        public IList<Show> GetAllShowsOneWeekAhead(bool retrieveAssociation)
+        {
+            IFDBShow dbShow = new DBShow();
+            IList<Show> showList = new List<Show>();
+            showList = dbShow.GetAllShowsOneWeekAhead(retrieveAssociation);
+            return showList;
         }
     }
 }

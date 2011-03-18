@@ -9,7 +9,7 @@ namespace TemaXP_DM71_Group1.ControllerLayer
     {
         public void InsertShow(string movieStartTime, string showDate, Movie movie)
         {
-            IFDBShow dbShow = new DBShow();
+            IFDBShow dbShow = new DbShow();
             Show sObj = new Show();
             sObj.MovieStartTime = movieStartTime;
             sObj.ShowDate = showDate;
@@ -19,13 +19,13 @@ namespace TemaXP_DM71_Group1.ControllerLayer
 
         public void DeleteShow(Show s)
         {
-            IFDBShow dbShow = new DBShow();
+            IFDBShow dbShow = new DbShow();
             dbShow.DeleteShow(s);
         }
 
         public void UpdateShow(Show s, string movieStartTime, string showDate, Movie movie)
         {
-            IFDBShow dbShow = new DBShow();
+            IFDBShow dbShow = new DbShow();
             s.MovieStartTime = movieStartTime;
             s.ShowDate = showDate;
             s.Movie = movie;
@@ -34,37 +34,42 @@ namespace TemaXP_DM71_Group1.ControllerLayer
 
         public IList<Show> FindAllShows(bool retrieveAssociation)
         {
-            IFDBShow dbShow = new DBShow();
+            IFDBShow dbShow = new DbShow();
             IList<Show> showList = dbShow.FindAllShows(retrieveAssociation);
             return showList;
         }
 
-        public Show FindShowById(Movie m)
+        public IList<Show> FindShowsByCinemaId(Cinema c, bool retrieveAssociation)
         {
-            IFDBShow dbShow = new DBShow();
-            return dbShow.FindShowByMovieId(m, false);
+            IFDBShow dbShow = new DbShow();
+            IList<Show> showList = dbShow.FindShowsByCinemaId(c, retrieveAssociation);
+            return showList;
         }
-
-
+        
         public Show FindShowByMovieIdAndShowDate(Movie m, string date)
         {
-            IFDBShow dbShow = new DBShow();
+            IFDBShow dbShow = new DbShow();
             return dbShow.FindShowByMovieIdAndShowDate(m, date, false);
         }
 
         public Show FindShowByMovieId(Movie m)
         {
-            IFDBShow dbShow = new DBShow();
+            IFDBShow dbShow = new DbShow();
             return dbShow.FindShowByMovieId(m, true);
         }
 
-        public IList<Show> GetAllShowsOneWeekAhead()
+        public Show FindShowById(Show s, bool retrievAssociation)
         {
-            //DBShow dbShow = new DBShow();   
-            //IList<Show> showList = new List<Show>();
-            //showList = dbShow.sortShowByDate(false);
-            //return showList;
-            throw new NotImplementedException();
+            IFDBShow dbShow = new DbShow();
+            return dbShow.FindShowById(s, retrievAssociation);
+        }
+
+        public IList<Show> GetAllShowsOneWeekAhead(bool retrieveAssociation)
+        {
+            IFDBShow dbShow = new DbShow();   
+            IList<Show> showList = new List<Show>();
+            showList = dbShow.GetAllShowsOneWeekAhead(retrieveAssociation);
+            return showList;
         }
     }
 }

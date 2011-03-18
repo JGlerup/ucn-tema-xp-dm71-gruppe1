@@ -161,7 +161,7 @@ namespace TemaXP_WCFServiceLib.DBLayer
                 row.NoOfSeats = dbReader.GetInt32(2);
                 Cinema cinema = new Cinema();
                 cinema.Id = dbReader.GetInt32(3);
-                
+
                 if (retrieveAssociation)
                 {
                     //IFdbCinema dbCinema = new DBCinema();
@@ -180,7 +180,6 @@ namespace TemaXP_WCFServiceLib.DBLayer
         {
 
             IList<Row> list = new List<Row>();
-
 
             Console.WriteLine("DbRow List" + sql);
             try

@@ -1,4 +1,6 @@
-﻿namespace TemaXP_DM71_Group1.ModelLayer
+﻿using System.Collections.Generic;
+
+namespace TemaXP_DM71_Group1.ModelLayer
 {
     public class Show
     {
@@ -6,7 +8,9 @@
         private string _movieStartTime;
         private string _showDate;
         private Movie _movie;
+        private IList<Cinema> cinemas;
 
+       
         public Show(int id, string movieStartTime, string showDate, Movie movie)
         {
             Id = id;
@@ -41,6 +45,12 @@
         {
             get { return _movie; }
             set { _movie = value; }
+        }
+
+        public IList<Cinema> Cinemas
+        {
+            get { return cinemas; }
+            set { cinemas = value; }
         }
 
         public override string ToString()

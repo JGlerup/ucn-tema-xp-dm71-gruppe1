@@ -23,7 +23,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestInsert()
         {
-            dbs = new DBShow();
+            dbs = new DbShow();
             
             Show s = new Show();
             string movieStartTime = "13:30:00";
@@ -70,7 +70,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestFindMovie()
         {
-            dbs = new DBShow();
+            dbs = new DbShow();
 
             Show s = new Show();
             string movieStartTime = "14:40:00";
@@ -117,7 +117,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestDeleteShow()
         {
-            dbs = new DBShow();
+            dbs = new DbShow();
 
             Show s = new Show();
             string movieStartTime = "15:50:00";
@@ -175,7 +175,7 @@ namespace TestCinemas
         [TestMethod]
         public void TestUpdateMovie()
         {
-            dbs = new DBShow();
+            dbs = new DbShow();
 
             Show s = new Show();
             string movieStartTime = "15:50:00";
@@ -242,7 +242,7 @@ namespace TestCinemas
         public void TestFindList()
         {
             IList<Movie> movies = new List<Movie>();
-            dbs = new DBShow();
+            dbs = new DbShow();
 
             Show s = new Show();
             string movieStartTime = "15:50:00";
