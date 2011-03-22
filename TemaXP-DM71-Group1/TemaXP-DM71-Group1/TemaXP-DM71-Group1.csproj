@@ -102,7 +102,10 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="IMDb.cs" />
+    <Compile Include="ModelLayer\Booking.cs" />
     <Compile Include="ModelLayer\Cinema.cs" />
+    <Compile Include="ModelLayer\Customer.cs" />
+    <Compile Include="ModelLayer\Employee.cs" />
     <Compile Include="ModelLayer\Movie.cs" />
     <Compile Include="ModelLayer\Row.cs" />
     <Compile Include="ModelLayer\Seat.cs" />
