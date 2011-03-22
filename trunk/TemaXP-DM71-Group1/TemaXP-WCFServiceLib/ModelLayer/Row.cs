@@ -9,6 +9,7 @@ namespace TemaXP_WCFServiceLib.ModelLayer
         private List<int> seats;
         private int noOfSeats;
         private Cinema cinema;
+        private Booking booking;
 
         public Row()
         {
@@ -42,6 +43,12 @@ namespace TemaXP_WCFServiceLib.ModelLayer
         {
             get { return cinema; }
             set { cinema = value; }
+        }
+
+        public Booking Booking
+        {
+            get { return booking; }
+            set { booking = value; }
         }
 
         public override string ToString()

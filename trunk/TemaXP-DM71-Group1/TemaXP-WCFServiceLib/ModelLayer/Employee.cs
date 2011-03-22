@@ -1,6 +1,6 @@
 ﻿namespace TemaXP_WCFServiceLib.ModelLayer
 {
-    internal class Employee
+    public class Employee
     {
         public int Id { get; set; }
 

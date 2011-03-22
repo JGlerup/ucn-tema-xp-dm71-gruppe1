@@ -2,7 +2,7 @@
 
 namespace TemaXP_DM71_Group1.ModelLayer
 {
-    internal class Booking
+    public class Booking
     {
         public int Id { get; set; }
 

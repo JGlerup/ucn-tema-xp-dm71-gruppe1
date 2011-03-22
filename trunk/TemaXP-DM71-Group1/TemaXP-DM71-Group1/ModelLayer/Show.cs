@@ -9,7 +9,7 @@ namespace TemaXP_DM71_Group1.ModelLayer
         private string _showDate;
         private Movie _movie;
         private IList<Cinema> cinemas;
-
+        private Booking booking;
        
         public Show(int id, string movieStartTime, string showDate, Movie movie)
         {
@@ -47,15 +47,24 @@ namespace TemaXP_DM71_Group1.ModelLayer
             set { _movie = value; }
         }
 
+
         public IList<Cinema> Cinemas
         {
             get { return cinemas; }
             set { cinemas = value; }
         }
 
+        public Booking Booking
+        {
+            get { return booking; }
+            set { booking = value; }
+        }
+
         public override string ToString()
         {
             return "Dato: " + ShowDate + " " + "Starttidspunkt: " + MovieStartTime + " " + Movie;
         }
+
+
     }
 }
