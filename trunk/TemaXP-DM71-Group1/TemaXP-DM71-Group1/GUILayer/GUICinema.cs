@@ -173,5 +173,15 @@ namespace TemaXP_DM71_Group1.GUILayer
                 listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -128,6 +128,7 @@
             this.cmbShow.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbShow.Size = new System.Drawing.Size(286, 21);
             this.cmbShow.TabIndex = 8;
+            this.cmbShow.SelectedIndexChanged += new System.EventHandler(this.cmbShow_SelectedIndexChanged);
             // 
             // cmbCinema
             // 
