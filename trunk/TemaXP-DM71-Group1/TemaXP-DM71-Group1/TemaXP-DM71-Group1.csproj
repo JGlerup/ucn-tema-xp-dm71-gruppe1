@@ -170,6 +170,12 @@
     <Content Include="NaughtyKino.ico" />
     <None Include="Resources\NaughtyKino.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TemaXP-WCFServiceLib\TemaXP-WCFServiceLib.csproj">
+      <Project>{B5A66B2D-6BCD-421E-992E-0BFDD73B450E}</Project>
+      <Name>TemaXP-WCFServiceLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
