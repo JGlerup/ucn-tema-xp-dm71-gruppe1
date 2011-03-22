@@ -169,7 +169,7 @@
             // 
             // pLogo
             // 
-            this.pLogo.BackgroundImage = global::TemaXP_DM71_Group1.Properties.Resources.NaughtyKino;
+//            this.pLogo.BackgroundImage = global::TemaXP_DM71_Group1.Properties.Resources.NaughtyKino;
             this.pLogo.Location = new System.Drawing.Point(0, 0);
             this.pLogo.Name = "pLogo";
             this.pLogo.Size = new System.Drawing.Size(785, 100);
