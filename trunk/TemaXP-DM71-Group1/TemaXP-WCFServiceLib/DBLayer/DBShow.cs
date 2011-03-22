@@ -14,7 +14,7 @@ namespace TemaXP_WCFServiceLib.DBLayer
         private String connStr = null;
         private DbDataReader dbReader = null;
 
-        public DbShow()
+        public DBShow()
         {
             //            provider = ConfigurationManager.ConnectionStrings["TemaXP.Properties.Settings.DatabaseConnectionString"].ProviderName;
             //            connStr = ConfigurationManager.ConnectionStrings["TemaXP.Properties.Settings.DatabaseConnectionString"].ConnectionString;

@@ -52,10 +52,10 @@ namespace TemaXP_WCFServiceLib.ControllerLayer
             return dbShow.FindShowByMovieIdAndShowDate(m, date, false);
         }
 
-        public Show FindShowByMovieId(Movie m)
+        public Show FindShowByMovieId(Movie m, bool retrieveAssociation)
         {
-            IFDBShow dbShow = new DbShow();
-            return dbShow.FindShowByMovieId(m, true);
+            IFDBShow dbShow = new DBShow();
+            return dbShow.FindShowByMovieId(m, retrieveAssociation);
         }
 
         public Show FindShowById(Show s, bool retrievAssociation)
