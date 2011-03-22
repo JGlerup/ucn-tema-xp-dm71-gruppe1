@@ -8,6 +8,8 @@ namespace TemaXP_DM71_Group1.ModelLayer
 
         public Show Show { get; set; }
 
+        public int NoOfSeats { get; set; }
+
         public IList<Row> Rows { get; set; }
 
         public IList<Seat> Seats { get; set; }

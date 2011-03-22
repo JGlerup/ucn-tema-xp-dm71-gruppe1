@@ -11,6 +11,8 @@ namespace TemaXP_WCFServiceLib.ModelLayer
 
         public Show Show { get; set; }
 
+        public int NoOfSeats { get; set; }
+
         public IList<Row> Rows { get; set; }
 
         public IList<Seat> Seats { get; set; }
