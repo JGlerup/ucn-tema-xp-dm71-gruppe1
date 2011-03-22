@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TemaXP_WCFServiceLib.ModelLayer
 {
-    class Booking
+    public class Booking
     {
         public int Id { get; set; }
 

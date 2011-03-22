@@ -1,6 +1,6 @@
 ﻿namespace TemaXP_DM71_Group1.ModelLayer
 {
-    internal class Customer
+    public class Customer
     {
         public int Id { get; set; }
 

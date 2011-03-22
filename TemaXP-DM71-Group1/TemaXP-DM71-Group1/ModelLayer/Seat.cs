@@ -7,6 +7,7 @@
         private Row row;
         private string taken;
         private string reserved;
+        private Booking booking;
 
         public Seat()
         {
@@ -40,6 +41,12 @@
         {
             get { return reserved; }
             set { reserved = value; }
+        }
+
+        public Booking Booking
+        {
+            get { return booking; }
+            set { booking = value; }
         }
     }
 }
