@@ -59,5 +59,12 @@ namespace TemaXP_DM71_Group1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap NaughtyKino {
+            get {
+                object obj = ResourceManager.GetObject("NaughtyKino", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

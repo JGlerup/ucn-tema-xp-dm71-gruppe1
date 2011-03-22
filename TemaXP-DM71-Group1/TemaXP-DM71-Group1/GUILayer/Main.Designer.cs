@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FrontpageTab = new System.Windows.Forms.TabPage();
@@ -40,7 +39,7 @@
             this.guiCinema1 = new TemaXP_DM71_Group1.GUILayer.GUICinema();
             this.PlaytimeTab = new System.Windows.Forms.TabPage();
             this.guiPlaytime1 = new TemaXP_DM71_Group1.GUILayer.GUIPlaytime();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pLogo = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ShowsTab.SuspendLayout();
@@ -164,22 +163,21 @@
             this.guiPlaytime1.Size = new System.Drawing.Size(606, 414);
             this.guiPlaytime1.TabIndex = 0;
             // 
-            // panel2
+            // pLogo
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.Location = new System.Drawing.Point(13, 13);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(759, 100);
-            this.panel2.TabIndex = 1;
+            this.pLogo.BackgroundImage = global::TemaXP_DM71_Group1.Properties.Resources.NaughtyKino;
+            this.pLogo.Location = new System.Drawing.Point(0, 0);
+            this.pLogo.Name = "pLogo";
+            this.pLogo.Size = new System.Drawing.Size(785, 100);
+            this.pLogo.TabIndex = 0;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pLogo);
             this.Controls.Add(this.panel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "KinoErKæk";
             this.panel1.ResumeLayout(false);
@@ -195,7 +193,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pLogo;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage ShowsTab;
         private System.Windows.Forms.TabPage FrontpageTab;

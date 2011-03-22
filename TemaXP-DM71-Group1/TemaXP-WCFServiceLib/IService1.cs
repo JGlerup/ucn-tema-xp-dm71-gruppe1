@@ -75,13 +75,13 @@ namespace TemaXP_WCFServiceLib
         IList<Show> FindAllShows(bool retrieveAssociation);
 
         [OperationContract]
-        Show FindShowById(Movie m);
+        Show FindShowByMovieId(Movie m, bool retrieveAssociation);
 
         [OperationContract]
         Show FindShowByMovieIdAndShowDate(Movie m, string date);
 
         [OperationContract]
-        IList<Show> GetAllShowsOneWeekAhead();
+        IList<Show> GetAllShowsOneWeekAhead(bool retrieveAssociation);
 
         // TODO: Add your service operations here
     }
