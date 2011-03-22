@@ -137,7 +137,6 @@
     <EmbeddedResource Include="GUILayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx" />
     <None Include="App.config" />
     <None Include="ControllerLayer\.svn\all-wcprops" />
     <None Include="ControllerLayer\.svn\entries" />
@@ -149,7 +148,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
