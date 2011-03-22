@@ -174,8 +174,8 @@ namespace TemaXP_DM71_Group1.DBLayer
                 b.Id = dbReader.GetInt32(5);
                 if(retrieveAssociation)
                 {
-                    IFdbBooking dbBooking = new DBBooking();
-                    dbBooking.FindBookingById(b, false);
+//                    IFdbBooking dbBooking = new DBBooking();
+//                    dbBooking.FindBookingById(b, false);
                 }
                 s.Booking = b;
             }
