@@ -9,7 +9,7 @@ namespace TemaXP_WCFServiceLib.ModelLayer
         private string _showDate;
         private Movie _movie;
         private IList<Cinema> cinemas;
-        private Booking booking;
+        private IList<Booking> bookings;
 
         public Show(int id, string movieStartTime, string showDate, Movie movie)
         {
@@ -53,10 +53,10 @@ namespace TemaXP_WCFServiceLib.ModelLayer
             set { cinemas = value; }
         }
 
-        public Booking Booking
+        public IList<Booking> Bookings
         {
-            get { return booking; }
-            set { booking = value; }
+            get { return bookings; }
+            set { bookings = value; }
         }
 
         public override string ToString()
