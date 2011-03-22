@@ -96,5 +96,10 @@ namespace TemaXP_DM71_Group1.GUILayer
                 MessageBox.Show("Fejl: " + ex.Message, "Operationen mislykkedes");
             }
         }
+
+        private void cmbShow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

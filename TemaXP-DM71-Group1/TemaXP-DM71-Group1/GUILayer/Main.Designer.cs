@@ -40,12 +40,15 @@
             this.PlaytimeTab = new System.Windows.Forms.TabPage();
             this.guiPlaytime1 = new TemaXP_DM71_Group1.GUILayer.GUIPlaytime();
             this.pLogo = new System.Windows.Forms.Panel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.guiBooking1 = new TemaXP_DM71_Group1.GUILayer.GUIBooking();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ShowsTab.SuspendLayout();
             this.MovieTab.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.PlaytimeTab.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,6 +68,7 @@
             this.tabControl1.Controls.Add(this.MovieTab);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.PlaytimeTab);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -81,10 +85,10 @@
             // 
             // FrontpageTab
             // 
-            this.FrontpageTab.Location = new System.Drawing.Point(141, 4);
+            this.FrontpageTab.Location = new System.Drawing.Point(169, 4);
             this.FrontpageTab.Name = "FrontpageTab";
             this.FrontpageTab.Padding = new System.Windows.Forms.Padding(3);
-            this.FrontpageTab.Size = new System.Drawing.Size(616, 423);
+            this.FrontpageTab.Size = new System.Drawing.Size(588, 423);
             this.FrontpageTab.TabIndex = 0;
             this.FrontpageTab.Text = "Forside";
             this.FrontpageTab.UseVisualStyleBackColor = true;
@@ -92,10 +96,10 @@
             // ShowsTab
             // 
             this.ShowsTab.Controls.Add(this.guiShow1);
-            this.ShowsTab.Location = new System.Drawing.Point(141, 4);
+            this.ShowsTab.Location = new System.Drawing.Point(169, 4);
             this.ShowsTab.Name = "ShowsTab";
             this.ShowsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ShowsTab.Size = new System.Drawing.Size(616, 423);
+            this.ShowsTab.Size = new System.Drawing.Size(588, 423);
             this.ShowsTab.TabIndex = 1;
             this.ShowsTab.Text = "Forestillinger";
             this.ShowsTab.UseVisualStyleBackColor = true;
@@ -112,10 +116,10 @@
             // MovieTab
             // 
             this.MovieTab.Controls.Add(this.movie1);
-            this.MovieTab.Location = new System.Drawing.Point(141, 4);
+            this.MovieTab.Location = new System.Drawing.Point(169, 4);
             this.MovieTab.Name = "MovieTab";
             this.MovieTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MovieTab.Size = new System.Drawing.Size(616, 423);
+            this.MovieTab.Size = new System.Drawing.Size(588, 423);
             this.MovieTab.TabIndex = 2;
             this.MovieTab.Text = "Film";
             this.MovieTab.UseVisualStyleBackColor = true;
@@ -130,10 +134,10 @@
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.guiCinema1);
-            this.tabPage3.Location = new System.Drawing.Point(141, 4);
+            this.tabPage3.Location = new System.Drawing.Point(169, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(616, 423);
+            this.tabPage3.Size = new System.Drawing.Size(588, 423);
             this.tabPage3.TabIndex = 3;
             this.tabPage3.Text = "Sale";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -148,10 +152,10 @@
             // PlaytimeTab
             // 
             this.PlaytimeTab.Controls.Add(this.guiPlaytime1);
-            this.PlaytimeTab.Location = new System.Drawing.Point(141, 4);
+            this.PlaytimeTab.Location = new System.Drawing.Point(169, 4);
             this.PlaytimeTab.Name = "PlaytimeTab";
             this.PlaytimeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.PlaytimeTab.Size = new System.Drawing.Size(616, 423);
+            this.PlaytimeTab.Size = new System.Drawing.Size(588, 423);
             this.PlaytimeTab.TabIndex = 5;
             this.PlaytimeTab.Text = "Spilletider";
             this.PlaytimeTab.UseVisualStyleBackColor = true;
@@ -171,6 +175,24 @@
             this.pLogo.Size = new System.Drawing.Size(785, 100);
             this.pLogo.TabIndex = 0;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.guiBooking1);
+            this.tabPage1.Location = new System.Drawing.Point(169, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(588, 423);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "Book";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // guiBooking1
+            // 
+            this.guiBooking1.Location = new System.Drawing.Point(0, 0);
+            this.guiBooking1.Name = "guiBooking1";
+            this.guiBooking1.Size = new System.Drawing.Size(591, 423);
+            this.guiBooking1.TabIndex = 0;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +208,7 @@
             this.MovieTab.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.PlaytimeTab.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -204,6 +227,8 @@
         private GUILayer.GUIMovie movie1;
         private GUILayer.GUIPlaytime guiPlaytime1;
         private GUILayer.GUICinema guiCinema1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private GUILayer.GUIBooking guiBooking1;
     }
 }
 
