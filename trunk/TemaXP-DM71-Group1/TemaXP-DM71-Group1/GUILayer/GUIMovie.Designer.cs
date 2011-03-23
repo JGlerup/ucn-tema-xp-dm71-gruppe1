@@ -57,7 +57,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(438, 33);
+            this.button4.Location = new System.Drawing.Point(424, 33);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 27);
             this.button4.TabIndex = 43;
@@ -67,7 +67,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(303, 386);
+            this.button3.Location = new System.Drawing.Point(289, 386);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 27);
             this.button3.TabIndex = 42;
@@ -77,7 +77,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(114, 386);
+            this.button2.Location = new System.Drawing.Point(100, 386);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 27);
             this.button2.TabIndex = 41;
@@ -97,7 +97,7 @@
             // 
             // txtMovieDescription
             // 
-            this.txtMovieDescription.Location = new System.Drawing.Point(114, 217);
+            this.txtMovieDescription.Location = new System.Drawing.Point(100, 217);
             this.txtMovieDescription.Multiline = true;
             this.txtMovieDescription.Name = "txtMovieDescription";
             this.txtMovieDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -107,7 +107,7 @@
             // 
             // txtActors
             // 
-            this.txtActors.Location = new System.Drawing.Point(114, 191);
+            this.txtActors.Location = new System.Drawing.Point(100, 191);
             this.txtActors.Name = "txtActors";
             this.txtActors.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtActors.Size = new System.Drawing.Size(303, 20);
@@ -115,7 +115,7 @@
             // 
             // txtDirector
             // 
-            this.txtDirector.Location = new System.Drawing.Point(114, 165);
+            this.txtDirector.Location = new System.Drawing.Point(100, 165);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDirector.Size = new System.Drawing.Size(303, 20);
@@ -123,7 +123,7 @@
             // 
             // txtDistributor
             // 
-            this.txtDistributor.Location = new System.Drawing.Point(114, 61);
+            this.txtDistributor.Location = new System.Drawing.Point(100, 61);
             this.txtDistributor.Name = "txtDistributor";
             this.txtDistributor.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtDistributor.Size = new System.Drawing.Size(303, 20);
@@ -131,7 +131,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(114, 35);
+            this.txtTitle.Location = new System.Drawing.Point(100, 35);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtTitle.Size = new System.Drawing.Size(303, 20);
@@ -212,7 +212,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(114, 352);
+            this.comboBox1.Location = new System.Drawing.Point(100, 352);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.comboBox1.Size = new System.Drawing.Size(302, 21);
@@ -222,7 +222,7 @@
             // cbCreateManually
             // 
             this.cbCreateManually.AutoSize = true;
-            this.cbCreateManually.Location = new System.Drawing.Point(424, 392);
+            this.cbCreateManually.Location = new System.Drawing.Point(410, 392);
             this.cbCreateManually.Name = "cbCreateManually";
             this.cbCreateManually.Size = new System.Drawing.Size(89, 17);
             this.cbCreateManually.TabIndex = 45;
@@ -232,7 +232,7 @@
             // 
             // btnDeleteMovie
             // 
-            this.btnDeleteMovie.Location = new System.Drawing.Point(212, 388);
+            this.btnDeleteMovie.Location = new System.Drawing.Point(198, 388);
             this.btnDeleteMovie.Name = "btnDeleteMovie";
             this.btnDeleteMovie.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteMovie.TabIndex = 46;
@@ -251,28 +251,28 @@
             // 
             // dtpReturnDate
             // 
-            this.dtpReturnDate.Location = new System.Drawing.Point(114, 108);
+            this.dtpReturnDate.Location = new System.Drawing.Point(100, 108);
             this.dtpReturnDate.Name = "dtpReturnDate";
             this.dtpReturnDate.Size = new System.Drawing.Size(303, 20);
             this.dtpReturnDate.TabIndex = 47;
             // 
             // dtpArrivalDate
             // 
-            this.dtpArrivalDate.Location = new System.Drawing.Point(114, 82);
+            this.dtpArrivalDate.Location = new System.Drawing.Point(100, 82);
             this.dtpArrivalDate.Name = "dtpArrivalDate";
             this.dtpArrivalDate.Size = new System.Drawing.Size(302, 20);
             this.dtpArrivalDate.TabIndex = 48;
             // 
             // dtpReleaseDate
             // 
-            this.dtpReleaseDate.Location = new System.Drawing.Point(114, 9);
+            this.dtpReleaseDate.Location = new System.Drawing.Point(100, 9);
             this.dtpReleaseDate.Name = "dtpReleaseDate";
             this.dtpReleaseDate.Size = new System.Drawing.Size(303, 20);
             this.dtpReleaseDate.TabIndex = 49;
             // 
             // mtxtDuration
             // 
-            this.mtxtDuration.Location = new System.Drawing.Point(114, 135);
+            this.mtxtDuration.Location = new System.Drawing.Point(100, 135);
             this.mtxtDuration.Mask = "000";
             this.mtxtDuration.Name = "mtxtDuration";
             this.mtxtDuration.Size = new System.Drawing.Size(303, 20);
