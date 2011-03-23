@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using TemaXP_WCFServiceLib.ModelLayer;
+using TemaXP_Groupe1_WcfService1.ModelLayer;
 
-namespace TemaXP_WCFServiceLib.DBLayer
+namespace TemaXP_Groupe1_WcfService1.DBLayer
 {
     public interface IFDBMovie
     {

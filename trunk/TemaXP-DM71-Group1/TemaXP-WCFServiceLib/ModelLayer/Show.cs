@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TemaXP_WCFServiceLib.ModelLayer
+namespace TemaXP_Groupe1_WcfService1.ModelLayer
 {
     public class Show
     {
