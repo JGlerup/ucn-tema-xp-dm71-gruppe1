@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.FrontpageTab = new System.Windows.Forms.TabPage();
@@ -39,9 +40,9 @@
             this.guiCinema1 = new TemaXP_DM71_Group1.GUILayer.GUICinema();
             this.PlaytimeTab = new System.Windows.Forms.TabPage();
             this.guiPlaytime1 = new TemaXP_DM71_Group1.GUILayer.GUIPlaytime();
-            this.pLogo = new System.Windows.Forms.Panel();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.guiBooking1 = new TemaXP_DM71_Group1.GUILayer.GUIBooking();
+            this.pLogo = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ShowsTab.SuspendLayout();
@@ -167,14 +168,6 @@
             this.guiPlaytime1.Size = new System.Drawing.Size(606, 414);
             this.guiPlaytime1.TabIndex = 0;
             // 
-            // pLogo
-            // 
-//            this.pLogo.BackgroundImage = global::TemaXP_DM71_Group1.Properties.Resources.NaughtyKino;
-            this.pLogo.Location = new System.Drawing.Point(0, 0);
-            this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(785, 100);
-            this.pLogo.TabIndex = 0;
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.guiBooking1);
@@ -193,6 +186,14 @@
             this.guiBooking1.Size = new System.Drawing.Size(591, 423);
             this.guiBooking1.TabIndex = 0;
             // 
+            // pLogo
+            // 
+            this.pLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pLogo.BackgroundImage")));
+            this.pLogo.Location = new System.Drawing.Point(0, 0);
+            this.pLogo.Name = "pLogo";
+            this.pLogo.Size = new System.Drawing.Size(785, 100);
+            this.pLogo.TabIndex = 0;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +201,7 @@
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.pLogo);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "KinoErKæk";
             this.panel1.ResumeLayout(false);
