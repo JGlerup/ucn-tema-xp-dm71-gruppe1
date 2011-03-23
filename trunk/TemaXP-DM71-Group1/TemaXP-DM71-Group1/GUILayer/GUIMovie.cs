@@ -81,11 +81,11 @@ namespace TemaXP_DM71_Group1.GUILayer
             try
             {
                 CtrMovie ctrMovie = new CtrMovie();
-                String date = dtpReleaseDate.Text;
+                String date = checkDate(dtpReleaseDate.Value.ToShortDateString());
                 String title = txtTitle.Text;
                 String distributor = txtDistributor.Text;
-                String arrivalDate = dtpArrivalDate.Text;
-                String returnDate = dtpReturnDate.Text;
+                String arrivalDate = checkDate(dtpArrivalDate.Value.ToShortDateString());
+                String returnDate = checkDate(dtpReturnDate.Value.ToShortDateString());
                 int imdbDuration = Convert.ToInt32(mtxtDuration.Text);
                 int min = imdbDuration % 60;
                 int hours = (imdbDuration - min) / 60;
@@ -211,6 +211,19 @@ namespace TemaXP_DM71_Group1.GUILayer
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private string checkDate(string date)
+        {
+            string reverse = date;
+            if (date.Substring(2, 1).Equals("-"))
+            {
+                string year = date.Substring(6, 4);
+                string month = date.Substring(3, 2);
+                string day = date.Substring(0, 2);
+                reverse = year + "-" + month + "-" + day;
+            }//end if
+            return reverse;
         }
     }
 }

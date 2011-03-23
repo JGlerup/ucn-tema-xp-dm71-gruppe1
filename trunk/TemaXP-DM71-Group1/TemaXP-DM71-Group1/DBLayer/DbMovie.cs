@@ -56,6 +56,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             catch (Exception ex)
             {
                 Console.WriteLine("Insert exception in movie db: " + ex);
+                throw;
             }//end catch
             conn.Close();
         }
@@ -251,7 +252,7 @@ namespace TemaXP_DM71_Group1.DBLayer
             {
                 string year = date.Substring(6, 4);
                 string month = date.Substring(3, 2);
-                string day = date.Substring(1, 2);
+                string day = date.Substring(0, 2);
                 reverse = year + "-" + month + "-" + day;
             }//end if
             return reverse;

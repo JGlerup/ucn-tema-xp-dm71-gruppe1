@@ -137,6 +137,10 @@
     <EmbeddedResource Include="GUILayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="ControllerLayer\.svn\all-wcprops" />
     <None Include="ControllerLayer\.svn\entries" />
@@ -148,6 +152,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -166,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="NaughtyKino.ico" />
+    <None Include="Resources\NaughtyKino1.png" />
     <None Include="Resources\NaughtyKino.png" />
   </ItemGroup>
   <ItemGroup>
