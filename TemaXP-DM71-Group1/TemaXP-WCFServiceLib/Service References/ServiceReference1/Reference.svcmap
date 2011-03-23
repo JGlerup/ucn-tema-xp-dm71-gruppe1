@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c1600e5b-3cf9-4946-a846-64a0994f7203" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/TemaXP_WCFServiceLib/ControllerLayer/CtrMovie/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="0fbba35f-bebf-4bdf-bc93-2c6627be354f" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/TemaXP_WCFServiceLib/ControllerLayer/CtrMovie/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="251d3261-adce-46e4-a9c9-ab18a6525a99" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/TemaXP_WCFServiceLib/ControllerLayer/CtrMovie/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2838a98d-93f2-48d8-8055-aacb4e51332d" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/TemaXP_WCFServiceLib/ControllerLayer/CtrMovie/mex" />
+    <MetadataFile FileName="TemaXP_Groupe1_WcfService1.ModelLayer.xsd" MetadataType="Schema" ID="80bf32ba-7578-462c-b6d8-377b02156774" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/TemaXP_WCFServiceLib/ControllerLayer/CtrMovie/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

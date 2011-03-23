@@ -4,9 +4,9 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using TemaXP_WCFServiceLib.ModelLayer;
+using TemaXP_Groupe1_WcfService1.ModelLayer;
 
-namespace TemaXP_WCFServiceLib
+namespace TemaXP_Groupe1_WcfService1
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
