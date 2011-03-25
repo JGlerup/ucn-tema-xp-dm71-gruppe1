@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IMDb_Scraper;
-using TemaXP_DM71_Group1.ControllerLayer;
+
 using System.Data.Odbc;
 using System.Data.SqlClient;
 using TemaXP_DM71_Group1.ModelLayer;
@@ -16,11 +16,14 @@ namespace TemaXP_DM71_Group1.GUILayer
 {
     public partial class GUIMovie : UserControl
     {
+        private ServiceReference1.IService1 service;
         public GUIMovie()
         {
+            service = new ServiceReference1.Service1Client();
             InitializeComponent();
             BindComboBox();
             disableFields();
+            
         }
 
         public void clearTextBoxes()
@@ -80,7 +83,7 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             try
             {
-                CtrMovie ctrMovie = new CtrMovie();
+
                 String date = checkDate(dtpReleaseDate.Value.ToShortDateString());
                 String title = txtTitle.Text;
                 String distributor = txtDistributor.Text;
@@ -93,7 +96,7 @@ namespace TemaXP_DM71_Group1.GUILayer
                 String director = txtDirector.Text;
                 String actors = txtActors.Text;
                 String movieDescription = txtMovieDescription.Text;
-                ctrMovie.InsertMovie(date, title, distributor, arrivalDate, returnDate, duration, director, actors,
+                service.InsertMovie(date, title, distributor, arrivalDate, returnDate, duration, director, actors,
                                      movieDescription);
                 clearTextBoxes();
                 BindComboBox();
@@ -107,8 +110,7 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void BindComboBox()
         {
-            CtrMovie ctrMovie = new CtrMovie();
-            comboBox1.DataSource = ctrMovie.FindAllMovies(false);
+            comboBox1.DataSource = service.FindAllMovies(false);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -183,18 +185,18 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void btnDeleteMovie_Click(object sender, EventArgs e)
         {
-            Movie m = (Movie)comboBox1.SelectedItem;
-            CtrMovie ctrMovie = new CtrMovie();
-            CtrShow ctrShow = new CtrShow();
-            if (m.Id == ctrShow.FindShowByMovieId(m).Id)
-            {
-                ctrMovie.DeleteMovie(m);
-            }
-            else
-            {
-                MessageBox.Show(
-                    "Filmen er stadigvæk aktiv i en forstilling, derfor kan den ikke slettes. For at slette filmen skal den først fjernes fra forestillinger.");
-            }
+//            Movie m = (Movie)comboBox1.SelectedItem;
+//            int movieID = m.Id;
+//            service.FindMovieById(m, true);
+//            if (movieID == service.FindShowByMovieId(m, true).Id)
+//            {
+//                service.DeleteMovie(m);
+//            }
+//            else
+//            {
+//                MessageBox.Show(
+//                    "Filmen er stadigvæk aktiv i en forstilling, derfor kan den ikke slettes. For at slette filmen skal den først fjernes fra forestillinger.");
+//            }
 
         }
 

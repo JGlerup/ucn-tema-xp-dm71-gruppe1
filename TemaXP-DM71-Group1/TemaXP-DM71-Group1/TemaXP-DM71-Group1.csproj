@@ -43,6 +43,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,24 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ControllerLayer\CtrCinema.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ControllerLayer\CtrMovie.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ControllerLayer\CtrShow.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DBLayer\DBCinema.cs" />
-    <Compile Include="DBLayer\DbMovie.cs" />
-    <Compile Include="DBLayer\DBRow.cs" />
-    <Compile Include="DBLayer\DBSeat.cs" />
-    <Compile Include="DBLayer\DBShow.cs" />
-    <Compile Include="DBLayer\IFdbCinema.cs" />
-    <Compile Include="DBLayer\IFdbMovie.cs" />
-    <Compile Include="DBLayer\IFdbRow.cs" />
-    <Compile Include="DBLayer\IFdbShow.cs" />
     <Compile Include="GUILayer\GUIBooking.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,16 +93,37 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="IMDb.cs" />
-    <Compile Include="ModelLayer\Booking.cs" />
-    <Compile Include="ModelLayer\Cinema.cs" />
-    <Compile Include="ModelLayer\Customer.cs" />
-    <Compile Include="ModelLayer\Employee.cs" />
-    <Compile Include="ModelLayer\Movie.cs" />
-    <Compile Include="ModelLayer\Row.cs" />
-    <Compile Include="ModelLayer\Seat.cs" />
-    <Compile Include="ModelLayer\Show.cs" />
+    <Compile Include="ModelLayer\Booking.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Cinema.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Customer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Employee.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Movie.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Row.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Seat.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModelLayer\Show.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUILayer\GUIBooking.resx">
       <DependentUpon>GUIBooking.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,12 +147,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="ControllerLayer\.svn\all-wcprops" />
-    <None Include="ControllerLayer\.svn\entries" />
-    <None Include="ControllerLayer\.svn\text-base\CtrCinema.cs.svn-base" />
-    <None Include="ControllerLayer\.svn\text-base\CtrMovie.cs.svn-base" />
-    <None Include="ControllerLayer\.svn\text-base\CtrShow.cs.svn-base" />
-    <None Include="ControllerLayer\.svn\text-base\Shows.cs.svn-base" />
+    <None Include="Properties\DataSources\TemaXP_WCFServiceLib.ModelLayer.Cinema.datasource" />
+    <None Include="Properties\DataSources\TemaXP_WCFServiceLib.ModelLayer.Movie.datasource" />
+    <None Include="Properties\DataSources\TemaXP_WCFServiceLib.ModelLayer.Show.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,19 +164,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\ServiceReference1\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\service.wsdl" />
+    <None Include="Service References\ServiceReference1\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\TemaXP_WCFServiceLib.ModelLayer.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ControllerLayer\.svn\prop-base\" />
-    <Folder Include="ControllerLayer\.svn\props\" />
-    <Folder Include="ControllerLayer\.svn\tmp\prop-base\" />
-    <Folder Include="ControllerLayer\.svn\tmp\props\" />
-    <Folder Include="ControllerLayer\.svn\tmp\text-base\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NaughtyKino.ico" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
     <None Include="Resources\NaughtyKino1.png" />
     <None Include="Resources\NaughtyKino.png" />
   </ItemGroup>

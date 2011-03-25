@@ -7,15 +7,18 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TemaXP_DM71_Group1.ControllerLayer;
 using TemaXP_DM71_Group1.ModelLayer;
+using System.Web;
+
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
     public partial class GUIPlaytime : UserControl
     {
+        private ServiceReference1.IService1 service;
         public GUIPlaytime()
         {
+            service = new ServiceReference1.Service1Client();
             InitializeComponent();
             BindListBox();
             //listView1.Dock = DockStyle.Fill;
@@ -30,16 +33,15 @@ namespace TemaXP_DM71_Group1.GUILayer
             columnHeader1.Width = -2;
             // Add the column headers to myListView.
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader0, columnHeader1 });
-
+            
         }
 
 
         private void BindListBox()
         {
             listBox1.Items.Clear();
-            CtrMovie ctrMovie = new CtrMovie();
-            IList<Movie> movieList = ctrMovie.FindAllMovies(false);
-            listBox1.DataSource = movieList;
+
+            listBox1.DataSource = service.FindAllMovies(false);
             listBox1.DisplayMember = "Title";
             listBox1.ValueMember = "Title";
             //listBox1.SelectedValue.ToString();
@@ -47,12 +49,12 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void BindListView()
         {
-            listView1.Items.Clear();
-            Movie m = (Movie)listBox1.SelectedItem;
-            CtrShow ctrShow = new CtrShow();
-            Show s = ctrShow.FindShowByMovieId(m);
-            ListViewItem item0 = new ListViewItem(new string[] {s.ShowDate, s.MovieStartTime});
-            listView1.Items.AddRange(new ListViewItem[] { item0 });
+//            listView1.Items.Clear();
+//            Movie m = (Movie)listBox1.SelectedItem;
+//
+//            service.FindShowByMovieId(m);
+//            ListViewItem item0 = new ListViewItem(new string[] {s.ShowDate, s.MovieStartTime});
+//            listView1.Items.AddRange(new ListViewItem[] { item0 });
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,6 +68,11 @@ namespace TemaXP_DM71_Group1.GUILayer
             {
                 listView1.Visible = true;
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

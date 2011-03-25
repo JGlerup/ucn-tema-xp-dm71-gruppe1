@@ -6,7 +6,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TemaXP_DM71_Group1.ControllerLayer;
 using TemaXP_DM71_Group1.ModelLayer;
 using System.Collections;
 
@@ -14,8 +13,10 @@ namespace TemaXP_DM71_Group1.GUILayer
 {
     public partial class GUICinema : UserControl
     {
+        private ServiceReference1.IService1 service;
         public GUICinema()
         {
+            service = new ServiceReference1.Service1Client();
             InitializeComponent();
             //listView1.Dock = DockStyle.Fill;
             listView1.View = View.Details;
@@ -32,20 +33,20 @@ namespace TemaXP_DM71_Group1.GUILayer
             listView1.Columns.Add(header1);
             listView1.Columns.Add(header2);
             BindComboBox();
+            
         }
 
         private void BindComboBox()
         {
-            CtrCinema ctrCinema = new CtrCinema();
-            comboBox4.DataSource = ctrCinema.FindAllCinemas(false);
+            
+            comboBox4.DataSource = service.FindAllCinemas(false);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                CtrCinema cc = new CtrCinema();
-                cc.InsertCinema(textBox1.Text, comboBox1.SelectedIndex);
+                service.InsertCinema(textBox1.Text, comboBox1.SelectedIndex);
                 BindComboBox();
             }
             catch (Exception ex)
@@ -63,18 +64,17 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             try
             {
-                listView1.Items.Clear();
-                Cinema c = (Cinema)comboBox4.SelectedItem;
-                CtrCinema cc = new CtrCinema();
-                c = cc.FindCinemaByName(c.CinemaName, true);
-                foreach (Row r in c.Rows)
-                {
-                    ListViewItem item0 = new ListViewItem(new string[] { r.RowNo.ToString() });
-                    ListViewItem.ListViewSubItem item1 = new ListViewItem.ListViewSubItem(item0, r.NoOfSeats.ToString());
-                    listView1.Items.AddRange(new ListViewItem[] { item0 });
-                    item0.SubItems.Add(item1);
-                    listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
-                }
+//                listView1.Items.Clear();
+//                Cinema c = (Cinema)comboBox4.SelectedItem;
+//                c = service.FindCinemaByName(c.CinemaName, true);
+//                foreach (Row r in c.Rows)
+//                {
+//                    ListViewItem item0 = new ListViewItem(new string[] { r.RowNo.ToString() });
+//                    ListViewItem.ListViewSubItem item1 = new ListViewItem.ListViewSubItem(item0, r.NoOfSeats.ToString());
+//                    listView1.Items.AddRange(new ListViewItem[] { item0 });
+//                    item0.SubItems.Add(item1);
+//                    listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
+//                }
             }
             catch (Exception ex)
             {
@@ -129,12 +129,10 @@ namespace TemaXP_DM71_Group1.GUILayer
         private void button3_Click(object sender, EventArgs e)
         {
             Cinema c = (Cinema)comboBox4.SelectedItem;
-            CtrCinema ctrCinema = new CtrCinema();
             //CtrShow ctrShow = new CtrShow();
-            if (c.Id == ctrCinema.FindCinemaByName(c.CinemaName, true).Id)
+            if (c.Id == service.FindCinemaByName(c.CinemaName, true).Id)
             {
-                Cinema cObj = ctrCinema.FindCinemaByName(c.CinemaName, true);
-                ctrCinema.DeleteCinema(cObj);
+                service.DeleteCinema(service.FindCinemaByName(c.CinemaName, true));
                 BindComboBox();
             }
             else
@@ -147,9 +145,8 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             try
             {
-                Cinema c = (Cinema)comboBox4.SelectedItem;
-                CtrCinema cc = new CtrCinema();
-                cc.InsertRow(c, Convert.ToInt32(comboBox2.SelectedItem.ToString()), Convert.ToInt32(comboBox3.SelectedItem.ToString()));
+//                Cinema c = (Cinema)comboBox4.SelectedItem;
+//                service.InsertRow(c, Convert.ToInt32(comboBox2.SelectedItem.ToString()), Convert.ToInt32(comboBox3.SelectedItem.ToString()));
                 BindListView();
             }
             catch (Exception ex)
@@ -162,8 +159,7 @@ namespace TemaXP_DM71_Group1.GUILayer
         {
             listView1.Items.Clear();
             Cinema c = (Cinema)comboBox4.SelectedItem;
-            CtrCinema cc = new CtrCinema();
-            c = cc.FindCinemaByName(c.CinemaName, true);
+//            c = service.FindCinemaByName(c.CinemaName, true);
             foreach (Row r in c.Rows)
             {
                 ListViewItem item0 = new ListViewItem(new string[] { r.RowNo.ToString() });

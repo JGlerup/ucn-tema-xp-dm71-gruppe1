@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using TemaXP_Groupe1_WcfService1.ModelLayer;
+using TemaXP_WCFServiceLib.ModelLayer;
 
-namespace TemaXP_Groupe1_WcfService1.DBLayer
+namespace TemaXP_WCFServiceLib.DBLayer
 {
     public class DBRow : IFdbRow
     {

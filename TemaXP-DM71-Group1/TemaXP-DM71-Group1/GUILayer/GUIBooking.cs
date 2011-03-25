@@ -6,25 +6,28 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TemaXP_DM71_Group1.ControllerLayer;
+
 using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
     public partial class GUIBooking : UserControl
     {
+        private ServiceReference1.IService1 service;
         public GUIBooking()
         {
+            service = new ServiceReference1.Service1Client();
             InitializeComponent();
             populateCmbShow();
+            
         }
 
         private void populateCmbShow()
         {
-            CtrShow ctrShow = new CtrShow();
+            
             try
             {
-                cmbForestilling.DataSource = ctrShow.FindAllShows(true);
+                cmbForestilling.DataSource = service.FindAllShows(true);
             }
             catch (Exception ex)
             {
@@ -47,6 +50,16 @@ namespace TemaXP_DM71_Group1.GUILayer
         private void cmbTickets_SelectedValueChanged(object sender, EventArgs e)
         {
             populateCmbCinema();
+        }
+
+        private void cmbForestilling_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
