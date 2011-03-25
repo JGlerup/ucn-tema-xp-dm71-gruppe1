@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TemaXP_Groupe1_WcfService1.ModelLayer
+namespace TemaXP_WCFServiceLib.ModelLayer
 {
     public class Cinema
     {

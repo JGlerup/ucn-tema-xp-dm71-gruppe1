@@ -51,6 +51,7 @@
             this.listView1.TileSize = new System.Drawing.Size(2, 2);
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.Visible = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // GUIPlaytime
             // 

@@ -48,6 +48,7 @@
             this.cmbForestilling.Name = "cmbForestilling";
             this.cmbForestilling.Size = new System.Drawing.Size(221, 21);
             this.cmbForestilling.TabIndex = 0;
+            this.cmbForestilling.SelectedIndexChanged += new System.EventHandler(this.cmbForestilling_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -64,6 +65,7 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(221, 21);
             this.comboBox3.TabIndex = 2;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label1
             // 

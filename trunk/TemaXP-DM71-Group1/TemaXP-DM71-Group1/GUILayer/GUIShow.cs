@@ -6,26 +6,28 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TemaXP_DM71_Group1.ControllerLayer;
 using TemaXP_DM71_Group1.ModelLayer;
 
 namespace TemaXP_DM71_Group1.GUILayer
 {
     public partial class GUIShow : UserControl
     {
+        private ServiceReference1.IService1 service;
 
 
         public GUIShow()
         {
+            service = new ServiceReference1.Service1Client();
             InitializeComponent();
+            
         }
 
         private void Show_Enter(object sender, EventArgs e)
         {
-            CtrShow ctrShow= new CtrShow();
+          
             try
             {
-                cmbShow.DataSource = ctrShow.FindAllShows(true);
+                cmbShow.DataSource = service.FindAllShows(true);
             }
             catch(Exception ex)
             {
@@ -49,15 +51,15 @@ namespace TemaXP_DM71_Group1.GUILayer
 
             }
             cmbMovieStartTime.DataSource = movieStartTime;
-            CtrMovie ctrMovie = new CtrMovie();
-            cmbMovie.DataSource = ctrMovie.FindAllMovies(false);
+
+            cmbMovie.DataSource = service.FindAllMovies(false);
             //CtrCinema ctrCinema = new CtrCinema();
             //cmbCinema.DataSource = ctrCinema.FindAllCinemas();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            CtrShow ctrShow = new CtrShow();    
+           
             try
             {
                 if(cmbMovie.SelectedValue.ToString().Trim() == "" || cmbMovieStartTime.SelectedValue.ToString().Trim() == "" /*|| cmbCinema.SelectedValue.ToString().Trim() == "" */)
@@ -66,14 +68,14 @@ namespace TemaXP_DM71_Group1.GUILayer
                 }
                 else
                 {
-                    Movie m = (Movie) cmbMovie.SelectedItem;
-                    string movieStartTime = cmbMovieStartTime.SelectedValue.ToString();
-                    string year = dtpMovieDate.Value.Year.ToString();
-                    string month = dtpMovieDate.Value.Month.ToString();
-                    string day = dtpMovieDate.Value.Day.ToString();
-                    String movieDate = year + "-" + month + "-" + day;
-                    ctrShow.InsertShow(movieStartTime, movieDate, m);
-                    MessageBox.Show("Forestillingen er oprettet", "Operationen lykkedes");
+//                    Movie m = (Movie) cmbMovie.SelectedItem;
+//                    string movieStartTime = cmbMovieStartTime.SelectedValue.ToString();
+//                    string year = dtpMovieDate.Value.Year.ToString();
+//                    string month = dtpMovieDate.Value.Month.ToString();
+//                    string day = dtpMovieDate.Value.Day.ToString();
+//                    String movieDate = year + "-" + month + "-" + day;
+//                    service.InsertShow(movieStartTime, movieDate, m);
+//                    MessageBox.Show("Forestillingen er oprettet", "Operationen lykkedes");
                 }
             }
             catch(Exception ex)
@@ -84,17 +86,16 @@ namespace TemaXP_DM71_Group1.GUILayer
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            CtrShow ctrShow = new CtrShow();
-            Show s = (Show) cmbShow.SelectedItem;
-            try
-            {
-                ctrShow.DeleteShow(s);
-                MessageBox.Show("Forestillingen er slettet", "Operationen lykkedes");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Fejl: " + ex.Message, "Operationen mislykkedes");
-            }
+//            Show s = (Show) cmbShow.SelectedItem;
+//            try
+//            {
+//                service.DeleteShow(s);
+//                MessageBox.Show("Forestillingen er slettet", "Operationen lykkedes");
+//            }
+//            catch (Exception ex)
+//            {
+//                MessageBox.Show("Fejl: " + ex.Message, "Operationen mislykkedes");
+//            }
         }
 
         private void cmbShow_SelectedIndexChanged(object sender, EventArgs e)
