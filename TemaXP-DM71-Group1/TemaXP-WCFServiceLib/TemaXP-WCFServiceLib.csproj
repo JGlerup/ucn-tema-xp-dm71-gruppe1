@@ -54,6 +54,8 @@
     <Compile Include="DBLayer\IFdbRow.cs" />
     <Compile Include="DBLayer\IFdbShow.cs" />
     <Compile Include="IService1.cs" />
+    <Compile Include="IService2.cs" />
+    <Compile Include="IService3.cs" />
     <Compile Include="ModelLayer\Booking.cs" />
     <Compile Include="ModelLayer\Cinema.cs" />
     <Compile Include="ModelLayer\Customer.cs" />
