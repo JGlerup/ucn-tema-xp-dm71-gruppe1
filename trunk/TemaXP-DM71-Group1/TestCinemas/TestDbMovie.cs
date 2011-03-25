@@ -26,11 +26,11 @@ namespace TestCinemas
         {
             dbm = new DBMovie();
             
-            String releaseDate = "1809-09-09";
+            String releaseDate = "1809-09-08";
             String title = "Sjov";
             String distributor = "xx";
-            String arr = "1809-09-09";
-            String ret = "1809-09-09";
+            String arr = "1809-09-08";
+            String ret = "1809-09-08";
             String dur = "01:01:01";
             String dir = "xx";
             String actors = "Krbyr";
